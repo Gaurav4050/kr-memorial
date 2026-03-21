@@ -1,0 +1,35 @@
+.hero { background: linear-gradient(135deg, #0B3D91, #1a5eb8); color: #fff; padding: 80px 0 60px; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M20 0v40M0 20h40' stroke='rgba(255,255,255,.03)' stroke-width='1'/%3E%3C/svg%3E"); }
+.hero h1 { font-size: clamp(32px, 4vw, 48px); margin-bottom: 16px; position: relative; }
+.hero p { font-size: 17px; opacity: 0.85; max-width: 560px; margin: 0 auto; line-height: 1.7; position: relative; }
+
+.deptList { padding: 80px 0; background: #F8FAFC; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+.card { background: #fff; border-radius: 20px; padding: 28px 24px; border: 1.5px solid #E2E8F0; text-decoration: none; color: #1E293B; transition: 0.35s; display: block; position: relative; overflow: hidden; animation: fadeUp 0.5s ease var(--delay, 0s) both; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #0B3D91, #00897B); transform: scaleX(0); transition: 0.3s; transform-origin: left; }
+.card:hover::before { transform: scaleX(1); }
+.card:hover { transform: translateY(-8px); box-shadow: 0 16px 48px rgba(11,61,145,0.12); border-color: #0B3D91; }
+
+.cardTop { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+.iconWrap { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+.icon { font-size: 28px; }
+.card:hover .iconWrap { transform: scale(1.1); }
+.arrow { font-size: 20px; font-weight: 700; color: #0B3D91; opacity: 0; transform: translateX(-8px); transition: 0.3s; }
+.card:hover .arrow { opacity: 1; transform: translateX(0); }
+
+.card h3 { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 600; margin-bottom: 8px; line-height: 1.3; }
+.card > p { font-size: 14px; color: #64748B; line-height: 1.5; margin-bottom: 14px; }
+.cardMeta { font-size: 12px; color: #64748B; display: flex; flex-direction: column; gap: 3px; margin-bottom: 14px; }
+.treatmentTags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { background: #EFF6FF; color: #0B3D91; font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: 12px; }
+.tagMore { font-size: 10px; color: #64748B; font-weight: 500; padding: 4px 8px; }
+
+.cta { background: linear-gradient(135deg, #082d6b, #0B3D91); color: #fff; padding: 80px 0; }
+.cta h2 { font-size: clamp(24px, 3vw, 36px); margin-bottom: 14px; }
+.cta p { opacity: 0.85; margin-bottom: 32px; font-size: 16px; }
+.ctaBtns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .hero { padding: 60px 0 40px; } }
