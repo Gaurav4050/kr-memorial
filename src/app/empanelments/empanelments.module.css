@@ -1,0 +1,54 @@
+.hero { background: linear-gradient(135deg, #0B3D91, #00897B); color: #fff; padding: 80px 0 60px; text-align: center; position: relative; overflow: hidden; }
+.hero h1 { font-size: clamp(32px, 4vw, 48px); margin-bottom: 14px; }
+.hero p { font-size: 17px; opacity: .85; max-width: 560px; margin: 0 auto 28px; line-height: 1.7; }
+.heroStats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.heroStats > div { text-align: center; }
+.heroStats strong { display: block; font-family: 'JetBrains Mono', monospace; font-size: 24px; color: #F59E0B; }
+.heroStats span { font-size: 12px; opacity: .75; }
+
+.processSection { padding: 80px 0; background: #fff; }
+.steps { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.step { background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 18px; padding: 28px 20px; text-align: center; flex: 1; min-width: 160px; position: relative; transition: 0.3s; }
+.step:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(11,61,145,0.08); }
+.stepIcon { font-size: 36px; margin-bottom: 10px; }
+.stepNum { display: inline-block; background: #0B3D91; color: #fff; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 10px; margin-bottom: 10px; }
+.step h4 { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+.step p { font-size: 12px; color: #64748B; line-height: 1.4; }
+.stepArrow { position: absolute; right: -16px; top: 50%; color: #0B3D91; font-size: 20px; font-weight: 700; }
+
+.listSection { padding: 60px 0 80px; background: #F8FAFC; }
+.filterBar { margin-bottom: 32px; }
+.searchBox { display: flex; align-items: center; gap: 10px; background: #fff; border: 1.5px solid #E2E8F0; border-radius: 14px; padding: 0 18px; margin-bottom: 16px; }
+.searchBox input { border: none; background: none; padding: 14px 0; font-size: 15px; width: 100%; outline: none; }
+.filterTabs { display: flex; gap: 8px; flex-wrap: wrap; }
+.tab { padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 500; border: 1.5px solid #E2E8F0; background: #fff; cursor: pointer; transition: 0.2s; color: #64748B; font-family: 'DM Sans', sans-serif; }
+.tab:hover { border-color: #0B3D91; color: #0B3D91; }
+.tabActive { background: #0B3D91; color: #fff; border-color: #0B3D91; }
+
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.card { background: #fff; border: 1.5px solid #E2E8F0; border-radius: 18px; padding: 24px 20px; text-align: center; transition: 0.3s; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(11,61,145,0.08); border-color: #0B3D91; }
+.cardIcon { font-size: 32px; margin-bottom: 10px; }
+.card h4 { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.fullName { font-size: 11px; color: #64748B; margin-bottom: 10px; }
+.typeBadge { display: inline-block; font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: 12px; margin-bottom: 10px; background: #EFF6FF; color: #0B3D91; }
+.desc { font-size: 12px; color: #64748B; line-height: 1.4; }
+
+.noResults { text-align: center; padding: 60px 20px; }
+.noResults h3 { margin: 16px 0 8px; font-family: 'DM Sans', sans-serif; }
+.noResults p { color: #64748B; margin-bottom: 16px; }
+
+.tpaSection { padding: 60px 0; background: #fff; }
+.tpaCard { background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 24px; padding: 40px; display: flex; justify-content: space-between; gap: 40px; align-items: center; }
+.tpaCard h3 { font-family: 'DM Sans', sans-serif; font-size: 22px; margin-bottom: 12px; }
+.tpaCard > div:first-child p { font-size: 15px; color: #334155; line-height: 1.6; margin-bottom: 16px; }
+.tpaDocs { display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+.tpaContact { display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; }
+
+.ctaSection { background: linear-gradient(135deg, #082d6b, #0B3D91); color: #fff; padding: 80px 0; }
+.ctaSection h2 { font-size: clamp(24px, 3vw, 36px); margin-bottom: 14px; }
+.ctaSection p { opacity: .85; margin-bottom: 28px; font-size: 16px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+@media (max-width: 1024px) { .grid { grid-template-columns: repeat(3, 1fr); } .steps { gap: 12px; } .stepArrow { display: none; } }
+@media (max-width: 768px) { .grid { grid-template-columns: repeat(2, 1fr); } .steps { grid-template-columns: 1fr 1fr; display: grid; } .tpaCard { flex-direction: column; } .hero { padding: 60px 0 40px; } }
+@media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }
