@@ -1,0 +1,2 @@
+export const metadata = { title: 'Health Blog — Expert Health Tips & Medical Insights', description: 'Health articles by K.R. Memorial Hospital doctors — tips on heart health, kidney care, pregnancy, orthopaedics, neurology, and more. BMI calculator included.', keywords: ['health tips Jaipur', 'doctor health blog', 'medical advice Rajasthan', 'hospital health articles'] };
+export default function Layout({ children }) { return children; }
