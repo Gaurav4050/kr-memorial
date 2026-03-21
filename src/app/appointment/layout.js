@@ -1,0 +1,2 @@
+export const metadata = { title: 'Book OPD Appointment Online — Easy & Fast', description: 'Book your OPD appointment at K.R. Memorial Hospital Jaipur online. Choose from 15 departments and 50+ specialist doctors. Quick, easy booking in under 60 seconds.', keywords: ['book appointment hospital Jaipur', 'OPD appointment Chomu', 'online doctor appointment Rajasthan', 'hospital appointment booking'] };
+export default function Layout({ children }) { return children; }
