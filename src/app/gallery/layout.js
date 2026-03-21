@@ -1,0 +1,2 @@
+export const metadata = { title: 'Hospital Gallery — Infrastructure, OT, ICU, Rooms & Events', description: 'View K.R. Memorial Hospital infrastructure — operation theatres, ICU, patient rooms, diagnostic equipment, health camps, and team photos. Virtual hospital tour available.', keywords: ['hospital gallery Jaipur', 'hospital infrastructure photos', 'hospital OT images', 'hospital rooms Chomu'] };
+export default function Layout({ children }) { return children; }
