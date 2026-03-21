@@ -1,0 +1,95 @@
+.whatsapp {
+  position: fixed;
+  bottom: 100px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+  cursor: pointer;
+  z-index: 999;
+  animation: bounce 3s infinite;
+  transition: 0.3s;
+}
+
+.whatsapp:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.55);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.appointmentFab {
+  position: fixed;
+  bottom: 32px;
+  right: 24px;
+  background: linear-gradient(135deg, #F59E0B, #d97706);
+  color: #1E293B;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 14px 24px;
+  border-radius: 30px;
+  box-shadow: 0 4px 24px rgba(245,158,11,0.45);
+  cursor: pointer;
+  z-index: 999;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.3s;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.appointmentFab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(245,158,11,0.5);
+}
+
+.emergencyFab {
+  position: fixed;
+  bottom: 170px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: #DC2626;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(220,38,38,0.45);
+  cursor: pointer;
+  z-index: 999;
+  transition: 0.3s;
+}
+
+.emergencyFab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(220,38,38,0.55);
+}
+
+@media (max-width: 768px) {
+  .appointmentFab {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    justify-content: center;
+    border-radius: 16px;
+  }
+
+  .whatsapp {
+    bottom: 80px;
+  }
+
+  .emergencyFab {
+    bottom: 80px;
+    right: auto;
+    left: 24px;
+  }
+}
