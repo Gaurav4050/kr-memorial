@@ -1,0 +1,53 @@
+.hero { background: linear-gradient(135deg, #0B3D91, #1a5eb8); color: #fff; padding: 80px 0 60px; text-align: center; }
+.hero h1 { font-size: clamp(32px, 4vw, 48px); margin-bottom: 14px; }
+.hero p { font-size: 17px; opacity: .85; max-width: 500px; margin: 0 auto; line-height: 1.7; }
+
+.quickLinks { padding: 32px 0; background: #fff; border-bottom: 1px solid #E2E8F0; }
+.linksGrid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; }
+.linkCard { background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 12px; padding: 14px 8px; text-align: center; font-size: 12px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+.linkCard:hover { background: #0B3D91; color: #fff; border-color: #0B3D91; transform: translateY(-2px); }
+
+.section { padding: 80px 0; background: #F8FAFC; }
+.processGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.processCard { background: #fff; border: 1.5px solid #E2E8F0; border-radius: 20px; padding: 28px; transition: 0.3s; }
+.processCard:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(11,61,145,0.08); }
+.processCard h3 { font-family: 'DM Sans', sans-serif; font-size: 18px; margin-bottom: 16px; }
+.processCard ol { list-style: decimal; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #334155; line-height: 1.5; }
+
+.roomSection { padding: 80px 0; background: #fff; }
+.roomGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.roomCard { background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 20px; overflow: hidden; display: flex; transition: 0.3s; }
+.roomCard:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(11,61,145,0.08); }
+.roomImg { width: 160px; background: linear-gradient(135deg, #EFF6FF, #dbeafe); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.roomInfo { padding: 24px; flex: 1; }
+.roomHeader { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+.roomHeader h3 { font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 600; }
+.price { font-family: 'JetBrains Mono', monospace; font-size: 16px; color: #0B3D91; font-weight: 700; }
+.roomInfo > p { font-size: 13px; color: #64748B; line-height: 1.5; margin-bottom: 14px; }
+.features { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.feature { font-size: 11px; color: #10B981; font-weight: 500; background: #f0fdf4; padding: 3px 10px; border-radius: 8px; }
+
+.paymentGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.payCard { background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 18px; padding: 28px; text-align: center; transition: 0.3s; }
+.payCard:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(11,61,145,0.06); }
+.payIcon { font-size: 32px; display: block; margin-bottom: 10px; }
+.payCard h4 { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.payCard p { font-size: 13px; color: #64748B; }
+
+.visitorCard { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; background: #fff; border: 1.5px solid #E2E8F0; border-radius: 20px; padding: 32px; }
+.visitorCard h3 { font-family: 'DM Sans', sans-serif; font-size: 18px; margin-bottom: 16px; }
+.visitorRules { display: flex; flex-direction: column; gap: 10px; }
+.rule { font-size: 14px; color: #334155; padding: 8px 0; border-bottom: 1px solid #E2E8F0; }
+.rule:last-child { border-bottom: none; }
+
+.rightsGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.rightsCard { background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 18px; padding: 28px; }
+.rightsCard h4 { font-family: 'DM Sans', sans-serif; font-size: 17px; margin-bottom: 14px; }
+.rightsCard ul { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #334155; }
+
+.ctaSection { background: linear-gradient(135deg, #082d6b, #0B3D91); color: #fff; padding: 80px 0; }
+.ctaSection h2 { font-size: clamp(24px, 3vw, 36px); margin-bottom: 14px; }
+.ctaSection p { opacity: .85; margin-bottom: 28px; font-size: 16px; }
+
+@media (max-width: 1024px) { .linksGrid { grid-template-columns: repeat(4, 1fr); } .processGrid { grid-template-columns: 1fr; } .paymentGrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .linksGrid { grid-template-columns: repeat(4, 1fr); } .roomGrid { grid-template-columns: 1fr; } .roomCard { flex-direction: column; } .roomImg { width: 100%; height: 120px; } .visitorCard { grid-template-columns: 1fr; } .rightsGrid { grid-template-columns: 1fr; } .paymentGrid { grid-template-columns: 1fr; } .hero { padding: 60px 0 40px; } }
