@@ -47,6 +47,7 @@ export default function AdminPage() {
   }, [token, activeTab, page, dateFilter]);
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+  
 
   const handleSendOtp = async (e) => {
     e.preventDefault();
