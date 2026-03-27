@@ -21,10 +21,13 @@ export default function AppointmentPage() {
 
   const filteredDoctors = form.department ? doctors.filter(d => d.departmentId === form.department) : doctors;
 
+  const getDoctorId = (doc) => doc._id || doc.id;
+  const findDoctorById = (id) => doctors.find(d => getDoctorId(d) === id);
+
   const handleSubmit = async () => {
     try {
       const selectedDept = departments.find(d => d.id === form.department);
-      const selectedDoc = doctors.find(d => d.id === form.doctor);
+      const selectedDoc = findDoctorById(form.doctor);
       
       const payload = {
         ...form,
@@ -66,7 +69,7 @@ export default function AppointmentPage() {
             <div className={styles.detailRow}><span>Appointment ID:</span><strong>{apptId}</strong></div>
             <div className={styles.detailRow}><span>Patient:</span><strong>{form.name}</strong></div>
             <div className={styles.detailRow}><span>Department:</span><strong>{departments.find(d => d.id === form.department)?.name || '-'}</strong></div>
-            <div className={styles.detailRow}><span>Doctor:</span><strong>{form.doctor ? doctors.find(d => d.id === form.doctor)?.name : 'Any Available'}</strong></div>
+            <div className={styles.detailRow}><span>Doctor:</span><strong>{form.doctor ? findDoctorById(form.doctor)?.name : 'Any Available'}</strong></div>
             <div className={styles.detailRow}><span>Date:</span><strong>{form.date}</strong></div>
             <div className={styles.detailRow}><span>Time:</span><strong>{form.time}</strong></div>
           </div>
@@ -140,7 +143,9 @@ export default function AppointmentPage() {
                   <select value={form.doctor} onChange={(e) => setForm({ ...form, doctor: e.target.value })}>
                     <option value="">Any Available Doctor</option>
                     {filteredDoctors.map(doc => (
-                      <option key={doc.id} value={doc.id}>{doc.name} — {doc.qualification}</option>
+                      <option key={getDoctorId(doc)} value={getDoctorId(doc)}>
+                        {doc.name} — {doc.qualification} {doc.designation ? `(${doc.designation})` : ''}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -223,7 +228,7 @@ export default function AppointmentPage() {
                 <p>Review your appointment details and confirm booking.</p>
                 <div className={styles.summary}>
                   <div className={styles.summaryRow}><span>Department:</span><strong>{departments.find(d => d.id === form.department)?.name || '-'}</strong></div>
-                  <div className={styles.summaryRow}><span>Doctor:</span><strong>{form.doctor ? doctors.find(d => d.id === form.doctor)?.name : 'Any Available'}</strong></div>
+                  <div className={styles.summaryRow}><span>Doctor:</span><strong>{form.doctor ? findDoctorById(form.doctor)?.name : 'Any Available'}</strong></div>
                   <div className={styles.summaryRow}><span>Date:</span><strong>{form.date}</strong></div>
                   <div className={styles.summaryRow}><span>Time:</span><strong>{form.time}</strong></div>
                   <div className={styles.summaryRow}><span>Patient:</span><strong>{form.name}</strong></div>
