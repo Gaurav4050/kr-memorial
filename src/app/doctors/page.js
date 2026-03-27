@@ -66,30 +66,33 @@ export default function DoctorsPage() {
             {filtered.map(doc => {
               const dept = departments.find(d => d.id === doc.departmentId);
               return (
-                <div key={doc.id} className={styles.card} id={doc.id}>
+                <div key={doc._id || doc.id} className={styles.card} id={doc._id || doc.id}>
                   <div className={styles.cardImg}>
-                    <div className={styles.imgPlaceholder} style={{ background: `linear-gradient(135deg, ${dept?.color || '#0B3D91'}22, ${dept?.color || '#0B3D91'}08)` }}>
-                      <span style={{ fontSize: '56px' }}>👨‍⚕️</span>
-                    </div>
+                    {doc.imageUrl ? (
+                      <img src={doc.imageUrl} alt={doc.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    ) : (
+                      <div className={styles.imgPlaceholder} style={{ background: `linear-gradient(135deg, ${dept?.color || '#0B3D91'}22, ${dept?.color || '#0B3D91'}08)` }}>
+                        <span style={{ fontSize: '56px' }}>👨‍⚕️</span>
+                      </div>
+                    )}
                     <span className={styles.expBadge}>{doc.experience}+ yrs exp</span>
                   </div>
                   <div className={styles.cardBody}>
                     <h3>{doc.name}</h3>
                     <p className={styles.qual}>{doc.qualification}</p>
+                    {doc.designation && <p className={styles.designation}>{doc.designation}</p>}
                     <span className={styles.specialtyPill} style={{ background: `${dept?.color || '#0B3D91'}15`, color: dept?.color || '#0B3D91', borderColor: `${dept?.color}30` }}>
                       {dept?.icon} {doc.specialty}
                     </span>
-                    <div className={styles.meta}>
-                      <span>⭐ {doc.rating}</span>
-                      <span className={styles.reviewCount}>({doc.reviews} reviews)</span>
-                    </div>
                     <div className={styles.opdInfo}>
                       <span>🕐 OPD: {doc.opdDays}</span>
                       <span>📍 {doc.opdTime}</span>
                     </div>
-                    <div className={styles.languages}>
-                      🗣️ {doc.languages.join(', ')}
-                    </div>
+                    {doc.languages && doc.languages.length > 0 && (
+                      <div className={styles.languages}>
+                        🗣️ {doc.languages.join(', ')}
+                      </div>
+                    )}
                     <div className={styles.cardBtns}>
                       <button className="btn btn-sm btn-outline" onClick={() => setSelectedDoctor(doc)}>View Profile</button>
                       <Link href="/appointment" className="btn btn-sm btn-primary">Book Now</Link>
@@ -117,39 +120,43 @@ export default function DoctorsPage() {
             <button className={styles.closeBtn} onClick={() => setSelectedDoctor(null)}>✕</button>
             <div className={styles.modalHeader}>
               <div className={styles.modalImg}>
-                <span style={{ fontSize: '64px' }}>👨‍⚕️</span>
+                {selectedDoctor.imageUrl ? (
+                  <img src={selectedDoctor.imageUrl} alt={selectedDoctor.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                ) : (
+                  <span style={{ fontSize: '64px' }}>👨‍⚕️</span>
+                )}
               </div>
               <div className={styles.modalInfo}>
                 <h2>{selectedDoctor.name}</h2>
                 <p className={styles.modalQual}>{selectedDoctor.qualification}</p>
+                {selectedDoctor.designation && <p className={styles.modalDes}>{selectedDoctor.designation}</p>}
                 <span className={styles.specialtyPill} style={{ background: `${departments.find(d => d.id === selectedDoctor.departmentId)?.color || '#0B3D91'}15`, color: departments.find(d => d.id === selectedDoctor.departmentId)?.color }}>
                   {selectedDoctor.specialty}
                 </span>
                 <div className={styles.modalMeta}>
-                  <span>⭐ {selectedDoctor.rating} ({selectedDoctor.reviews} reviews)</span>
                   <span>🏥 {selectedDoctor.experience}+ years experience</span>
-                  <span>🗣️ {selectedDoctor.languages.join(', ')}</span>
+                  {selectedDoctor.languages && selectedDoctor.languages.length > 0 && (
+                    <span>🗣️ {selectedDoctor.languages.join(', ')}</span>
+                  )}
+                  <span>🕐 {selectedDoctor.opdDays} | {selectedDoctor.opdTime}</span>
                 </div>
               </div>
             </div>
 
             <div className={styles.modalBody}>
-              <div className={styles.modalSection}>
-                <h4>About</h4>
-                <p>{selectedDoctor.bio}</p>
-              </div>
+              {selectedDoctor.bio && (
+                <div className={styles.modalSection}>
+                  <h4>About</h4>
+                  <p>{selectedDoctor.bio}</p>
+                </div>
+              )}
 
               <div className={styles.modalSection}>
-                <h4>Education & Training</h4>
+                <h4>Availability</h4>
                 <ul>
-                  {selectedDoctor.education.map((e, i) => <li key={i}>🎓 {e}</li>)}
-                </ul>
-              </div>
-
-              <div className={styles.modalSection}>
-                <h4>Achievements</h4>
-                <ul>
-                  {selectedDoctor.achievements.map((a, i) => <li key={i}>🏆 {a}</li>)}
+                  <li>📅 OPD Days: {selectedDoctor.opdDays}</li>
+                  <li>⏰ OPD Time: {selectedDoctor.opdTime}</li>
+                  <li>📞 Experience: {selectedDoctor.experience}+ years</li>
                 </ul>
               </div>
 
