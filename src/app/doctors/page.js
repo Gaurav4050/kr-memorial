@@ -1,13 +1,23 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { doctors, departments } from '@/data/hospital';
+import { doctors as staticDoctors, departments } from '@/data/hospital';
 import styles from './doctors.module.css';
 
 export default function DoctorsPage() {
   const [search, setSearch] = useState('');
   const [specialty, setSpecialty] = useState('');
   const [selectedDoctor, setSelectedDoctor] = useState(null);
+  const [doctors, setDoctors] = useState(staticDoctors);
+
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+
+  useEffect(() => {
+    fetch(`${API_URL}/doctors`)
+      .then(res => res.json())
+      .then(data => { if (data.success && data.data.length > 0) setDoctors(data.data) })
+      .catch(console.error);
+  }, []);
 
   const filtered = doctors.filter(doc => {
     const matchSearch = doc.name.toLowerCase().includes(search.toLowerCase()) ||
