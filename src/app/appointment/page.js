@@ -1,24 +1,61 @@
 'use client';
-import { useState } from 'react';
-import { departments, doctors } from '@/data/hospital';
+import { useState, useEffect } from 'react';
+import { departments, doctors as staticDoctors } from '@/data/hospital';
 import styles from './appointment.module.css';
 
 export default function AppointmentPage() {
   const [step, setStep] = useState(1);
-  const [form, setForm] = useState({ department: '', doctor: '', date: '', time: '', name: '', age: '', gender: '', phone: '', reason: '', isNewPatient: true });
+  const [form, setForm] = useState({ department: '', doctor: '', date: '', time: '', name: '', age: '', gender: '', phone: '', email: '', reason: '', isNewPatient: true });
   const [submitted, setSubmitted] = useState(false);
+  const [doctors, setDoctors] = useState(staticDoctors);
 
-  const filteredDoctors = form.department ? doctors.filter(d => d.departmentId === form.department) : doctors;
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
   const timeSlots = ['9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM', '4:00 PM', '4:30 PM', '5:00 PM'];
 
-  const handleSubmit = () => {
-    setSubmitted(true);
+  useEffect(() => {
+    fetch(`${API_URL}/doctors`)
+      .then(res => res.json())
+      .then(data => { if (data.success && data.data.length > 0) setDoctors(data.data) })
+      .catch(console.error);
+  }, []);
+
+  const filteredDoctors = form.department ? doctors.filter(d => d.departmentId === form.department) : doctors;
+
+  const handleSubmit = async () => {
+    try {
+      const selectedDept = departments.find(d => d.id === form.department);
+      const selectedDoc = doctors.find(d => d.id === form.doctor);
+      
+      const payload = {
+        ...form,
+        departmentName: selectedDept?.name,
+        doctorId: form.doctor,
+        doctorName: selectedDoc?.name || 'Any Available',
+      };
+
+      const res = await fetch(`${API_URL}/appointments`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setForm({ ...form, appointmentId: data.data.appointmentId });
+        setSubmitted(true);
+      } else {
+        alert(data.message || 'Failed to book appointment');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Error booking appointment. Please try again or call us.');
+    }
   };
 
   const getMinDate = () => { const d = new Date(); return d.toISOString().split('T')[0]; };
 
   if (submitted) {
-    const apptId = 'KRM' + Date.now().toString().slice(-6);
+    const apptId = form.appointmentId || 'KRM' + Date.now().toString().slice(-6);
     return (
       <section className={styles.successPage}>
         <div className={styles.successCard}>
@@ -35,7 +72,7 @@ export default function AppointmentPage() {
           </div>
           <div className={styles.successActions}>
             <a href="tel:8006005111" className="btn btn-outline">📞 Confirm via Call</a>
-            <button className="btn btn-primary" onClick={() => { setSubmitted(false); setStep(1); setForm({ department: '', doctor: '', date: '', time: '', name: '', age: '', gender: '', phone: '', reason: '', isNewPatient: true }); }}>📅 Book Another</button>
+            <button className="btn btn-primary" onClick={() => { setSubmitted(false); setStep(1); setForm({ department: '', doctor: '', date: '', time: '', name: '', age: '', gender: '', phone: '', email: '', reason: '', isNewPatient: true }); }}>📅 Book Another</button>
           </div>
           <div className={styles.whatToBring}>
             <h4>📋 What to Bring</h4>
@@ -144,7 +181,13 @@ export default function AppointmentPage() {
                   </div>
                   <div className={styles.formGroup}>
                     <label>Phone Number *</label>
-                    <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+91 XXXXXXXXXX" pattern="[0-9]{10}" required />
+                    <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="10-digit Mobile Number" required />
+                  </div>
+                </div>
+                <div className={styles.formRow}>
+                  <div className={styles.formGroup}>
+                    <label>Email Address</label>
+                    <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="email@example.com (Optional)" />
                   </div>
                 </div>
                 <div className={styles.formRow}>
