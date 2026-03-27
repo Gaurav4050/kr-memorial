@@ -1,0 +1,284 @@
+.adminLayout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+.loginContainer {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f4f8;
+}
+
+.loginCard {
+  background: white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.loginCard h2 {
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+}
+
+.loginCard p {
+  color: #64748b;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.error {
+  color: #ef4444 !important;
+  background: #fef2f2;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #fecaca;
+  margin-bottom: 1.5rem !important;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.formRow {
+  display: flex;
+  gap: 1rem;
+}
+
+.formGroup label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #334155;
+  font-size: 0.9rem;
+}
+
+.formGroup input,
+.formGroup select,
+.filterBox input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.formGroup input:focus,
+.filterBox input:focus {
+  outline: none;
+  border-color: #0B3D91;
+  box-shadow: 0 0 0 3px rgba(11, 61, 145, 0.1);
+}
+
+.sidebar {
+  width: 250px;
+  background: white;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  padding: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0B3D91;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  flex: 1;
+}
+
+.nav button {
+  background: none;
+  border: none;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  font-size: 1rem;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav button:hover {
+  background: #f1f5f9;
+  color: #0B3D91;
+}
+
+.nav button.activeTab {
+  background: #e0e7ff;
+  color: #0B3D91;
+  border-right: 3px solid #0B3D91;
+  font-weight: 600;
+}
+
+.logoutBtn {
+  background: none;
+  border: none;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  font-size: 1rem;
+  color: #ef4444;
+  cursor: pointer;
+  border-top: 1px solid #e2e8f0;
+}
+
+.logoutBtn:hover {
+  background: #fff5f5;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.headerFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.filterBox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.filterBox label {
+  font-weight: 500;
+  color: #475569;
+}
+
+.filterBox input {
+  padding: 0.5rem 1rem;
+  width: auto;
+}
+
+.tableResp {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  overflow-x: auto;
+}
+
+.adminTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.adminTable th,
+.adminTable td {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.adminTable th {
+  background: #f8fafc;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.adminTable td small {
+  color: #64748b;
+}
+
+.statusBadge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+.pending { background: #fef3c7; color: #d97706; }
+.confirmed { background: #dbeafe; color: #1d4ed8; }
+.completed { background: #dcfce3; color: #15803d; }
+.cancelled { background: #fee2e2; color: #b91c1c; }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e2e8f0;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.addDoctorCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  margin-bottom: 3rem;
+}
+
+.addDoctorCard h3 {
+  margin-bottom: 1.5rem;
+  color: #1e293b;
+}
+
+.docGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.docCard {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.docImg {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.docInfo {
+  padding: 1.5rem;
+}
+
+.docInfo h4 {
+  margin-bottom: 0.25rem;
+}
+
+.docInfo p {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
