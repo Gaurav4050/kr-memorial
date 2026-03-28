@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   departments,
   doctors,
@@ -183,6 +184,21 @@ export default function Home() {
 
           {/* ── RIGHT PANEL ── */}
           <div className={styles.heroVisual}>
+            <div className={styles.heroImageStage}>
+              <div className={styles.heroImageGlow}></div>
+              <div className={styles.heroImageCutout}>
+                <Image
+                  src="/hero-hospital.png"
+                  alt="K.R. Memorial Hospital building"
+                  fill
+                  priority
+                  className={styles.heroHospitalImage}
+                />
+                <div className={styles.heroImageOverlay}></div>
+              </div>
+              {/* <div className={styles.heroImageLabel}>K.R. Memorial Hospital Campus</div> */}
+            </div>
+
             {/* Floating ambient cards */}
             <div className={`${styles.floatCard} ${styles.floatCard1}`}>
               <span>🏥</span>
@@ -203,43 +219,6 @@ export default function Home() {
               <div>
                 <strong>20+ Insurers</strong>
                 <small>Cashless Network</small>
-              </div>
-            </div>
-
-            {/* Main booking card */}
-            <div className={styles.heroCard}>
-              <div className={styles.heroCardHeader}>
-                <div className={styles.iconCircle}>📅</div>
-                <div>
-                  <h3>Quick Appointment</h3>
-                  <p>Available 7 days a week</p>
-                </div>
-              </div>
-
-              <div className={styles.heroCardDivider}></div>
-
-              <form className={styles.quickBookForm} onSubmit={(e) => e.preventDefault()}>
-                <label className={styles.formLabel}>Department</label>
-                <select defaultValue="">
-                  <option value="" disabled>Select Department</option>
-                  {departments.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
-                </select>
-
-                <label className={styles.formLabel}>Your Name</label>
-                <input type="text" placeholder="e.g. Ramesh Kumar" />
-
-                <label className={styles.formLabel}>Phone Number</label>
-                <input type="tel" placeholder="+91 80060 05111" />
-
-                <button type="submit" className={styles.btnBook}>
-                  Book Appointment →
-                </button>
-              </form>
-
-              <div className={styles.heroCardFooter}>
-                <span>🔒 Your data is safe &amp; secure</span>
-                <span>·</span>
-                <span>⚡ Instant confirmation</span>
               </div>
             </div>
           </div>
