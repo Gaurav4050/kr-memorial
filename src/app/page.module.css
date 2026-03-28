@@ -2,10 +2,10 @@
 .hero {
   background: linear-gradient(135deg, #051d47 0%, #0B3D91 45%, #0a3278 70%, #072756 100%);
   color: #fff;
-  padding: 90px 24px 80px;
+  padding: 96px 24px 84px;
   position: relative;
   overflow: hidden;
-  min-height: 640px;
+  min-height: 700px;
   display: flex;
   align-items: center;
 }
@@ -122,12 +122,17 @@
   max-width: 1320px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   gap: 60px;
   align-items: center;
   position: relative;
   z-index: 2;
   width: 100%;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 3;
 }
 
 /* ── TRUST ROW ── */
@@ -210,10 +215,10 @@
 /* ── DESCRIPTION ── */
 .heroDesc {
   font-size: 17px;
-  opacity: 0.85;
+  opacity: 0.9;
   line-height: 1.75;
   margin-bottom: 34px;
-  max-width: 520px;
+  max-width: 560px;
   animation: fadeInUp 0.55s ease 0.15s both;
 }
 
@@ -329,15 +334,16 @@
 
 /* ── STAT STRIP ── */
 .heroStats {
-  background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.14);
+  background: linear-gradient(140deg, rgba(255,255,255,0.13), rgba(255,255,255,0.06));
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.2);
   border-radius: 20px;
-  padding: 24px 28px;
+  padding: 24px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+  box-shadow: 0 20px 46px rgba(4, 20, 48, 0.34);
   animation: fadeInUp 0.55s ease 0.34s both;
 }
 
@@ -383,23 +389,80 @@
   flex-shrink: 0;
 }
 
-/* ── HERO RIGHT: FLOATING CARDS + BOOKING CARD ── */
+/* ── HERO RIGHT: HOSPITAL IMAGE + FLOATING CARDS ── */
 .heroVisual {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  min-height: 700px;
   animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.heroImageStage {
+  position: absolute;
+  inset: -18px -136px -20px 5%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.heroImageGlow {
+  position: absolute;
+  inset: 7% 5% 14% 20%;
+  background: radial-gradient(circle at 72% 40%, rgba(14,165,164,0.42) 0%, rgba(14,165,164,0.16) 42%, transparent 74%);
+  filter: blur(36px);
+  transform: scale(1.1);
+}
+
+.heroImageCutout {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.42);
+  border-radius: 44px 0 0 44px;
+  box-shadow: 0 34px 78px rgba(2, 8, 23, 0.54), inset 0 0 0 1px rgba(255,255,255,0.24);
+  transform: translateX(6%) rotate(-1deg);
+  background: linear-gradient(170deg, rgba(255,255,255,0.4), rgba(255,255,255,0.06));
+}
+
+.heroHospitalImage {
+  object-fit: cover;
+  object-position: 56% 52%;
+  transform: scale(1.01);
+}
+
+.heroImageOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(5, 29, 71, 0.6), rgba(5, 29, 71, 0.1) 45%, rgba(255,255,255,0) 70%),
+    linear-gradient(120deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0));
+}
+
+.heroImageLabel {
+  position: absolute;
+  left: 13%;
+  bottom: 9%;
+  background: rgba(5,29,71,0.7);
+  border: 1px solid rgba(255,255,255,0.32);
+  backdrop-filter: blur(10px);
+  border-radius: 999px;
+  padding: 8px 16px;
+  color: #F8FAFC;
+  font-size: 12px;
+  letter-spacing: 0.35px;
+  font-weight: 600;
+  transform: rotate(-2deg);
 }
 
 /* Floating ambient info cards */
 .floatCard {
   position: absolute;
-  background: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.14);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.24);
   border-radius: 16px;
-  padding: 12px 18px;
+  padding: 13px 18px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -429,20 +492,20 @@
 }
 
 .floatCard1 {
-  top: -22px;
-  left: -36px;
+  top: 74px;
+  left: 18px;
   animation: floatUpDown 5s ease-in-out infinite;
 }
 
 .floatCard2 {
-  bottom: 60px;
-  left: -40px;
+  bottom: 64px;
+  left: 36px;
   animation: floatUpDown 7s ease-in-out infinite 1s;
 }
 
 .floatCard3 {
-  top: 32px;
-  right: -20px;
+  top: -40px;
+  right: 24px;
   animation: floatUpDown 6s ease-in-out infinite 0.5s;
 }
 
@@ -1842,6 +1905,59 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1200px) {
+  .heroInner {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .heroVisual {
+    min-height: 620px;
+  }
+
+  .heroImageStage {
+    inset: -12px -78px -14px 4%;
+  }
+
+  .heroImageCutout {
+    border-radius: 34px;
+    transform: translateX(0) rotate(-0.35deg);
+  }
+
+  .heroHospitalImage {
+    object-position: center;
+  }
+
+  .floatCard {
+    padding: 11px 15px;
+  }
+
+  .floatCard span {
+    font-size: 21px;
+  }
+
+  .floatCard strong {
+    font-size: 14px;
+  }
+
+  .floatCard small {
+    font-size: 10px;
+  }
+
+  .floatCard1 {
+    left: 8px;
+    top: 46px;
+  }
+
+  .floatCard2 {
+    left: 18px;
+    bottom: 36px;
+  }
+
+  .floatCard3 {
+    right: 12px;
+    top: -26px;
+  }
+
   .executiveGrid,
   .strategyTop,
   .strategyBottom {
@@ -1897,6 +2013,67 @@
   }
 
   .heroVisual {
+    display: flex;
+    min-height: 390px;
+  }
+
+  .heroImageStage {
+    position: relative;
+    inset: auto;
+    width: min(100%, 430px);
+    min-height: 380px;
+    margin: 0 auto;
+  }
+
+  .heroImageCutout {
+    border-radius: 28px;
+    transform: none;
+  }
+
+  .heroHospitalImage {
+    object-position: center 46%;
+  }
+
+  .floatCard {
+    display: inline-flex;
+    padding: 9px 12px;
+    border-radius: 12px;
+    white-space: normal;
+    max-width: 170px;
+    gap: 8px;
+  }
+
+  .floatCard span {
+    font-size: 18px;
+  }
+
+  .floatCard strong {
+    font-size: 12px;
+    line-height: 1.1;
+  }
+
+  .floatCard small {
+    font-size: 10px;
+    margin-top: 2px;
+    line-height: 1.2;
+  }
+
+  .floatCard1 {
+    top: -10px;
+    left: 6px;
+  }
+
+  .floatCard2 {
+    bottom: 10px;
+    left: 10px;
+  }
+
+  .floatCard3 {
+    right: 6px;
+    top: -14px;
+  }
+
+  .heroCard {
     display: none;
   }
 
@@ -2030,6 +2207,33 @@
 }
 
 @media (max-width: 480px) {
+  .heroVisual {
+    min-height: 305px;
+  }
+
+  .heroImageStage {
+    min-height: 300px;
+  }
+
+  .heroImageCutout {
+    border-radius: 22px;
+  }
+
+  .heroHospitalImage {
+    object-position: center 44%;
+  }
+
+  .floatCard1,
+  .floatCard2,
+  .floatCard3 {
+    display: none;
+  }
+
+  .heroImageLabel {
+    font-size: 11px;
+    padding: 7px 12px;
+  }
+
   .quickTiles {
     grid-template-columns: repeat(2, 1fr);
   }
