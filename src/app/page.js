@@ -41,6 +41,45 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const revealSelectors = [
+      `.${styles.quickTile}`,
+      `.${styles.groupCard}`,
+      `.${styles.deptCard}`,
+      `.${styles.whyCard}`,
+      `.${styles.directorCard}`,
+      `.${styles.doctorCard}`,
+      `.${styles.serviceCard}`,
+      `.${styles.testiCard}`,
+      `.${styles.empaChip}`,
+      `.${styles.contactItem}`,
+      `.${styles.visionCard}`,
+      `.${styles.missionCard}`,
+      `.${styles.planCard}`,
+    ];
+
+    const revealItems = document.querySelectorAll(revealSelectors.join(','));
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.revealed);
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.16, rootMargin: '0px 0px -60px 0px' }
+    );
+
+    revealItems.forEach((item, index) => {
+      item.classList.add(styles.reveal);
+      item.style.setProperty('--reveal-delay', `${Math.min(index * 35, 300)}ms`);
+      revealObserver.observe(item);
+    });
+
+    return () => revealObserver.disconnect();
+  }, []);
+
   const getInitials = (name) =>
     name
       .split(' ')
