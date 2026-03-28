@@ -10,6 +10,15 @@
   align-items: center;
 }
 
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 78% 18%, rgba(252, 211, 77, 0.2), transparent 40%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
 /* Layered animated background */
 .heroBg {
   position: absolute;
@@ -78,6 +87,34 @@
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(28px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sheenSweep {
+  0% { transform: translateX(-120%) skewX(-18deg); opacity: 0; }
+  20% { opacity: 0.6; }
+  100% { transform: translateX(220%) skewX(-18deg); opacity: 0; }
+}
+
+@keyframes ambientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px) scale(0.985);
+  filter: blur(8px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
 }
 
 /* ── HERO INNER LAYOUT ── */
@@ -554,7 +591,9 @@
 
 /* ── QUICK ACCESS ── */
 .quickAccess {
-  background: #fff;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(11, 61, 145, 0.08), transparent 40%),
+    linear-gradient(180deg, #ffffff, #f8fbff);
   padding: 28px 24px;
   border-bottom: 1px solid #E2E8F0;
 }
@@ -571,7 +610,7 @@
 }
 
 .quickTile {
-  background: #EFF6FF;
+  background: linear-gradient(155deg, #ffffff 0%, #eff6ff 100%);
   border: 1.5px solid #E2E8F0;
   border-radius: 16px;
   padding: 20px 14px;
@@ -581,14 +620,30 @@
   color: #1E293B;
   transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: block;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.quickTile::after {
+  content: '';
+  position: absolute;
+  inset: -40% -35%;
+  background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,0.8) 48%, transparent 68%);
+  transform: translateX(-140%) skewX(-14deg);
+  z-index: -1;
 }
 
 .quickTile:hover {
-  background: #0B3D91;
+  background: linear-gradient(140deg, #0B3D91, #0f4cae 60%, #0b3d91);
   color: #fff;
   transform: translateY(-5px);
   box-shadow: 0 8px 24px rgba(11,61,145,0.2);
   border-color: #0B3D91;
+}
+
+.quickTile:hover::after {
+  animation: sheenSweep 0.85s ease;
 }
 
 .tileIcon {
@@ -604,9 +659,23 @@
 
 /* ── STATS ── */
 .statsSection {
-  background: linear-gradient(135deg, #082d6b, #0B3D91);
+  background: linear-gradient(135deg, #082d6b, #0B3D91, #1358bf);
+  background-size: 200% 200%;
+  animation: ambientShift 12s ease-in-out infinite;
   padding: 70px 24px;
   color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.statsSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(252, 211, 77, 0.14), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(20, 184, 166, 0.14), transparent 45%);
+  pointer-events: none;
 }
 
 .statsInner {
@@ -616,6 +685,8 @@
   grid-template-columns: repeat(5, 1fr);
   gap: 24px;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .statItem {
@@ -639,7 +710,10 @@
 /* ── DEPARTMENTS ── */
 .departments {
   padding: 100px 0;
-  background: #F8FAFC;
+  background:
+    radial-gradient(circle at 88% 15%, rgba(14, 165, 164, 0.08), transparent 30%),
+    radial-gradient(circle at 8% 85%, rgba(11, 61, 145, 0.08), transparent 35%),
+    #F8FAFC;
 }
 
 .deptGrid {
@@ -660,6 +734,7 @@
   display: block;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .deptCard::before {
@@ -680,9 +755,22 @@
 }
 
 .deptCard:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(11,61,145,0.12);
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 18px 44px rgba(11,61,145,0.14);
   border-color: #0B3D91;
+}
+
+.deptCard::after {
+  content: '';
+  position: absolute;
+  inset: -55% -40%;
+  background: linear-gradient(100deg, transparent 32%, rgba(255,255,255,0.78) 52%, transparent 72%);
+  transform: translateX(-130%) skewX(-14deg);
+  pointer-events: none;
+}
+
+.deptCard:hover::after {
+  animation: sheenSweep 0.95s ease;
 }
 
 .deptIcon {
@@ -753,6 +841,22 @@
   background: #F8FAFC;
   border: 1.5px solid #E2E8F0;
   transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.whyCard::after {
+  content: '';
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  right: -70px;
+  top: -70px;
+  background: radial-gradient(circle, rgba(11,61,145,0.14), transparent 70%);
+  transition: transform 0.4s ease;
+  z-index: -1;
 }
 
 .whyCard:hover {
@@ -761,6 +865,10 @@
   transform: translateY(-8px);
   box-shadow: 0 16px 40px rgba(11,61,145,0.2);
   border-color: #0B3D91;
+}
+
+.whyCard:hover::after {
+  transform: scale(1.16);
 }
 
 .whyIcon {
@@ -804,11 +912,26 @@
   overflow: hidden;
   border: 1.5px solid #E2E8F0;
   transition: 0.3s;
+  position: relative;
+  isolation: isolate;
 }
 
 .doctorCard:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(11,61,145,0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 42px rgba(11,61,145,0.12);
+}
+
+.doctorCard::after {
+  content: '';
+  position: absolute;
+  inset: -55% -38%;
+  background: linear-gradient(100deg, transparent 36%, rgba(255,255,255,0.72) 52%, transparent 69%);
+  transform: translateX(-130%) skewX(-16deg);
+  pointer-events: none;
+}
+
+.doctorCard:hover::after {
+  animation: sheenSweep 1s ease;
 }
 
 .doctorImg {
@@ -912,12 +1035,26 @@
   text-decoration: none;
   color: #fff;
   display: block;
+  isolation: isolate;
 }
 
 .serviceCard:hover {
   transform: translateY(-6px);
   background: rgba(255,255,255,0.1);
   border-color: rgba(255,255,255,0.25);
+}
+
+.serviceCard::after {
+  content: '';
+  position: absolute;
+  inset: -60% -45%;
+  background: linear-gradient(100deg, transparent 35%, rgba(255,255,255,0.55) 50%, transparent 65%);
+  transform: translateX(-150%) skewX(-16deg);
+  pointer-events: none;
+}
+
+.serviceCard:hover::after {
+  animation: sheenSweep 0.9s ease;
 }
 
 .serviceIconWrap {
@@ -994,11 +1131,31 @@
   box-shadow: 0 2px 16px rgba(11,61,145,0.06);
   border: 1.5px solid #E2E8F0;
   transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
 }
 
 .testiCard:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 28px rgba(11,61,145,0.1);
+}
+
+.testiCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0B3D91, #14b8a6, #F59E0B);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.testiCard:hover::before {
+  transform: scaleX(1);
 }
 
 .testiStars {
@@ -1326,6 +1483,13 @@
   border: 1.5px solid #E2E8F0;
   border-radius: 18px;
   padding: 22px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.groupCard:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 14px 34px rgba(11, 61, 145, 0.12);
+  border-color: #c9d8ef;
 }
 
 .groupCard h3 {
@@ -1421,6 +1585,13 @@
   flex-direction: column;
   gap: 16px;
   box-shadow: 0 22px 44px rgba(0,0,0,0.24);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.directorCard:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 30px 62px rgba(0,0,0,0.3);
+  border-color: color-mix(in srgb, var(--director-accent, #F59E0B) 55%, #ffffff 45%);
 }
 
 .directorVisual {
@@ -1456,6 +1627,11 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.directorCard:hover .directorCutout {
+  transform: scale(1.03);
 }
 
 .directorCutout::before {
@@ -1559,6 +1735,41 @@
   border: 1.5px solid #E2E8F0;
   border-radius: 18px;
   padding: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.visionCard:hover,
+.missionCard:hover,
+.planCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(11,61,145,0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroOrb1,
+  .heroOrb2,
+  .heroOrb3,
+  .heroGrid,
+  .floatCard1,
+  .floatCard2,
+  .floatCard3,
+  .pulseRing,
+  .empaTicker,
+  .statsSection,
+  .reveal,
+  .quickTile::after,
+  .deptCard::after,
+  .doctorCard::after,
+  .serviceCard::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
 }
 
 .visionCard h3,
