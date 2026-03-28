@@ -1,7 +1,17 @@
 'use client';
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { departments, doctors, testimonials, empanelments, hospitalInfo } from '@/data/hospital';
+import {
+  departments,
+  doctors,
+  testimonials,
+  empanelments,
+  hospitalInfo,
+  corporateProfile,
+  groupInstitutions,
+  directorProfiles,
+  strategicOutlook,
+} from '@/data/hospital';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -30,6 +40,29 @@ export default function Home() {
     if (statsRef.current) observer.observe(statsRef.current);
     return () => observer.disconnect();
   }, []);
+
+  const getInitials = (name) =>
+    name
+      .split(' ')
+      .filter(Boolean)
+      .slice(0, 2)
+      .map(part => part[0])
+      .join('')
+      .toUpperCase();
+
+  const directorAccents = ['#F59E0B', '#0EA5A4', '#0B3D91'];
+
+  const executiveSummaryRows = [
+    { label: 'Company Name', value: corporateProfile.companyName },
+    { label: 'Registered Office', value: corporateProfile.registeredOffice },
+    { label: 'Incorporation Date', value: corporateProfile.incorporationDate },
+    { label: 'Registration No.', value: corporateProfile.registrationNo },
+    { label: 'CIN', value: corporateProfile.cin },
+    { label: 'PAN', value: corporateProfile.pan },
+    { label: 'Constitution', value: corporateProfile.constitution },
+    { label: 'Authorized Capital', value: corporateProfile.authorizedCapital },
+    { label: 'Paid Up Capital', value: corporateProfile.paidUpCapital },
+  ];
 
   return (
     <>
@@ -206,6 +239,54 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── EXECUTIVE SUMMARY ── */}
+      {/* <section className={styles.executiveSection}>
+        <div className="container">
+          <div className="section-header">
+            <span className="section-tag">Executive Summary</span>
+            <h2>Kaluram Memorial Hospitals Pvt. Ltd.</h2>
+            <p>A structured corporate profile covering governance, activities, and group footprint.</p>
+          </div>
+
+          <div className={styles.executiveGrid}>
+            <div className={styles.summaryCard}>
+              {executiveSummaryRows.map((item) => (
+                <div key={item.label} className={styles.summaryRow}>
+                  <div className={styles.summaryLabel}>{item.label}</div>
+                  <div className={styles.summaryValue}>{item.value}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.executiveMeta}>
+              <div className={styles.executiveBlock}>
+                <h3>Line of Activity</h3>
+                <ul>
+                  {corporateProfile.lineOfActivity.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className={styles.executiveBlock}>
+                <h3>Group Companies</h3>
+                <div className={styles.groupChips}>
+                  {corporateProfile.groupCompanies.map((item) => (
+                    <span key={item} className={styles.groupChip}>{item}</span>
+                  ))}
+                </div>
+              </div>
+
+              <div className={styles.executiveBlock}>
+                <h3>Company Background</h3>
+                <p>{corporateProfile.introduction}</p>
+                <p>{corporateProfile.briefHistory}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> */}
+
       {/* ── STATS ── */}
       <section className={styles.statsSection} ref={statsRef}>
         <div className={styles.statsInner}>
@@ -214,6 +295,35 @@ export default function Home() {
           <div className={styles.statItem}><span className={styles.num} data-target="15">0</span><div className={styles.lbl}>Specialties</div></div>
           <div className={styles.statItem}><span className={styles.num} data-target="25000">0</span><div className={styles.lbl}>Patients Treated</div></div>
           <div className={styles.statItem}><span className={styles.num} data-target="20">0</span><div className={styles.lbl}>Insurance Partners</div></div>
+        </div>
+      </section>
+
+      {/* ── GROUP ECOSYSTEM ── */}
+      <section className={styles.groupSection}>
+        <div className="container">
+          <div className="section-header">
+            <span className="section-tag">Group Ecosystem</span>
+            <h2>Healthcare and Education Network</h2>
+            <p>Integrated institutions serving patient care, skilling, and long-term social development.</p>
+          </div>
+
+          <div className={styles.groupGrid}>
+            {groupInstitutions.map((group) => (
+              <article key={group.group} className={styles.groupCard}>
+                <h3>{group.group}</h3>
+                <p>{group.focus}</p>
+                <div className={styles.groupInstitutionList}>
+                  {group.institutions.map((institution) => (
+                    <div key={institution.name} className={styles.groupInstitutionRow}>
+                      <div className={styles.groupInstitutionName}>{institution.name}</div>
+                      <div className={styles.groupInstitutionActivity}>{institution.activity}</div>
+                      <div className={styles.groupInstitutionCapacity}>{institution.capacity}</div>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -269,6 +379,105 @@ export default function Home() {
               <span className={styles.whyIcon}>🌍</span>
               <h3>Rajasthan Outreach</h3>
               <p>Expanding rural reach through peripheral centers, health camps and telemedicine across Rajasthan.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── DIRECTORS SHOWCASE ── */}
+      <section className={styles.directorsSection}>
+        <div className="container">
+          <div className="section-header">
+            <span className="section-tag">Directors</span>
+            <h2 style={{ color: '#fff' }}>Leadership Behind the Vision</h2>
+            <p>Founder-directors driving quality healthcare, education, and long-term institutional trust.</p>
+          </div>
+
+          <div className={styles.directorGrid}>
+            {directorProfiles.map((director, index) => (
+              <article
+                key={director.id}
+                className={styles.directorCard}
+                style={{ '--director-accent': directorAccents[index % directorAccents.length] }}
+              >
+                <div className={styles.directorVisual}>
+                  <div className={styles.directorHalo}></div>
+                  <div className={styles.directorCutout} style={{ backgroundImage: `url(${director.image})` }}>
+                    <span className={styles.directorInitials}>{getInitials(director.name)}</span>
+                  </div>
+                </div>
+
+                <div className={styles.directorInfoWrap}>
+                  <h3>{director.name}</h3>
+                  <span className={styles.directorTitle}>{director.title}</span>
+                  <p className={styles.directorTagline}>{director.tagline}</p>
+                  <p className={styles.directorBio}>{director.shortBio}</p>
+
+                  <div className={styles.directorMetaGrid}>
+                    <span><strong>Experience:</strong> {director.experience}</span>
+                    <span><strong>Qualification:</strong> {director.qualification}</span>
+                    <span><strong>PAN:</strong> {director.pan}</span>
+                    <span><strong>DIN:</strong> {director.din}</span>
+                  </div>
+
+                  <div className={styles.directorSkillList}>
+                    {director.expertise.map((item) => (
+                      <span key={item}>{item}</span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── VISION AND STRATEGY ── */}
+      <section className={styles.strategySection}>
+        <div className="container">
+          <div className="section-header">
+            <span className="section-tag">Future Roadmap</span>
+            <h2>Vision, Mission and Expansion Plans</h2>
+            <p>Focused growth model combining tertiary care, education, outreach, and digital transformation.</p>
+          </div>
+
+          <div className={styles.strategyTop}>
+            <div className={styles.visionCard}>
+              <h3>Vision</h3>
+              <p>{strategicOutlook.vision}</p>
+              <div className={styles.valuesWrap}>
+                {strategicOutlook.coreValues.map((value) => (
+                  <span key={value}>{value}</span>
+                ))}
+              </div>
+            </div>
+
+            <div className={styles.missionCard}>
+              <h3>Mission Priorities</h3>
+              <ul>
+                {strategicOutlook.mission.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className={styles.strategyBottom}>
+            <div className={styles.planCard}>
+              <h4>Social and Community Outreach</h4>
+              <ul>
+                {strategicOutlook.socialInitiatives.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className={styles.planCard}>
+              <h4>Future Expansion Plans</h4>
+              <ul>
+                {strategicOutlook.futurePlans.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
