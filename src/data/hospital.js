@@ -28,6 +28,164 @@ export const hospitalInfo = {
   mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3549.845!2d75.7284!3d27.1663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDA5JzU4LjciTiA3NcKwNDMnNDIuMyJF!5e0!3m2!1sen!2sin!4v1678900000000",
 };
 
+export const corporateProfile = {
+  companyName: "Kaluram Memorial Hospitals Pvt. Ltd.",
+  registeredOffice: "N.H. 52, Near Reliance Petrol Pump, Radhaswami Bagh, Chomu Jaipur - 303702",
+  incorporationDate: "4th April, 2018",
+  registrationNo: "06082",
+  cin: "U85200RJ2018PTC0430C",
+  pan: "AAHCK0430C",
+  constitution: "Private Limited Company",
+  authorizedCapital: "200.00 Lacs",
+  paidUpCapital: "200.00 Lacs",
+  lineOfActivity: [
+    "Hospital and Research Centre",
+    "Healthcare and Medical Education",
+    "Nursing and Paramedical Education",
+    "Physiotherapy and Pharma Education",
+    "Ayurveda Hospital and Medical Education",
+    "Veterinary Hospital and Medical Education",
+    "School and Competition Institute Education",
+    "Healthcare and Social Activity Services",
+  ],
+  directors: [
+    "Mr. Girdhari Lal Sharma",
+    "Dr. Amar Chand Sharma",
+    "Mrs. Rajani Sharma",
+  ],
+  groupCompanies: [
+    "Kaluram Memorial Hospitals Private Limited",
+    "K. R. Memorial LLP",
+    "Shivaji Gramin Vikas Shiksha Sansthan",
+    "Maa Jijabai Shikshan Sansthan",
+  ],
+  introduction:
+    "Kaluram Memorial Hospitals Pvt. Ltd. was incorporated to establish and operate a modern multi-speciality hospital, medical and nursing education facilities, and a research centre focused on accessible, high-quality care.",
+  briefHistory:
+    "Under the leadership of the Sharma family, the organization has developed K.R. Memorial Hospitals in Chomu as a 200-bed super multi-speciality institution focused on treatment, training, and research.",
+};
+
+export const groupInstitutions = [
+  {
+    group: "K.R. Group",
+    focus: "Healthcare, nursing and medical education",
+    institutions: [
+      { name: "K.R. Memorial Hospital", activity: "Super Multi-Specialty Hospital", capacity: "200 Beds" },
+      { name: "K.R. Paramedical College", activity: "Paramedical Courses (2 Years)", capacity: "250 Seats" },
+      { name: "K.R. Memorial College of Nursing", activity: "B.Sc. Nursing (4 Years)", capacity: "60 Seats" },
+      { name: "K.R. Memorial School of Nursing", activity: "GNM Nursing (3 Years)", capacity: "60 Seats" },
+      { name: "K.R. Memorial LLP", activity: "Retail Pharmacy", capacity: "-" },
+    ],
+  },
+  {
+    group: "Shivaji Group",
+    focus: "School and nursing education",
+    institutions: [
+      { name: "Shivaji College of Nursing", activity: "B.Sc. Nursing (4 Years)", capacity: "40 Seats" },
+      { name: "Shivaji Public School", activity: "CBSE Affiliated (up to 12th)", capacity: "1400 Students" },
+      { name: "Shivaji Career Institute", activity: "NEET and JEE Coaching", capacity: "600 Students" },
+    ],
+  },
+  {
+    group: "Maa Jijabai Shikshan Sansthan",
+    focus: "Advanced nursing education",
+    institutions: [
+      { name: "Maa Jijabai College of Nursing", activity: "B.Sc. Nursing (4 Years)", capacity: "60 Seats" },
+    ],
+  },
+];
+
+export const directorProfiles = [
+  {
+    id: "girdhari-lal-sharma",
+    name: "Mr. Girdhari Lal Sharma",
+    title: "Director - Governance and Administration",
+    tagline: "Five decades of institutional leadership and public service.",
+    experience: "50 Years",
+    qualification: "Graduate",
+    age: "76 Years",
+    pan: "ADUPS5751P",
+    din: "08917789",
+    image: "/directors/girdhari-lal-sharma.png",
+    shortBio:
+      "Retired as Assistant General Manager from Rajasthan State Road Transport Corporation and now actively guides administration, policy implementation, and institutional discipline across the K.R. ecosystem.",
+    expertise: [
+      "Administrative leadership and institutional management",
+      "Human resource planning and supervision",
+      "Governance, compliance and policy execution",
+      "Public relations and interdepartmental coordination",
+    ],
+  },
+  {
+    id: "amar-chand-sharma",
+    name: "Dr. Amar Chand Sharma",
+    title: "Director - Clinical Leadership",
+    tagline: "Surgeon and healthcare builder focused on affordable excellence.",
+    experience: "15 Years",
+    qualification: "MBBS, MS",
+    age: "44 Years",
+    pan: "CRXPS2740B",
+    din: "07907796",
+    image: "/directors/amar-chand-sharma.png",
+    shortBio:
+      "MBBS (2008) and MS (2015), with experience at major institutions in Rajasthan. Since 2020, he has led K.R. Memorial Hospitals as a 200-bed super multi-speciality care center with a patient-first growth strategy.",
+    expertise: [
+      "General and laparoscopic surgery",
+      "Hospital administration and systems growth",
+      "Clinical quality and patient safety",
+      "Strategic healthcare infrastructure development",
+    ],
+  },
+  {
+    id: "rajani-sharma",
+    name: "Mrs. Rajani Sharma",
+    title: "Director - Education and Social Impact",
+    tagline: "Business leadership aligned with education-led social progress.",
+    experience: "15 Years",
+    qualification: "Graduate",
+    age: "47 Years",
+    pan: "CTAPS9446P",
+    din: "07907790",
+    image: "/directors/rajani-sharma.png",
+    shortBio:
+      "Vice President of Shivaji Gramin Shiksha Sansthan, with deep involvement in nursing education management and institution development. Her leadership balances sustainable growth with meaningful community outcomes.",
+    expertise: [
+      "Institutional management and educational administration",
+      "Strategic planning and organizational development",
+      "Financial oversight and governance support",
+      "Community-oriented leadership and social impact",
+    ],
+  },
+];
+
+export const strategicOutlook = {
+  vision:
+    "To emerge as a leading integrated institution in healthcare and education in Rajasthan with quality, affordable, and ethical service delivery.",
+  mission: [
+    "Deliver comprehensive, compassionate healthcare through modern infrastructure and advanced technology.",
+    "Bridge the urban-rural healthcare gap with high-quality facilities in semi-urban and rural regions.",
+    "Promote global-standard medical, nursing and paramedical education.",
+    "Advance clinical research and innovation for better outcomes.",
+    "Strengthen public health through outreach, prevention and awareness programs.",
+  ],
+  coreValues: ["Integrity and ethics", "Excellence", "Compassion", "Innovation", "Community service"],
+  socialInitiatives: [
+    "Free health camps and blood donation drives in Chomu and nearby villages",
+    "Public health awareness programs on maternal health, nutrition and sanitation",
+    "Scholarships and concessions for meritorious and economically weaker students",
+    "CSR-led mobile health units and periodic rural check-up camps",
+  ],
+  futurePlans: [
+    "200-bed veterinary hospital with B.V.Sc and A.H. degree and diploma programs",
+    "200-bed Ayurveda hospital and Ayurveda medical college expansion",
+    "300-bed teaching hospital and MBBS college development",
+    "K.R. Memorial hospital expansion to 300-bed super multi-speciality scale",
+    "Dedicated research and innovation centre for translational and rural health research",
+    "Digital transformation via HMIS and telemedicine services",
+    "Skill development partnerships with government missions and NSDC",
+  ],
+};
+
 export const departments = [
   {
     id: "general-laparoscopic-surgery",
