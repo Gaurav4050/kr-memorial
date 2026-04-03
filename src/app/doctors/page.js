@@ -8,16 +8,20 @@ export default function DoctorsPage() {
   const [search, setSearch] = useState('');
   const [specialty, setSpecialty] = useState('');
   const [selectedDoctor, setSelectedDoctor] = useState(null);
-  const [doctors, setDoctors] = useState(staticDoctors);
+  const [doctors, setDoctors] = useState([...staticDoctors].reverse());
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
   useEffect(() => {
     fetch(`${API_URL}/doctors`)
       .then(res => res.json())
-      .then(data => { if (data.success && data.data.length > 0) setDoctors(data.data) })
+      .then(data => {
+        if (data.success && data.data.length > 0) {
+          setDoctors([...data.data].reverse());
+        }
+      })
       .catch(console.error);
-  }, []);
+  }, [API_URL]);
 
   const filtered = doctors.filter(doc => {
     const matchSearch = doc.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -69,7 +73,9 @@ export default function DoctorsPage() {
                 <div key={doc._id || doc.id} className={styles.card} id={doc._id || doc.id}>
                   <div className={styles.cardImg}>
                     {doc.imageUrl ? (
-                      <img src={doc.imageUrl} alt={doc.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <img src={doc.imageUrl} alt={doc.name} style={{ width: '100%', height: '100%', objectFit: 'cover',
+                        objectPosition:'top center'
+                       }} />
                     ) : (
                       <div className={styles.imgPlaceholder} style={{ background: `linear-gradient(135deg, ${dept?.color || '#0B3D91'}22, ${dept?.color || '#0B3D91'}08)` }}>
                         <span style={{ fontSize: '56px' }}>👨‍⚕️</span>
@@ -178,7 +184,7 @@ export default function DoctorsPage() {
       )}
 
       {/* Management Team */}
-      <section className={styles.managementSection}>
+      {/* <section className={styles.managementSection}>
         <div className="container">
           <div className="section-header">
             <span className="section-tag">Leadership</span>
@@ -203,7 +209,7 @@ export default function DoctorsPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }
