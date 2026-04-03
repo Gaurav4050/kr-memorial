@@ -54,10 +54,10 @@ export const metadata = {
     description: '200+ bedded multi-super specialty hospital in Chomu, Jaipur. 15 specialties, 50+ doctors, 24/7 emergency. Book appointment today.',
     images: [
       {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'K.R. Memorial Hospital - Multi-Specialty Hospital in Jaipur, Rajasthan',
+        url: '/logo.jpeg',
+        width: 500,
+        height: 500,
+        alt: 'K.R. Memorial Hospital Logo',
       },
     ],
   },
@@ -67,7 +67,7 @@ export const metadata = {
     creator: '@KRMHospital',
     title: 'K.R. Memorial Hospital — Best Multi-Specialty Hospital in Jaipur',
     description: '200+ bedded multi-super specialty hospital in Chomu, Jaipur. 15 specialties, 50+ doctors, 24/7 emergency.',
-    images: ['/og-image.jpg'],
+    images: ['/logo.jpeg'],
   },
   robots: {
     index: true,
@@ -87,6 +87,20 @@ export const metadata = {
     google: 'your-google-verification-code',
   },
   category: 'healthcare',
+  icons: {
+    icon: [
+      {
+        url: '/logo.jpeg',
+        type: 'image/jpeg',
+      },
+    ],
+    apple: [
+      {
+        url: '/logo.jpeg',
+        type: 'image/jpeg',
+      },
+    ],
+  },
 };
 
 // Structured Data (JSON-LD)
@@ -96,7 +110,7 @@ const structuredData = {
   name: 'K.R. Memorial Hospital',
   alternateName: 'KR Memorial Hospital Jaipur',
   url: 'https://krmemorialhospital.com',
-  logo: 'https://krmemorialhospital.com/logo.png',
+  logo: 'https://krmemorialhospital.com/logo.jpeg',
   image: 'https://krmemorialhospital.com/og-image.jpg',
   description: 'K.R. Memorial Hospital is a 200+ bedded multi-super specialty hospital in Chomu, Jaipur, Rajasthan offering 15 specialties with 24/7 emergency services.',
   address: {
