@@ -6,13 +6,54 @@ import styles from './contact.module.css';
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', phone: '', email: '', subject: '', department: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const [openFaq, setOpenFaq] = useState(null);
 
-  const handleSubmit = (e) => {
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
-    setForm({ name: '', phone: '', email: '', subject: '', department: '', message: '' });
+    setLoading(true);
+    setError('');
+
+    try {
+      const payload = {
+        name: form.name,
+        phone: form.phone,
+        email: form.email || '',
+        subject: form.subject || '',
+        department: form.department || '',
+        message: form.message,
+      };
+
+      console.log('📤 [CONTACT FORM] Sending payload:', JSON.stringify(payload, null, 2));
+
+      const response = await fetch(`${API_URL}/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+
+      console.log('📥 [CONTACT FORM] Response:', data);
+
+      if (data.success) {
+        setSubmitted(true);
+        setForm({ name: '', phone: '', email: '', subject: '', department: '', message: '' });
+        setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        setError(data.message || 'Failed to submit the form. Please try again.');
+      }
+    } catch (err) {
+      console.error('❌ [CONTACT FORM] Error:', err);
+      setError('Network error. Please check your connection and try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -77,28 +118,59 @@ export default function ContactPage() {
                 <div className={styles.successMsg}>
                   <span style={{ fontSize: '48px' }}>✅</span>
                   <h3>Message Sent Successfully!</h3>
-                  <p>Our team will contact you within 2 hours during working hours.</p>
+                  <p>Our team will contact you within 2 hours during working hours. You will receive an email confirmation shortly.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className={styles.form}>
+                  {error && (
+                    <div className={styles.errorMsg}>
+                      <span style={{ fontSize: '24px' }}>⚠️</span>
+                      <p>{error}</p>
+                    </div>
+                  )}
                   <div className={styles.formRow}>
                     <div className={styles.formGroup}>
                       <label>Full Name *</label>
-                      <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Your full name" />
+                      <input 
+                        type="text" 
+                        required 
+                        value={form.name} 
+                        onChange={(e) => setForm({ ...form, name: e.target.value })} 
+                        placeholder="Your full name"
+                        disabled={loading}
+                      />
                     </div>
                     <div className={styles.formGroup}>
                       <label>Phone Number *</label>
-                      <input type="tel" required pattern="[0-9]{10}" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+91 XXXXXXXXXX" />
+                      <input 
+                        type="tel" 
+                        required 
+                        pattern="[0-9]{10}" 
+                        value={form.phone} 
+                        onChange={(e) => setForm({ ...form, phone: e.target.value })} 
+                        placeholder="+91 XXXXXXXXXX"
+                        disabled={loading}
+                      />
                     </div>
                   </div>
                   <div className={styles.formGroup}>
                     <label>Email</label>
-                    <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="your@email.com" />
+                    <input 
+                      type="email" 
+                      value={form.email} 
+                      onChange={(e) => setForm({ ...form, email: e.target.value })} 
+                      placeholder="your@email.com"
+                      disabled={loading}
+                    />
                   </div>
                   <div className={styles.formRow}>
                     <div className={styles.formGroup}>
                       <label>Subject</label>
-                      <select value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })}>
+                      <select 
+                        value={form.subject} 
+                        onChange={(e) => setForm({ ...form, subject: e.target.value })}
+                        disabled={loading}
+                      >
                         <option value="">Select Subject</option>
                         <option>Appointment Inquiry</option>
                         <option>Billing Query</option>
@@ -110,17 +182,35 @@ export default function ContactPage() {
                     </div>
                     <div className={styles.formGroup}>
                       <label>Department</label>
-                      <select value={form.department} onChange={(e) => setForm({ ...form, department: e.target.value })}>
+                      <select 
+                        value={form.department} 
+                        onChange={(e) => setForm({ ...form, department: e.target.value })}
+                        disabled={loading}
+                      >
                         <option value="">Select Department</option>
                         {departments.map(d => <option key={d.id} value={d.id}>{d.name}</option>)}
                       </select>
                     </div>
                   </div>
                   <div className={styles.formGroup}>
-                    <label>Message</label>
-                    <textarea rows="4" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="How can we help you?"></textarea>
+                    <label>Message *</label>
+                    <textarea 
+                      rows="4" 
+                      required
+                      value={form.message} 
+                      onChange={(e) => setForm({ ...form, message: e.target.value })} 
+                      placeholder="How can we help you?"
+                      disabled={loading}
+                    ></textarea>
                   </div>
-                  <button type="submit" className="btn btn-primary btn-lg" style={{ width: '100%', justifyContent: 'center' }}>Send Message</button>
+                  <button 
+                    type="submit" 
+                    className="btn btn-primary btn-lg" 
+                    style={{ width: '100%', justifyContent: 'center' }}
+                    disabled={loading}
+                  >
+                    {loading ? 'Sending...' : 'Send Message'}
+                  </button>
                 </form>
               )}
             </div>
