@@ -95,6 +95,72 @@ export const groupInstitutions = [
   },
 ];
 
+// For Home Page (3 Directors - excluding Rajani Sharma)
+export const directorProfilesHome = [
+  {
+    id: "girdhari-lal-sharma",
+    name: "Mr. Girdhari Lal Sharma",
+    title: "Director - Governance and Administration",
+    tagline: "Five decades of institutional leadership and public service.",
+    experience: "50 Years",
+    qualification: "Graduate",
+    age: "76 Years",
+    pan: "ADUPS5751P",
+    din: "08917789",
+    image: "/directors/girdhari-lal-sharma.png",
+    shortBio:
+      "Retired as Assistant General Manager from Rajasthan State Road Transport Corporation and now actively guides administration, policy implementation, and institutional discipline across the K.R. ecosystem.",
+    expertise: [
+      "Administrative leadership and institutional management",
+      "Human resource planning and supervision",
+      "Governance, compliance and policy execution",
+      "Public relations and interdepartmental coordination",
+    ],
+  },
+  {
+    id: "amar-chand-sharma",
+    name: "Dr. Amar Chand Sharma",
+    title: "Director - Clinical Leadership",
+    tagline: "Surgeon and healthcare builder focused on affordable excellence.",
+    experience: "15 Years",
+    qualification: "MBBS, MS",
+    age: "44 Years",
+    pan: "CRXPS2740B",
+    din: "07907796",
+    image: "/directors/amar-chand-sharma.png",
+    shortBio:
+      "MBBS (2008) and MS (2015), with experience at major institutions in Rajasthan. Since 2020, he has led K.R. Memorial Hospitals as a 200-bed super multi-speciality care center with a patient-first growth strategy.",
+    expertise: [
+      "General and laparoscopic surgery",
+      "Hospital administration and systems growth",
+      "Clinical quality and patient safety",
+      "Strategic healthcare infrastructure development",
+    ],
+  },
+  {
+    id: "sunil-sharma",
+    name: "Mr. Sunil Sharma",
+    spouse: "Mrs. Rajani Sharma (Director, Education & Institutional Management)",
+    title: "Personal Guarantor & Financial Supporter",
+    tagline: "Strategic financial backing for hospital expansion, education, and group initiatives.",
+    experience: "15 Years",
+    qualification: "Graduate",
+    age: "47 Years",
+    pan: "CTAPS9446P",
+    din: "07907790",
+    image: "/directors/sunil-sharma.png",
+    shortBio:
+      "Although not listed as a director, Mr. Sunil Sharma plays a vital support role across the group as a personal guarantor and financial backer for key institutional priorities.",
+    expertise: [
+      "Acts as personal guarantor for the company and allied entities",
+      "Provides financial support for hospital expansion",
+      "Supports educational institutions through strategic funding",
+      "Backs group-level development and long-term initiatives",
+    ],
+  },
+];
+
+// For About Page (4 Directors - includes Rajani Sharma)
 export const directorProfiles = [
   {
     id: "girdhari-lal-sharma",
@@ -139,21 +205,41 @@ export const directorProfiles = [
   {
     id: "rajani-sharma",
     name: "Mrs. Rajani Sharma",
-    title: "Director - Education and Social Impact",
-    tagline: "Business leadership aligned with education-led social progress.",
+    title: "Director - Education & Institutional Development",
+    tagline: "Nursing educator building healthcare workforce excellence across Rajasthan.",
+    experience: "15 Years",
+    qualification: "B.Sc. Nursing, M.Sc.",
+    age: "45 Years",
+    image: "/directors/rajani-sharma.png",
+    shortBio:
+      "Expert nursing administrator with over 15 years in academic leadership and institutional management. Currently leads the education vertical across K.R. Group, overseeing nursing colleges, paramedical programs, and skill development initiatives.",
+    expertise: [
+      "Nursing education and curriculum development",
+      "Healthcare institution management",
+      "Academic excellence and accreditation",
+      "Student mentoring and workforce development",
+      "Educational partnerships and expansion",
+    ],
+  },
+  {
+    id: "sunil-sharma",
+    name: "Mr. Sunil Sharma",
+    spouse: "Mrs. Rajani Sharma (Director, Education & Institutional Management)",
+    title: "Personal Guarantor & Financial Supporter",
+    tagline: "Strategic financial backing for hospital expansion, education, and group initiatives.",
     experience: "15 Years",
     qualification: "Graduate",
     age: "47 Years",
     pan: "CTAPS9446P",
     din: "07907790",
-    image: "/directors/rajani-sharma.png",
+    image: "/directors/sunil-sharma.png",
     shortBio:
-      "Vice President of Shivaji Gramin Shiksha Sansthan, with deep involvement in nursing education management and institution development. Her leadership balances sustainable growth with meaningful community outcomes.",
+      "Although not listed as a director, Mr. Sunil Sharma plays a vital support role across the group as a personal guarantor and financial backer for key institutional priorities.",
     expertise: [
-      "Institutional management and educational administration",
-      "Strategic planning and organizational development",
-      "Financial oversight and governance support",
-      "Community-oriented leadership and social impact",
+      "Acts as personal guarantor for the company and allied entities",
+      "Provides financial support for hospital expansion",
+      "Supports educational institutions through strategic funding",
+      "Backs group-level development and long-term initiatives",
     ],
   },
 ];
