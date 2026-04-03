@@ -8,6 +8,7 @@ export default function AppointmentPage() {
   const [form, setForm] = useState({ department: '', doctor: '', date: '', time: '', name: '', age: '', gender: '', phone: '', email: '', reason: '', isNewPatient: true });
   const [submitted, setSubmitted] = useState(false);
   const [doctors, setDoctors] = useState(staticDoctors);
+  const [loading, setLoading] = useState(false);
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
   const timeSlots = ['9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM', '12:00 PM', '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM', '4:00 PM', '4:30 PM', '5:00 PM'];
@@ -19,18 +20,25 @@ export default function AppointmentPage() {
       .catch(console.error);
   }, []);
 
-  const filteredDoctors = form.department ? doctors.filter(d => d.departmentId === form.department) : doctors;
-
   const getDoctorId = (doc) => doc._id || doc.id;
   const findDoctorById = (id) => doctors.find(d => getDoctorId(d) === id);
+  const getDepartmentName = (departmentId) => departments.find(d => d.id === departmentId)?.name;
+  const formatDoctorOption = (doc) => {
+    const dept = getDepartmentName(doc.departmentId);
+    const deptText = dept ? ` • ${dept}` : '';
+    return `${doc.name} — ${doc.qualification} ${doc.designation ? `(${doc.designation})` : ''}${deptText}`;
+  };
 
   const handleSubmit = async () => {
+    setLoading(true);
     try {
-      const selectedDept = departments.find(d => d.id === form.department);
       const selectedDoc = findDoctorById(form.doctor);
+      const departmentId = selectedDoc?.departmentId || form.department;
+      const selectedDept = departments.find(d => d.id === departmentId);
       
       const payload = {
         ...form,
+        department: departmentId,
         departmentName: selectedDept?.name,
         doctorId: form.doctor,
         doctorName: selectedDoc?.name || 'Any Available',
@@ -44,14 +52,16 @@ export default function AppointmentPage() {
 
       const data = await res.json();
       if (data.success) {
-        setForm({ ...form, appointmentId: data.data.appointmentId });
+        setForm({ ...form, appointmentId: data.data.appointmentId, department: departmentId });
         setSubmitted(true);
       } else {
         alert(data.message || 'Failed to book appointment');
+        setLoading(false);
       }
     } catch (error) {
       console.error(error);
       alert('Error booking appointment. Please try again or call us.');
+      setLoading(false);
     }
   };
 
@@ -68,7 +78,7 @@ export default function AppointmentPage() {
           <div className={styles.successDetails}>
             <div className={styles.detailRow}><span>Appointment ID:</span><strong>{apptId}</strong></div>
             <div className={styles.detailRow}><span>Patient:</span><strong>{form.name}</strong></div>
-            <div className={styles.detailRow}><span>Department:</span><strong>{departments.find(d => d.id === form.department)?.name || '-'}</strong></div>
+            {form.department && <div className={styles.detailRow}><span>Department:</span><strong>{getDepartmentName(form.department)}</strong></div>}
             <div className={styles.detailRow}><span>Doctor:</span><strong>{form.doctor ? findDoctorById(form.doctor)?.name : 'Any Available'}</strong></div>
             <div className={styles.detailRow}><span>Date:</span><strong>{form.date}</strong></div>
             <div className={styles.detailRow}><span>Time:</span><strong>{form.time}</strong></div>
@@ -105,7 +115,7 @@ export default function AppointmentPage() {
         <div className="container">
           {/* Progress Bar */}
           <div className={styles.progress}>
-            {['Department', 'Doctor & Schedule', 'Patient Details', 'Confirm'].map((label, i) => (
+            {['Doctor & Schedule', 'Patient Details', 'Confirm'].map((label, i) => (
               <div key={i} className={`${styles.progressStep} ${step > i ? styles.completed : ''} ${step === i + 1 ? styles.active : ''}`}>
                 <div className={styles.progressCircle}>{step > i + 1 ? '✓' : i + 1}</div>
                 <span>{label}</span>
@@ -114,37 +124,22 @@ export default function AppointmentPage() {
           </div>
 
           <div className={styles.formCard}>
-            {/* Step 1: Department */}
+            {/* Step 1: Doctor & Schedule */}
             {step === 1 && (
-              <div className={styles.stepContent}>
-                <h2>Select Department</h2>
-                <p>Choose the medical specialty for your consultation.</p>
-                <div className={styles.deptGrid}>
-                  {departments.map(dept => (
-                    <div key={dept.id} className={`${styles.deptOption} ${form.department === dept.id ? styles.deptSelected : ''}`} onClick={() => setForm({ ...form, department: dept.id })}>
-                      <span className={styles.deptOptionIcon}>{dept.icon}</span>
-                      <span className={styles.deptOptionName}>{dept.shortName}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className={styles.stepBtns}>
-                  <button className="btn btn-primary btn-lg" disabled={!form.department} onClick={() => setStep(2)}>Continue →</button>
-                </div>
-              </div>
-            )}
-
-            {/* Step 2: Doctor & Schedule */}
-            {step === 2 && (
               <div className={styles.stepContent}>
                 <h2>Choose Doctor & Schedule</h2>
                 <p>Select your preferred doctor (optional) and pick a date & time.</p>
                 <div className={styles.formGroup}>
                   <label>Select Doctor (Optional)</label>
-                  <select value={form.doctor} onChange={(e) => setForm({ ...form, doctor: e.target.value })}>
+                  <select value={form.doctor} onChange={(e) => {
+                    const doctorId = e.target.value;
+                    const selectedDoc = findDoctorById(doctorId);
+                    setForm({ ...form, doctor: doctorId, department: selectedDoc?.departmentId || '' });
+                  }}>
                     <option value="">Any Available Doctor</option>
-                    {filteredDoctors.map(doc => (
+                    {doctors.map(doc => (
                       <option key={getDoctorId(doc)} value={getDoctorId(doc)}>
-                        {doc.name} — {doc.qualification} {doc.designation ? `(${doc.designation})` : ''}
+                        {formatDoctorOption(doc)}
                       </option>
                     ))}
                   </select>
@@ -164,14 +159,13 @@ export default function AppointmentPage() {
                   </div>
                 </div>
                 <div className={styles.stepBtns}>
-                  <button className="btn btn-outline" onClick={() => setStep(1)}>← Back</button>
-                  <button className="btn btn-primary btn-lg" disabled={!form.date || !form.time} onClick={() => setStep(3)}>Continue →</button>
+                  <button className="btn btn-primary btn-lg" disabled={!form.date || !form.time} onClick={() => setStep(2)}>Continue →</button>
                 </div>
               </div>
             )}
 
-            {/* Step 3: Patient Details */}
-            {step === 3 && (
+            {/* Step 2: Patient Details */}
+            {step === 2 && (
               <div className={styles.stepContent}>
                 <h2>Patient Details</h2>
                 <p>Fill in the patient information for the appointment.</p>
@@ -215,19 +209,19 @@ export default function AppointmentPage() {
                   <textarea rows="3" value={form.reason} onChange={(e) => setForm({ ...form, reason: e.target.value })} placeholder="Brief description of your symptoms or reason for consultation"></textarea>
                 </div>
                 <div className={styles.stepBtns}>
-                  <button className="btn btn-outline" onClick={() => setStep(2)}>← Back</button>
-                  <button className="btn btn-primary btn-lg" disabled={!form.name || !form.phone || !form.age || !form.gender} onClick={() => setStep(4)}>Continue →</button>
+                  <button className="btn btn-outline" onClick={() => setStep(1)}>← Back</button>
+                  <button className="btn btn-primary btn-lg" disabled={!form.name || !form.phone || !form.age || !form.gender} onClick={() => setStep(3)}>Continue →</button>
                 </div>
               </div>
             )}
 
-            {/* Step 4: Confirm */}
-            {step === 4 && (
+            {/* Step 3: Confirm */}
+            {step === 3 && (
               <div className={styles.stepContent}>
                 <h2>Confirm Appointment</h2>
                 <p>Review your appointment details and confirm booking.</p>
                 <div className={styles.summary}>
-                  <div className={styles.summaryRow}><span>Department:</span><strong>{departments.find(d => d.id === form.department)?.name || '-'}</strong></div>
+                  {form.department && <div className={styles.summaryRow}><span>Department:</span><strong>{getDepartmentName(form.department)}</strong></div>}
                   <div className={styles.summaryRow}><span>Doctor:</span><strong>{form.doctor ? findDoctorById(form.doctor)?.name : 'Any Available'}</strong></div>
                   <div className={styles.summaryRow}><span>Date:</span><strong>{form.date}</strong></div>
                   <div className={styles.summaryRow}><span>Time:</span><strong>{form.time}</strong></div>
@@ -237,8 +231,10 @@ export default function AppointmentPage() {
                   {form.reason && <div className={styles.summaryRow}><span>Reason:</span><strong>{form.reason}</strong></div>}
                 </div>
                 <div className={styles.stepBtns}>
-                  <button className="btn btn-outline" onClick={() => setStep(3)}>← Back</button>
-                  <button className="btn btn-primary btn-lg" onClick={handleSubmit}>✅ Confirm Appointment</button>
+                  <button className="btn btn-outline" onClick={() => setStep(2)} disabled={loading}>← Back</button>
+                  <button className="btn btn-primary btn-lg" onClick={handleSubmit} disabled={loading}>
+                    {loading ? '⏳ Booking...' : '✅ Confirm Appointment'}
+                  </button>
                 </div>
               </div>
             )}
