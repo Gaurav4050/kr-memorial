@@ -111,7 +111,7 @@ export default async function DepartmentDetail({ params }) {
       </section>
 
       {/* Department Doctors */}
-      {deptDoctors.length > 0 && (
+      {/* {deptDoctors.length > 0 && (
         <section className={styles.docSection}>
           <div className="container">
             <div className="section-header">
@@ -135,7 +135,7 @@ export default async function DepartmentDetail({ params }) {
             </div>
           </div>
         </section>
-      )}
+      )} */}
 
       {/* CTA */}
       <section className={styles.ctaSection}>
