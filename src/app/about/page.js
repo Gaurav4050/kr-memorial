@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { managementTeam } from '@/data/hospital';
+import Image from 'next/image';
+import { managementTeam, directorProfiles } from '@/data/hospital';
 import styles from './about.module.css';
 
 export const metadata = {
@@ -59,10 +60,14 @@ export default function AboutPage() {
               </blockquote>
             </div>
             <div className={styles.storyImage}>
-              <div className={styles.imgPlaceholder}>
-                <span style={{ fontSize: '80px' }}>🏥</span>
-                <p>K.R. Memorial Hospital, Chomu</p>
-              </div>
+              <Image
+                src="/hero-hospital6.png"
+                alt="K.R. Memorial Hospital building"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
+                priority
+                className={styles.heroHospitalImage}
+              />
             </div>
           </div>
         </div>
@@ -93,6 +98,52 @@ export default function AboutPage() {
                 <span>Accessibility</span>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership */}
+      <section className={styles.leaderSection}>
+        <div className="container">
+          <div className="section-header">
+            <span className="section-tag">Leadership</span>
+            <h2>Our Leadership Team</h2>
+            <p style={{ marginTop: '12px', fontSize: '16px', color: '#64748B' }}>
+              Experienced professionals dedicated to excellence in healthcare and education.
+            </p>
+          </div>
+          <div className={styles.leaderGrid}>
+            {directorProfiles.map((director) => (
+              <div key={director.id} className={styles.leaderTeamCard}>
+                <div className={styles.leaderImageContainer}>
+                  <Image
+                    src={director.image}
+                    alt={director.name}
+                    fill
+                    className={styles.leaderImage}
+                  />
+                  <div className={styles.leaderOverlay}>
+                    <div className={styles.leaderBadge}>
+                      <span className={styles.experienceBadge}>{director.experience}</span>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.leaderCardContent}>
+                  <h3 className={styles.leaderName}>{director.name}</h3>
+                  <p className={styles.leaderTitle}>{director.title}</p>
+                  <p className={styles.leaderTagline}>{director.tagline}</p>
+                  <p className={styles.leaderBio}>{director.shortBio}</p>
+                  <div className={styles.leaderExpertise}>
+                    <p className={styles.expertiseLabel}>Key Expertise:</p>
+                    <ul className={styles.expertiseList}>
+                      {director.expertise.slice(0, 3).map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -142,27 +193,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership */}
-      <section className={styles.leaderSection}>
-        <div className="container">
-          <div className="section-header">
-            <span className="section-tag">Leadership</span>
-            <h2>Director&apos;s Message</h2>
-          </div>
-          <div className={styles.leaderCard}>
-            <div className={styles.leaderAvatar}>
-              <span style={{ fontSize: '60px' }}>👨‍💼</span>
-            </div>
-            <div className={styles.leaderContent}>
-              <h3>Dr. Rajendra Prasad</h3>
-              <span className={styles.leaderRole}>Hospital Director</span>
-              <blockquote>
-                &ldquo;At KR Memorial Hospital, we believe that quality healthcare is not a luxury but a right. Our mission is to provide the best possible medical care using cutting-edge technology, delivered by compassionate professionals, at prices that are accessible to all. We envision a Rajasthan where no family has to travel to distant cities for specialized treatment. Every day, we work towards making this vision a reality — one patient, one village at a time.&rdquo;
-              </blockquote>
-            </div>
-          </div>
-        </div>
-      </section>
+    
 
       {/* Accreditations */}
       <section className={styles.accredSection}>
