@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { hospitalInfo, departments } from '@/data/hospital';
 import styles from './Header.module.css';
@@ -61,7 +62,14 @@ export default function Header() {
       <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : ''}`}>
         <div className={styles.navInner}>
           <Link href="/" className={styles.logo} onClick={closeAll}>
-            <div className={styles.logoIcon}>K</div>
+            <Image
+              src="/logo.jpeg"
+              alt="K.R. Memorial Hospital Logo"
+              width={50}
+              height={50}
+              className={styles.logoImage}
+              priority
+            />
             <div className={styles.logoText}>
               <strong>K.R. Memorial Hospital</strong>
               <span>Jaipur, Rajasthan</span>
@@ -107,7 +115,7 @@ export default function Header() {
             <li><Link href="/gallery" onClick={closeAll}>Gallery</Link></li>
             <li><Link href="/about" onClick={closeAll}>About Us</Link></li>
             <li><Link href="/contact" onClick={closeAll}>Contact</Link></li>
-            <li><Link href="/blog" onClick={closeAll}>Health Blog</Link></li>
+            {/* <li><Link href="/blog" onClick={closeAll}>Health Blog</Link></li> */}
             <li>
               <Link href="/appointment" className={styles.navCta} onClick={closeAll}>
                 📅 Book Appointment
