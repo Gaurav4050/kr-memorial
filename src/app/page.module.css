@@ -999,7 +999,7 @@
 
 .doctorImg {
   position: relative;
-  height: 220px;
+  height: 400px;
   overflow: hidden;
 }
 
@@ -1661,7 +1661,7 @@
   position: relative;
   border-radius: 18px;
   overflow: hidden;
-  min-height: 300px;
+  min-height: 400px;
   background:
     radial-gradient(circle at 20% 18%, color-mix(in srgb, var(--director-accent, #F59E0B) 30%, transparent), transparent 48%),
     linear-gradient(150deg, rgba(255,255,255,0.15), rgba(255,255,255,0.04));
@@ -1670,7 +1670,7 @@
 .directorHalo {
   position: absolute;
   width: 280px;
-  height: 300px;
+  height: 500px;
   border-radius: 50%;
   background: radial-gradient(circle, color-mix(in srgb, var(--director-accent, #F59E0B) 55%, transparent), transparent 68%);
   top: -70px;
@@ -2182,7 +2182,7 @@
   }
 
   .directorVisual {
-    min-height: 240px;
+    min-height: 400px;
   }
 
   .directorMetaGrid {
