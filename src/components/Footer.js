@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { hospitalInfo, departments } from '@/data/hospital';
 import styles from './Footer.module.css';
 
@@ -7,10 +8,16 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.footerGrid}>
         <div className={styles.footerBrand}>
-          <div className={styles.brandLogo}>
-            <div className={styles.logoIcon}>K</div>
+          <Link href="/" className={styles.brandLogo}>
+            <Image
+              src="/logo.jpeg"
+              alt="K.R. Memorial Hospital Logo"
+              width={50}
+              height={50}
+              className={styles.logoImage}
+            />
             <h3>K.R. Memorial Hospital</h3>
-          </div>
+          </Link>
           <p>
             A 200+ bedded multi-super specialty hospital committed to providing
             world-class healthcare at affordable prices in Rajasthan. Serving patients
@@ -40,7 +47,7 @@ export default function Footer() {
             <li><Link href="/patient-services">Patient Services</Link></li>
             <li><Link href="/empanelments">Empanelments</Link></li>
             <li><Link href="/gallery">Hospital Gallery</Link></li>
-            <li><Link href="/blog">Health Blog</Link></li>
+            {/* <li><Link href="/blog">Health Blog</Link></li> */}
             <li><Link href="/about">About Us</Link></li>
             <li><Link href="/contact">Contact Us</Link></li>
           </ul>
