@@ -26,9 +26,12 @@
 .formGroup label { font-size: 13px; font-weight: 600; color: #334155; }
 .formGroup input, .formGroup select, .formGroup textarea { background: #fff; border: 1.5px solid #E2E8F0; border-radius: 10px; padding: 12px 16px; font-size: 14px; transition: 0.2s; color: #1E293B; }
 .formGroup input:focus, .formGroup select:focus, .formGroup textarea:focus { border-color: #0B3D91; box-shadow: 0 0 0 3px rgba(11,61,145,0.08); }
+.formGroup input:disabled, .formGroup select:disabled, .formGroup textarea:disabled { background: #f1f5f9; opacity: 0.7; cursor: not-allowed; }
 .successMsg { text-align: center; padding: 40px 20px; background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 16px; }
 .successMsg h3 { margin: 16px 0 8px; font-family: 'DM Sans', sans-serif; color: #166534; }
 .successMsg p { color: #64748B; }
+.errorMsg { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px 16px; background: #fef2f2; border: 1.5px solid #fca5a5; border-radius: 12px; margin-bottom: 16px; }
+.errorMsg p { margin: 8px 0 0 0; color: #7f1d1d; font-size: 14px; font-weight: 500; }
 
 .mapWrap { position: relative; }
 .dirBtn { display: block; text-align: center; background: #0B3D91; color: #fff; padding: 12px; border-radius: 0 0 20px 20px; font-size: 14px; font-weight: 600; text-decoration: none; transition: 0.2s; margin-top: -4px; }
