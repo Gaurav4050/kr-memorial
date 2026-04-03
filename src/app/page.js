@@ -1,16 +1,16 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
   departments,
-  doctors,
+  doctors as staticDoctors,
   testimonials,
   empanelments,
   hospitalInfo,
   corporateProfile,
   groupInstitutions,
-  directorProfiles,
+  directorProfilesHome,
   strategicOutlook,
 } from '@/data/hospital';
 import styles from './page.module.css';
@@ -18,6 +18,19 @@ import styles from './page.module.css';
 export default function Home() {
   const statsRef = useRef(null);
   const counted = useRef(false);
+  const [featuredDoctors, setFeaturedDoctors] = useState([...staticDoctors].reverse());
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+
+  useEffect(() => {
+    fetch(`${API_URL}/doctors`)
+      .then(res => res.json())
+      .then((data) => {
+        if (data.success && data.data.length > 0) {
+          setFeaturedDoctors([...data.data].reverse());
+        }
+      })
+      .catch(console.error);
+  }, [API_URL]);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -188,9 +201,10 @@ export default function Home() {
               <div className={styles.heroImageGlow}></div>
               <div className={styles.heroImageCutout}>
                 <Image
-                  src="/hero-hospital.png"
+                  src="/hero-hospital6.png"
                   alt="K.R. Memorial Hospital building"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
                   priority
                   className={styles.heroHospitalImage}
                 />
@@ -412,7 +426,7 @@ export default function Home() {
           </div>
 
           <div className={styles.directorGrid}>
-            {directorProfiles.map((director, index) => (
+            {directorProfilesHome.map((director, index) => (
               <article
                 key={director.id}
                 className={styles.directorCard}
@@ -434,8 +448,8 @@ export default function Home() {
                   <div className={styles.directorMetaGrid}>
                     <span><strong>Experience:</strong> {director.experience}</span>
                     <span><strong>Qualification:</strong> {director.qualification}</span>
-                    <span><strong>PAN:</strong> {director.pan}</span>
-                    <span><strong>DIN:</strong> {director.din}</span>
+                    {/* <span><strong>PAN:</strong> {director.pan}</span> */}
+                    {/* <span><strong>DIN:</strong> {director.din}</span> */}
                   </div>
 
                   <div className={styles.directorSkillList}>
@@ -510,12 +524,20 @@ export default function Home() {
             <p>Expert medical professionals dedicated to providing the highest quality care for you and your family.</p>
           </div>
           <div className={styles.doctorsScroll}>
-            {doctors.slice(0, 6).map(doc => (
-              <div key={doc.id} className={styles.doctorCard}>
+            {featuredDoctors.slice(0, 6).map(doc => (
+              <div key={doc._id || doc.id} className={styles.doctorCard}>
                 <div className={styles.doctorImg}>
-                  <div className={styles.doctorImgPlaceholder} style={{ background: `linear-gradient(135deg, ${departments.find(d => d.id === doc.departmentId)?.color || '#0B3D91'}22, ${departments.find(d => d.id === doc.departmentId)?.color || '#0B3D91'}11)` }}>
-                    <span style={{ fontSize: '48px' }}>👨‍⚕️</span>
-                  </div>
+                  {doc.imageUrl ? (
+                    <img
+                      src={doc.imageUrl}
+                      alt={doc.name}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }}
+                    />
+                  ) : (
+                    <div className={styles.doctorImgPlaceholder} style={{ background: `linear-gradient(135deg, ${departments.find(d => d.id === doc.departmentId)?.color || '#0B3D91'}22, ${departments.find(d => d.id === doc.departmentId)?.color || '#0B3D91'}11)` }}>
+                      <span style={{ fontSize: '48px' }}>👨‍⚕️</span>
+                    </div>
+                  )}
                   <span className={styles.expBadge}>{doc.experience}+ yrs</span>
                 </div>
                 <div className={styles.doctorInfo}>
@@ -525,11 +547,11 @@ export default function Home() {
                     {doc.specialty}
                   </span>
                   <div className={styles.doctorMeta}>
-                    <span className={styles.rating}>⭐ {doc.rating}</span>
-                    <span className={styles.reviews}>({doc.reviews} reviews)</span>
+                    <span className={styles.rating}>⭐ {doc.rating || '4.8'}</span>
+                    <span className={styles.reviews}>({doc.reviews || 0} reviews)</span>
                   </div>
                   <div className={styles.doctorBtns}>
-                    <Link href={`/doctors#${doc.id}`} className="btn btn-sm btn-outline">View Profile</Link>
+                    <Link href={`/doctors#${doc._id || doc.id}`} className="btn btn-sm btn-outline">View Profile</Link>
                     <Link href="/appointment" className="btn btn-sm btn-primary">Book Now</Link>
                   </div>
                 </div>
