@@ -330,60 +330,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── GROUP ECOSYSTEM ── */}
-      <section className={styles.groupSection}>
-        <div className="container">
-          <div className="section-header">
-            <span className="section-tag">Group Ecosystem</span>
-            <h2>Healthcare and Education Network</h2>
-            <p>Integrated institutions serving patient care, skilling, and long-term social development.</p>
-          </div>
-
-          <div className={styles.groupGrid}>
-            {groupInstitutions.map((group) => (
-              <article key={group.group} className={styles.groupCard}>
-                <h3>{group.group}</h3>
-                <p>{group.focus}</p>
-                <div className={styles.groupInstitutionList}>
-                  {group.institutions.map((institution) => (
-                    <div key={institution.name} className={styles.groupInstitutionRow}>
-                      <div className={styles.groupInstitutionName}>{institution.name}</div>
-                      <div className={styles.groupInstitutionActivity}>{institution.activity}</div>
-                      <div className={styles.groupInstitutionCapacity}>{institution.capacity}</div>
-                    </div>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── DEPARTMENTS ── */}
-      <section className={styles.departments}>
-        <div className="container">
-          <div className="section-header">
-            <span className="section-tag">Our Specialties</span>
-            <h2>World-Class Departments</h2>
-            <p>15 super-specialties under one roof, staffed by experienced consultants with state-of-the-art infrastructure.</p>
-          </div>
-          <div className={styles.deptGrid}>
-            {departments.map(dept => (
-              <Link href={`/departments/${dept.id}`} key={dept.id} className={styles.deptCard}>
-                <div className={styles.deptIcon} style={{ '--dept-color': dept.color }}>{dept.icon}</div>
-                <h4>{dept.name}</h4>
-                <p>{dept.description}</p>
-                <span className={styles.deptArrow}>→</span>
-              </Link>
-            ))}
-          </div>
-          <div style={{ textAlign: 'center', marginTop: '40px' }}>
-            <Link href="/departments" className="btn btn-outline">View All Departments →</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WHY CHOOSE ── */}
+          {/* ── WHY CHOOSE ── */}
       <section className={styles.whySection}>
         <div className="container">
           <div className="section-header">
@@ -416,7 +363,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── DIRECTORS SHOWCASE ── */}
+            {/* ── DIRECTORS SHOWCASE ── */}
       <section className={styles.directorsSection}>
         <div className="container">
           <div className="section-header">
@@ -463,6 +410,36 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
+    
+
+      {/* ── DEPARTMENTS ── */}
+      <section className={styles.departments}>
+        <div className="container">
+          <div className="section-header">
+            <span className="section-tag">Our Specialties</span>
+            <h2>World-Class Departments</h2>
+            <p>15 super-specialties under one roof, staffed by experienced consultants with state-of-the-art infrastructure.</p>
+          </div>
+          <div className={styles.deptGrid}>
+            {departments.map(dept => (
+              <Link href={`/departments/${dept.id}`} key={dept.id} className={styles.deptCard}>
+                <div className={styles.deptIcon} style={{ '--dept-color': dept.color }}>{dept.icon}</div>
+                <h4>{dept.name}</h4>
+                <p>{dept.description}</p>
+                <span className={styles.deptArrow}>→</span>
+              </Link>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '40px' }}>
+            <Link href="/departments" className="btn btn-outline">View All Departments →</Link>
+          </div>
+        </div>
+      </section>
+
+  
+
 
       {/* ── VISION AND STRATEGY ── */}
       <section className={styles.strategySection}>
@@ -560,6 +537,36 @@ export default function Home() {
           </div>
           <div style={{ textAlign: 'center', marginTop: '40px' }}>
             <Link href="/doctors" className="btn btn-outline">View All Doctors →</Link>
+          </div>
+        </div>
+      </section>
+
+
+        {/* ── GROUP ECOSYSTEM ── */}
+      <section className={styles.groupSection}>
+        <div className="container">
+          <div className="section-header">
+            <span className="section-tag">Group Ecosystem</span>
+            <h2>Healthcare and Education Network</h2>
+            <p>Integrated institutions serving patient care, skilling, and long-term social development.</p>
+          </div>
+
+          <div className={styles.groupGrid}>
+            {groupInstitutions.map((group) => (
+              <article key={group.group} className={styles.groupCard}>
+                <h3>{group.group}</h3>
+                <p>{group.focus}</p>
+                <div className={styles.groupInstitutionList}>
+                  {group.institutions.map((institution) => (
+                    <div key={institution.name} className={styles.groupInstitutionRow}>
+                      <div className={styles.groupInstitutionName}>{institution.name}</div>
+                      <div className={styles.groupInstitutionActivity}>{institution.activity}</div>
+                      <div className={styles.groupInstitutionCapacity}>{institution.capacity}</div>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
