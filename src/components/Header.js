@@ -53,8 +53,8 @@ export default function Header() {
           <a href="tel:8006005111">8006005111</a>
           <span className={styles.divider}>|</span>
           <a href="tel:01423220320">01423-220320</a>
-          <span className={styles.divider}>|</span>
-          <a href="tel:8006005111">🚑 Ambulance Available</a>
+          {/* <span className={styles.divider}>|</span>
+          <a href="tel:8006005111">🚑 Ambulance Available</a> */}
         </span>
       </div>
 
