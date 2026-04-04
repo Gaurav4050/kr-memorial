@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 import { galleryImages } from '@/data/hospital';
 import styles from './gallery.module.css';
 
@@ -32,8 +33,15 @@ export default function GalleryPage() {
           <div className={styles.grid}>
             {filtered.map((img, i) => (
               <div key={img.id} className={styles.card} style={{ '--delay': `${i * 0.05}s` }} onClick={() => setLightbox(img)}>
-                <div className={styles.imgPlaceholder} style={{ background: `hsl(${(img.id * 60) % 360}, 30%, 92%)` }}>
-                  <span className={styles.imgIcon}>{img.category === 'OT' ? '🏗️' : img.category === 'ICU' ? '🫀' : img.category === 'Rooms' ? '🛏️' : img.category === 'Diagnostics' ? '🔬' : img.category === 'Events' ? '🎉' : img.category === 'Team' ? '👥' : '🏥'}</span>
+                <div className={styles.imgContainer}>
+                  <Image 
+                    src={img.src} 
+                    alt={img.title}
+                    fill
+                    className={styles.imgTag}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority={i < 2}
+                  />
                 </div>
                 <div className={styles.cardOverlay}>
                   <span className={styles.catTag}>{img.category}</span>
@@ -47,7 +55,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Video Gallery */}
-      <section className={styles.videoSection}>
+      {/* <section className={styles.videoSection}>
         <div className="container">
           <div className="section-header">
             <span className="section-tag">Videos</span>
@@ -65,25 +73,32 @@ export default function GalleryPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Virtual Tour CTA */}
-      <section className={styles.tourCta}>
+      {/* <section className={styles.tourCta}>
         <div className="container" style={{ textAlign: 'center' }}>
           <span style={{ fontSize: '56px', display: 'block', marginBottom: '16px' }}>🏥</span>
           <h2>Virtual 360° Tour</h2>
           <p>Take a virtual walk through K.R. Memorial Hospital from the comfort of your home.</p>
           <button className="btn btn-primary btn-lg">🔗 Launch Virtual Tour</button>
         </div>
-      </section>
+      </section> */}
 
       {/* Lightbox */}
       {lightbox && (
         <div className={styles.lightboxOverlay} onClick={() => setLightbox(null)}>
           <div className={styles.lightbox} onClick={e => e.stopPropagation()}>
             <button className={styles.closeBtn} onClick={() => setLightbox(null)}>✕</button>
-            <div className={styles.lightboxImg} style={{ background: `hsl(${(lightbox.id * 60) % 360}, 30%, 90%)` }}>
-              <span style={{ fontSize: '80px' }}>🏥</span>
+            <div className={styles.lightboxImgContainer}>
+              <Image 
+                src={lightbox.src} 
+                alt={lightbox.title}
+                fill
+                className={styles.lightboxImage}
+                sizes="90vw"
+                priority
+              />
             </div>
             <div className={styles.lightboxInfo}>
               <span className={styles.catTag}>{lightbox.category}</span>
