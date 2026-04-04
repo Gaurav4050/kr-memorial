@@ -965,22 +965,22 @@ export const blogPosts = [
 ];
 
 export const galleryImages = [
-  { id: 1, src: "/gallery/hospital-front.jpg", title: "Hospital Building", category: "Infrastructure", description: "200+ bedded multi-super specialty hospital on NH-11, Sikar Road" },
-  { id: 2, src: "/gallery/reception.jpg", title: "Reception & OPD Area", category: "Infrastructure", description: "Modern reception area with digital queue management" },
-  { id: 3, src: "/gallery/ot-1.jpg", title: "Operation Theatre 1", category: "OT", description: "Modular OT with laminar air flow and HD laparoscopic system" },
-  { id: 4, src: "/gallery/ot-2.jpg", title: "Operation Theatre 2", category: "OT", description: "Advanced cardiac OT with heart-lung machine capability" },
-  { id: 5, src: "/gallery/icu.jpg", title: "Intensive Care Unit", category: "ICU", description: "State-of-the-art ICU with advanced ventilators and monitoring" },
-  { id: 6, src: "/gallery/dialysis.jpg", title: "Dialysis Unit", category: "Diagnostics", description: "Dedicated dialysis center with Fresenius machines" },
-  { id: 7, src: "/gallery/cath-lab.jpg", title: "Cardiac Cath Lab", category: "Diagnostics", description: "Flat-panel cath lab for coronary interventions and stenting" },
-  { id: 8, src: "/gallery/private-room.jpg", title: "Private Room", category: "Rooms", description: "Comfortable private rooms with attendant facilities" },
-  { id: 9, src: "/gallery/semi-private.jpg", title: "Semi-Private Room", category: "Rooms", description: "Semi-private rooms with modern amenities" },
-  { id: 10, src: "/gallery/general-ward.jpg", title: "General Ward", category: "Rooms", description: "Clean and well-maintained general ward beds" },
-  { id: 11, src: "/gallery/lab.jpg", title: "Pathology Lab", category: "Diagnostics", description: "Fully automated pathology & biochemistry laboratory" },
-  { id: 12, src: "/gallery/pharmacy.jpg", title: "24/7 Pharmacy", category: "Infrastructure", description: "In-house pharmacy with all essential medications" },
-  { id: 13, src: "/gallery/health-camp.jpg", title: "Health Camp", category: "Events", description: "Free health screening camp in rural Rajasthan" },
-  { id: 14, src: "/gallery/team-photo.jpg", title: "Our Medical Team", category: "Team", description: "KR Memorial Hospital dedicated medical professionals" },
-  { id: 15, src: "/gallery/emergency.jpg", title: "Emergency Department", category: "Infrastructure", description: "24/7 emergency department with triage system" },
-  { id: 16, src: "/gallery/ambulance.jpg", title: "Advanced Ambulance", category: "Infrastructure", description: "ALS-equipped ambulance fleet for emergency response" },
+  { id: 1, src: "https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775283548/WhatsApp_Image_2026-04-03_at_1.50.11_PM_fxjc9k.jpg", title: "Hospital Building", category: "Infrastructure", description: "200+ bedded multi-super specialty hospital on NH-11, Sikar Road" },
+  { id: 2, src: "https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775283780/WhatsApp_Image_2026-04-03_at_1.50.12_PM_rydkhs.jpg", title: "Reception & OPD Area", category: "Infrastructure", description: "Modern reception area with digital queue management" },
+  { id: 3, src: "https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775283962/image_1_usmyoq.jpg", title: "Operation Theatre 1", category: "OT", description: "Modular OT with laminar air flow and HD laparoscopic system" },
+  { id: 4, src: "https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775284099/image_5_1_qsvlia.jpg", title: "Operation Theatre 2", category: "OT", description: "Advanced cardiac OT with heart-lung machine capability" },
+  { id: 5, src: "https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775284178/WhatsApp_Image_2026-04-03_a111t_1.50.11_PM_wvwnxz.jpg", title: "Intensive Care Unit", category: "ICU", description: "State-of-the-art ICU with advanced ventilators and monitoring" },
+  // { id: 6, src: "/gallery/dialysis.jpg", title: "Dialysis Unit", category: "Diagnostics", description: "Dedicated dialysis center with Fresenius machines" },
+  // { id: 7, src: "/gallery/cath-lab.jpg", title: "Cardiac Cath Lab", category: "Diagnostics", description: "Flat-panel cath lab for coronary interventions and stenting" },
+  // { id: 8, src: "/gallery/private-room.jpg", title: "Private Room", category: "Rooms", description: "Comfortable private rooms with attendant facilities" },
+  // { id: 9, src: "/gallery/semi-private.jpg", title: "Semi-Private Room", category: "Rooms", description: "Semi-private rooms with modern amenities" },
+  { id: 10, src: "https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775284237/WhatsApp_Image_2026-04-03_at_1.50.11_PM_aae73b.jpg", title: "General Ward", category: "Rooms", description: "Clean and well-maintained general ward beds" },
+  // { id: 11, src: "/gallery/lab.jpg", title: "Pathology Lab", category: "Diagnostics", description: "Fully automated pathology & biochemistry laboratory" },
+  // { id: 12, src: "/gallery/pharmacy.jpg", title: "24/7 Pharmacy", category: "Infrastructure", description: "In-house pharmacy with all essential medications" },
+  // { id: 13, src: "/gallery/health-camp.jpg", title: "Health Camp", category: "Events", description: "Free health screening camp in rural Rajasthan" },
+  // { id: 14, src: "/gallery/team-photo.jpg", title: "Our Medical Team", category: "Team", description: "KR Memorial Hospital dedicated medical professionals" },
+  { id: 15, src: "https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775284293/WhatsApp_Image_2026-04-03_at_1.5055.11_PM_sk4a1z.jpg", title: "Emergency Department", category: "Infrastructure", description: "24/7 emergency department with triage system" },
+  { id: 16, src: "https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775284349/WhatsApp_Image_2026-04dasdad-03_at_1.50.12_PM_nno1pz.jpg", title: "Advanced Ambulance", category: "Infrastructure", description: "ALS-equipped ambulance fleet for emergency response" },
 ];
 
 export const managementTeam = [
