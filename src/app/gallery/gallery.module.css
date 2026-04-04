@@ -12,6 +12,8 @@
 .card { position: relative; border-radius: 16px; overflow: hidden; cursor: pointer; aspect-ratio: 4/3; animation: fadeUp 0.4s ease var(--delay, 0s) both; transition: 0.3s; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.imgContainer { position: relative; width: 100%; height: 100%; }
+.imgTag { object-fit: cover; object-position: center; }
 .imgPlaceholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
 .imgIcon { font-size: 48px; opacity: 0.5; }
 .cardOverlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); padding: 20px 16px 16px; color: #fff; opacity: 0; transform: translateY(8px); transition: 0.3s; }
@@ -37,6 +39,8 @@
 .lightbox { background: #fff; border-radius: 20px; max-width: 700px; width: 100%; overflow: hidden; position: relative; animation: scaleIn 0.25s ease; }
 @keyframes scaleIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
 .closeBtn { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; background: rgba(0,0,0,0.5); border: none; border-radius: 50%; color: #fff; font-size: 16px; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; }
+.lightboxImgContainer { position: relative; aspect-ratio: 16/10; width: 100%; overflow: hidden; }
+.lightboxImage { object-fit: cover; object-position: center; }
 .lightboxImg { aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center; }
 .lightboxInfo { padding: 24px; }
 .lightboxInfo h3 { font-family: 'DM Sans', sans-serif; font-size: 20px; margin: 8px 0; }
