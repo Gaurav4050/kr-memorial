@@ -83,12 +83,19 @@
 }
 
 .logoImage {
-  width: 50px;
-  height: 50px;
-  border-radius: 8px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
-  background: #f5f5f5;
-  padding: 2px;
+  border-radius: 12px;
+  background: #fff;
+  padding: 4px;
+  box-shadow: 0 4px 16px rgba(11,61,145,0.08);
+  border: 1.5px solid #F1F5F9;
+  transition: 0.3s ease;
+}
+.logo:hover .logoImage {
+  transform: scale(1.06);
+  box-shadow: 0 6px 20px rgba(11,61,145,0.12);
 }
 
 .logoIcon {
@@ -451,6 +458,9 @@
     to { opacity: 1; }
   }
 }
+
+
+
 
 @media (max-width: 480px) {
   .emergencyContent {
