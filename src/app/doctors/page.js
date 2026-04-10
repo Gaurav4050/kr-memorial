@@ -4,212 +4,262 @@ import Link from 'next/link';
 import { doctors as staticDoctors, departments } from '@/data/hospital';
 import styles from './doctors.module.css';
 
-export default function DoctorsPage() {
-  const [search, setSearch] = useState('');
-  const [specialty, setSpecialty] = useState('');
-  const [selectedDoctor, setSelectedDoctor] = useState(null);
-  const [doctors, setDoctors] = useState([...staticDoctors].reverse());
+const deptColor = (doc) => departments.find(d => d.id === doc.departmentId)?.color || '#0B3D91';
+const deptIcon  = (doc) => departments.find(d => d.id === doc.departmentId)?.icon  || '🏥';
 
+export default function DoctorsPage() {
+  const [search, setSearch]   = useState('');
+  const [specialty, setSpecialty] = useState('');
+  const [selected, setSelected] = useState(null);
+  const [doctors, setDoctors]   = useState([...staticDoctors].reverse());
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
   useEffect(() => {
     fetch(`${API_URL}/doctors`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.success && data.data.length > 0) {
-          setDoctors([...data.data].reverse());
-        }
-      })
+      .then(r => r.json())
+      .then(d => { if (d.success && d.data.length > 0) setDoctors([...d.data].reverse()); })
       .catch(console.error);
   }, [API_URL]);
 
   const filtered = doctors.filter(doc => {
-    const matchSearch = doc.name.toLowerCase().includes(search.toLowerCase()) ||
-      doc.specialty.toLowerCase().includes(search.toLowerCase());
-    const matchSpecialty = !specialty || doc.departmentId === specialty;
-    return matchSearch && matchSpecialty;
+    const q = search.toLowerCase();
+    return (doc.name.toLowerCase().includes(q) || doc.specialty.toLowerCase().includes(q))
+      && (!specialty || doc.departmentId === specialty);
   });
 
   return (
     <>
-      {/* Hero */}
+      {/* ── HERO ── */}
       <section className={styles.hero}>
-        <div className="container">
-          <span className="section-tag" style={{ background: 'rgba(255,255,255,0.15)', color: '#fff' }}>Our Medical Team</span>
-          <h1>Meet Our Expert Doctors</h1>
-          <p>15+ specialist departments, 50+ experienced doctors — find the right doctor for your healthcare needs.</p>
-        </div>
-      </section>
-
-      {/* Filter Bar */}
-      <section className={styles.filterBar}>
-        <div className={styles.filterInner}>
-          <div className={styles.searchBox}>
-            <span>🔍</span>
-            <input
-              type="text"
-              placeholder="Search by doctor name or specialty..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </div>
-          <select value={specialty} onChange={(e) => setSpecialty(e.target.value)} className={styles.filterSelect}>
-            <option value="">All Departments</option>
-            {departments.map(d => (
-              <option key={d.id} value={d.id}>{d.name}</option>
+        <div className={styles.heroBg} />
+        <div className={styles.heroOrb1} /><div className={styles.heroOrb2} />
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <span className={styles.heroTag}>Our Medical Team</span>
+          <h1 className={styles.heroH1}>Meet Our <em>Expert Doctors</em></h1>
+          <p className={styles.heroSub}>
+            50+ experienced specialists across 15 super-specialty departments — your trusted partners in health.
+          </p>
+          <div className={styles.heroStats}>
+            {[
+              { num: '50+', label: 'Doctors' },
+              { num: '15',  label: 'Specialties' },
+              { num: '25K+', label: 'Patients / Year' },
+              { num: '15+', label: 'Avg Experience' },
+            ].map((s, i) => (
+              <div key={i} className={styles.heroStat}>
+                <div className={styles.heroStatNum}>{s.num}</div>
+                <div className={styles.heroStatLabel}>{s.label}</div>
+              </div>
             ))}
-          </select>
-          <span className={styles.resultCount}>Showing {filtered.length} doctors</span>
+          </div>
         </div>
       </section>
 
-      {/* Doctors Grid */}
-      <section className={styles.doctorsGrid}>
-        <div className="container">
-          <div className={styles.grid}>
-            {filtered.map(doc => {
-              const dept = departments.find(d => d.id === doc.departmentId);
-              return (
-                <div key={doc._id || doc.id} className={styles.card} id={doc._id || doc.id}>
-                  <div className={styles.cardImg}>
-                    {doc.imageUrl ? (
-                      <img src={doc.imageUrl} alt={doc.name} style={{ width: '100%', height: '100%', objectFit: 'cover',
-                        objectPosition:'top center'
-                       }} />
-                    ) : (
-                      <div className={styles.imgPlaceholder} style={{ background: `linear-gradient(135deg, ${dept?.color || '#0B3D91'}22, ${dept?.color || '#0B3D91'}08)` }}>
-                        <span style={{ fontSize: '56px' }}>👨‍⚕️</span>
-                      </div>
-                    )}
-                    <span className={styles.expBadge}>{doc.experience}+ yrs exp</span>
-                  </div>
-                  <div className={styles.cardBody}>
-                    <h3>{doc.name}</h3>
-                    <p className={styles.qual}>{doc.qualification}</p>
-                    {doc.designation && <p className={styles.designation}>{doc.designation}</p>}
-                    <span className={styles.specialtyPill} style={{ background: `${dept?.color || '#0B3D91'}15`, color: dept?.color || '#0B3D91', borderColor: `${dept?.color}30` }}>
-                      {dept?.icon} {doc.specialty}
-                    </span>
-                    <div className={styles.opdInfo}>
-                      <span>🕐 OPD: {doc.opdDays}</span>
-                      <span>📍 {doc.opdTime}</span>
-                    </div>
-                    {doc.languages && doc.languages.length > 0 && (
-                      <div className={styles.languages}>
-                        🗣️ {doc.languages.join(', ')}
-                      </div>
-                    )}
-                    <div className={styles.cardBtns}>
-                      <button className="btn btn-sm btn-outline" onClick={() => setSelectedDoctor(doc)}>View Profile</button>
-                      <Link href="/appointment" className="btn btn-sm btn-primary">Book Now</Link>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+      {/* ── FILTER BAR ── */}
+      <section className={styles.filterSection}>
+        <div className={styles.filterCard}>
+          <div className={styles.searchWrap}>
+            <span className={styles.searchIcon}>🔍</span>
+            <input
+              className={styles.searchInput}
+              type="text"
+              placeholder="Search doctor name or specialty…"
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+            />
+            {search && (
+              <button className={styles.clearBtn} onClick={() => setSearch('')}>✕</button>
+            )}
           </div>
+          <div className={styles.deptPillsWrap}>
+            <button
+              className={`${styles.deptPill} ${!specialty ? styles.deptPillActive : ''}`}
+              onClick={() => setSpecialty('')}
+            >All</button>
+            {departments.map(d => (
+              <button
+                key={d.id}
+                className={`${styles.deptPill} ${specialty === d.id ? styles.deptPillActive : ''}`}
+                style={specialty === d.id ? { background: d.color, borderColor: d.color } : {}}
+                onClick={() => setSpecialty(specialty === d.id ? '' : d.id)}
+              >
+                {d.icon} {d.name}
+              </button>
+            ))}
+          </div>
+          <div className={styles.resultBadge}>
+            <span>{filtered.length}</span> doctor{filtered.length !== 1 ? 's' : ''} found
+          </div>
+        </div>
+      </section>
 
-          {filtered.length === 0 && (
+      {/* ── DOCTORS GRID ── */}
+      <section className={styles.gridSection}>
+        <div className="container">
+          {filtered.length === 0 ? (
             <div className={styles.noResults}>
-              <span style={{ fontSize: '48px' }}>🔍</span>
+              <span>🔍</span>
               <h3>No doctors found</h3>
-              <p>Try adjusting your search or filter criteria.</p>
+              <p>Try a different search or clear the filter.</p>
+              <button className="btn btn-outline" onClick={() => { setSearch(''); setSpecialty(''); }}>
+                Reset Filters
+              </button>
+            </div>
+          ) : (
+            <div className={styles.grid}>
+              {filtered.map(doc => {
+                const color = deptColor(doc);
+                const icon  = deptIcon(doc);
+                const dept  = departments.find(d => d.id === doc.departmentId);
+                return (
+                  <article key={doc._id || doc.id} className={styles.card} id={doc._id || doc.id}>
+                    {/* Photo */}
+                    <div className={styles.cardPhoto} style={{ '--dc': color }}>
+                      {doc.imageUrl ? (
+                        <img src={doc.imageUrl} alt={doc.name} className={styles.cardPhotoImg} />
+                      ) : (
+                        <div className={styles.cardPhotoPlaceholder} style={{ background: `linear-gradient(135deg,${color}33,${color}11)` }}>
+                          <span>👨‍⚕️</span>
+                        </div>
+                      )}
+                      <div className={styles.cardPhotoGrad} style={{ background: `linear-gradient(0deg,${color}ee 0%,transparent 55%)` }} />
+                      <span className={styles.cardSpecBadge} style={{ background: color }}>
+                        {icon} {doc.specialty}
+                      </span>
+                      <span className={styles.cardExpBadge}>{doc.experience}+ yrs</span>
+                    </div>
+
+                    {/* Info */}
+                    <div className={styles.cardBody}>
+                      <h3 className={styles.cardName}>{doc.name}</h3>
+                      <p className={styles.cardQual}>{doc.qualification}</p>
+                      {doc.designation && <p className={styles.cardDesig}>{doc.designation}</p>}
+
+                      {(doc.opdDays || doc.opdTime) && (
+                        <div className={styles.cardOpd}>
+                          <span>🗓</span>
+                          <span>{doc.opdDays}</span>
+                          {doc.opdTime && <><span className={styles.dot} /><span>🕐 {doc.opdTime}</span></>}
+                        </div>
+                      )}
+
+                      {doc.languages?.length > 0 && (
+                        <div className={styles.cardLangs}>
+                          🗣️ {doc.languages.join(' · ')}
+                        </div>
+                      )}
+
+                      <div className={styles.cardActions}>
+                        <button
+                          className={styles.profileBtn}
+                          onClick={() => setSelected(doc)}
+                        >
+                          View Profile
+                        </button>
+                        <Link href="/appointment" className={styles.bookBtn} style={{ background: color }}>
+                          Book Now
+                        </Link>
+                      </div>
+                    </div>
+
+                    {/* Color accent bar */}
+                    <div className={styles.cardAccent} style={{ background: color }} />
+                  </article>
+                );
+              })}
             </div>
           )}
         </div>
       </section>
 
-      {/* Doctor Profile Modal */}
-      {selectedDoctor && (
-        <div className={styles.modalOverlay} onClick={() => setSelectedDoctor(null)}>
-          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-            <button className={styles.closeBtn} onClick={() => setSelectedDoctor(null)}>✕</button>
-            <div className={styles.modalHeader}>
-              <div className={styles.modalImg}>
-                {selectedDoctor.imageUrl ? (
-                  <img src={selectedDoctor.imageUrl} alt={selectedDoctor.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+      {/* ── STATS STRIP ── */}
+      <section className={styles.statsStrip}>
+        <div className="container">
+          <div className={styles.statsRow}>
+            {[
+              { icon: '🏥', num: '15+', label: 'Departments' },
+              { icon: '👨‍⚕️', num: '50+', label: 'Specialists' },
+              { icon: '🎓', num: '25+', label: 'Avg Years Experience' },
+              { icon: '⭐', num: '4.8', label: 'Avg Doctor Rating' },
+              { icon: '📅', num: '500+', label: 'Daily OPD Visits' },
+            ].map((s, i) => (
+              <div key={i} className={styles.statItem}>
+                <span className={styles.statIcon}>{s.icon}</span>
+                <div className={styles.statNum}>{s.num}</div>
+                <div className={styles.statLabel}>{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PROFILE MODAL ── */}
+      {selected && (
+        <div className={styles.modalOverlay} onClick={() => setSelected(null)}>
+          <div className={styles.modal} onClick={e => e.stopPropagation()}>
+            <button className={styles.closeBtn} onClick={() => setSelected(null)}>✕</button>
+
+            {/* Modal header with gradient */}
+            <div className={styles.modalHdr} style={{ '--mc': deptColor(selected) }}>
+              <div className={styles.modalImgWrap}>
+                {selected.imageUrl ? (
+                  <img src={selected.imageUrl} alt={selected.name} className={styles.modalImg} />
                 ) : (
-                  <span style={{ fontSize: '64px' }}>👨‍⚕️</span>
+                  <div className={styles.modalImgPlaceholder}>👨‍⚕️</div>
                 )}
               </div>
-              <div className={styles.modalInfo}>
-                <h2>{selectedDoctor.name}</h2>
-                <p className={styles.modalQual}>{selectedDoctor.qualification}</p>
-                {selectedDoctor.designation && <p className={styles.modalDes}>{selectedDoctor.designation}</p>}
-                <span className={styles.specialtyPill} style={{ background: `${departments.find(d => d.id === selectedDoctor.departmentId)?.color || '#0B3D91'}15`, color: departments.find(d => d.id === selectedDoctor.departmentId)?.color }}>
-                  {selectedDoctor.specialty}
+              <div className={styles.modalHdrInfo}>
+                <span className={styles.modalSpecPill} style={{ background: deptColor(selected) }}>
+                  {deptIcon(selected)} {selected.specialty}
                 </span>
-                <div className={styles.modalMeta}>
-                  <span>🏥 {selectedDoctor.experience}+ years experience</span>
-                  {selectedDoctor.languages && selectedDoctor.languages.length > 0 && (
-                    <span>🗣️ {selectedDoctor.languages.join(', ')}</span>
-                  )}
-                  <span>🕐 {selectedDoctor.opdDays} | {selectedDoctor.opdTime}</span>
+                <h2 className={styles.modalName}>{selected.name}</h2>
+                <p className={styles.modalQual}>{selected.qualification}</p>
+                {selected.designation && <p className={styles.modalDesig}>{selected.designation}</p>}
+                <div className={styles.modalMetaRow}>
+                  <span>🏅 {selected.experience}+ yrs</span>
+                  <span>⭐ {selected.rating || '4.8'}</span>
+                  {selected.languages?.length > 0 && <span>🗣️ {selected.languages.join(', ')}</span>}
                 </div>
               </div>
             </div>
 
+            {/* Modal body */}
             <div className={styles.modalBody}>
-              {selectedDoctor.bio && (
+              {selected.bio && (
                 <div className={styles.modalSection}>
-                  <h4>About</h4>
-                  <p>{selectedDoctor.bio}</p>
+                  <h4>About Dr. {selected.name.split(' ').pop()}</h4>
+                  <p>{selected.bio}</p>
                 </div>
               )}
 
-              <div className={styles.modalSection}>
-                <h4>Availability</h4>
-                <ul>
-                  <li>📅 OPD Days: {selectedDoctor.opdDays}</li>
-                  <li>⏰ OPD Time: {selectedDoctor.opdTime}</li>
-                  <li>📞 Experience: {selectedDoctor.experience}+ years</li>
-                </ul>
+              <div className={styles.modalScheduleGrid}>
+                {[
+                  { icon: '📅', label: 'OPD Days', value: selected.opdDays },
+                  { icon: '🕐', label: 'OPD Time', value: selected.opdTime },
+                  { icon: '🏥', label: 'Experience', value: `${selected.experience}+ years` },
+                  { icon: '⭐', label: 'Rating', value: `${selected.rating || '4.8'} / 5.0` },
+                ].filter(r => r.value).map((row, i) => (
+                  <div key={i} className={styles.scheduleBox}>
+                    <span className={styles.scheduleIcon}>{row.icon}</span>
+                    <div>
+                      <div className={styles.scheduleLabel}>{row.label}</div>
+                      <div className={styles.scheduleValue}>{row.value}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
 
-              <div className={styles.modalSection}>
-                <h4>OPD Schedule</h4>
-                <div className={styles.opdTable}>
-                  <div><strong>Days:</strong> {selectedDoctor.opdDays}</div>
-                  <div><strong>Timing:</strong> {selectedDoctor.opdTime}</div>
-                  <div><strong>Designation:</strong> {selectedDoctor.designation}</div>
-                </div>
-              </div>
-
-              <Link href="/appointment" className="btn btn-primary btn-lg" style={{ width: '100%', justifyContent: 'center', marginTop: '16px' }}>
-                📅 Book Appointment with {selectedDoctor.name.split(' ')[0]}. {selectedDoctor.name.split(' ').slice(-1)[0]}
+              <Link
+                href="/appointment"
+                className="btn btn-primary btn-lg"
+                style={{ width: '100%', justifyContent: 'center', marginTop: '20px', background: deptColor(selected) }}
+              >
+                📅 Book Appointment with {selected.name.split(' ')[0]}. {selected.name.split(' ').slice(-1)[0]}
               </Link>
             </div>
           </div>
         </div>
       )}
-
-      {/* Management Team */}
-      {/* <section className={styles.managementSection}>
-        <div className="container">
-          <div className="section-header">
-            <span className="section-tag">Leadership</span>
-            <h2>Hospital Management</h2>
-            <p>Dedicated leaders driving excellence in healthcare delivery and patient care.</p>
-          </div>
-          <div className={styles.mgmtGrid}>
-            {[
-              { name: 'Dr. Rajendra Prasad', role: 'Hospital Director', desc: 'Leading KR Memorial with a vision to make quality healthcare accessible to every household in Rajasthan.' },
-              { name: 'Dr. Anand Verma', role: 'Medical Superintendent', desc: 'Overseeing clinical operations and ensuring highest standards of patient care and safety.' },
-              { name: 'Mrs. Sunita Mathur', role: 'Chief Nursing Officer', desc: 'Leading 200+ nursing team with dedication to compassionate patient care and clinical excellence.' },
-              { name: 'Mr. Vijay Pratap', role: 'Admin Head', desc: 'Ensuring smooth hospital operations, infrastructure, and patient support services.' },
-            ].map((m, i) => (
-              <div key={i} className={styles.mgmtCard}>
-                <div className={styles.mgmtAvatar}>
-                  <span style={{ fontSize: '40px' }}>{i < 2 ? '👨‍💼' : i === 2 ? '👩‍💼' : '👨‍💼'}</span>
-                </div>
-                <h4>{m.name}</h4>
-                <span className={styles.mgmtRole}>{m.role}</span>
-                <p>{m.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
     </>
   );
 }
