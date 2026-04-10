@@ -4,7 +4,6 @@ import Footer from '@/components/Footer';
 import FloatingButtons from '@/components/FloatingButtons';
 
 export const metadata = {
-  metadataBase: new URL('https://krmemorialhospital.com'),
   title: {
     default: 'K.R. Memorial Hospital — Best Multi-Specialty Hospital in Jaipur, Rajasthan | 200+ Beds',
     template: '%s | K.R. Memorial Hospital, Jaipur',
@@ -48,18 +47,9 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://krmemorialhospital.com',
     siteName: 'K.R. Memorial Hospital',
     title: 'K.R. Memorial Hospital — Best Multi-Specialty Hospital in Jaipur, Rajasthan',
     description: '200+ bedded multi-super specialty hospital in Chomu, Jaipur. 15 specialties, 50+ doctors, 24/7 emergency. Book appointment today.',
-    images: [
-      {
-        url: '/logo.jpeg',
-        width: 500,
-        height: 500,
-        alt: 'K.R. Memorial Hospital Logo',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -67,7 +57,6 @@ export const metadata = {
     creator: '@KRMHospital',
     title: 'K.R. Memorial Hospital — Best Multi-Specialty Hospital in Jaipur',
     description: '200+ bedded multi-super specialty hospital in Chomu, Jaipur. 15 specialties, 50+ doctors, 24/7 emergency.',
-    images: ['/logo.jpeg'],
   },
   robots: {
     index: true,
@@ -87,20 +76,7 @@ export const metadata = {
     google: 'your-google-verification-code',
   },
   category: 'healthcare',
-  icons: {
-    icon: [
-      {
-        url: '/logo.jpeg',
-        type: 'image/jpeg',
-      },
-    ],
-    apple: [
-      {
-        url: '/logo.jpeg',
-        type: 'image/jpeg',
-      },
-    ],
-  },
+
 };
 
 // Structured Data (JSON-LD)
