@@ -5,6 +5,12 @@ import { useState, useEffect, useRef } from 'react';
 import { hospitalInfo, departments } from '@/data/hospital';
 import styles from './Header.module.css';
 
+const socialLinks = [
+  { icon: 'f', label: 'Facebook', href: 'https://facebook.com/krmhofficial' },
+  { icon: 'in', label: 'Instagram', href: 'https://instagram.com/krmhospital' },
+  { icon: 'tw', label: 'Twitter', href: 'https://twitter.com/KRMHospital' },
+];
+
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [deptOpen, setDeptOpen] = useState(false);
@@ -53,8 +59,6 @@ export default function Header() {
           <a href="tel:8006005111">8006005111</a>
           <span className={styles.divider}>|</span>
           <a href="tel:01423220320">01423-220320</a>
-          {/* <span className={styles.divider}>|</span>
-          <a href="tel:8006005111">🚑 Ambulance Available</a> */}
         </span>
       </div>
 
@@ -65,8 +69,8 @@ export default function Header() {
             <Image
               src="/logo.jpeg"
               alt="K.R. Memorial Hospital Logo"
-              width={50}
-              height={50}
+              width={68}
+              height={68}
               className={styles.logoImage}
               priority
             />
@@ -81,6 +85,7 @@ export default function Header() {
 
           <ul className={`${styles.navLinks} ${mobileOpen ? styles.navLinksOpen : ''}`}>
             <li><Link href="/" onClick={closeAll}>Home</Link></li>
+            <li><Link href="/about" onClick={closeAll}>About Us</Link></li>
 
             {/* Departments dropdown */}
             <li className={styles.hasDropdown} ref={dropdownRef}>
@@ -111,10 +116,9 @@ export default function Header() {
             </li>
 
             <li><Link href="/doctors" onClick={closeAll}>Doctors</Link></li>
-            <li><Link href="/empanelments" onClick={closeAll}>Empanelments</Link></li>
             <li><Link href="/gallery" onClick={closeAll}>Gallery</Link></li>
-            <li><Link href="/about" onClick={closeAll}>About Us</Link></li>
-            <li><Link href="/contact" onClick={closeAll}>Contact</Link></li>
+            <li><Link href="/empanelments" onClick={closeAll}>Empanelments</Link></li>
+            <li><Link href="/contact" onClick={closeAll}>Contact Us</Link></li>
             {/* <li><Link href="/blog" onClick={closeAll}>Health Blog</Link></li> */}
             <li>
               <Link href="/appointment" className={styles.navCta} onClick={closeAll}>
