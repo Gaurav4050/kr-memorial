@@ -248,7 +248,7 @@ export const directorProfiles = [
     title: "HOD Business Promotion",
     tagline: "Visionary nursing leader shaping healthcare education and hospital excellence across Rajasthan.",
     experience: "15 Years",
-    qualification: "B.Sc. Nursing, M.Sc.",
+    qualification: "",
     age: "40 Years",
     image: "/directors/maya-sharma.png",
     shortBio:
