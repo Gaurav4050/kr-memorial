@@ -39,14 +39,23 @@
 .equipCard h4 { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; }
 
 .docSection { padding: 80px 0; background: #F8FAFC; }
-.docGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.docCard { background: #fff; border-radius: 20px; padding: 28px; text-align: center; border: 1.5px solid #E2E8F0; transition: 0.3s; }
-.docCard:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(11,61,145,0.1); }
-.docAvatar { font-size: 48px; margin-bottom: 12px; }
-.docCard h4 { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 600; margin-bottom: 4px; }
-.docCard > p { font-size: 12px; color: #64748B; margin-bottom: 8px; }
-.desg { display: inline-block; font-size: 11px; color: #0B3D91; font-weight: 600; background: #EFF6FF; padding: 4px 12px; border-radius: 12px; margin-bottom: 14px; }
-.docMeta { display: flex; justify-content: center; gap: 16px; margin-bottom: 16px; font-size: 13px; font-weight: 500; color: #64748B; }
+.docGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.docCard { background: #fff; border-radius: 20px; overflow: hidden; border: 1.5px solid #E2E8F0; transition: 0.3s; display: flex; flex-direction: column; align-items: center; padding-bottom: 22px; gap: 0; box-shadow: 0 2px 8px rgba(11,61,145,0.04); }
+.docCard:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(11,61,145,0.12); border-color: #BFDBFE; }
+.docPhotoWrap { width: 100%; height: 400px; background: #EFF6FF; overflow: hidden; position: relative; flex-shrink: 0; }
+.docPhoto { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+.docAvatar { width: 100%; height: 100%; font-size: 72px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #EFF6FF, #DBEAFE); }
+.docInfo { padding: 18px 20px 14px; text-align: center; flex: 1; width: 100%; }
+.docCard h4 { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 4px; color: #1e293b; line-height: 1.3; }
+.docQual { font-size: 12px; color: #64748B; margin-bottom: 8px; line-height: 1.5; font-style: italic; }
+.docSpecialty { font-size: 13px; color: #64748B; margin-bottom: 10px; line-height: 1.5; }
+.desg { display: inline-block; font-size: 11px; color: #0B3D91; font-weight: 600; background: #EFF6FF; padding: 4px 12px; border-radius: 12px; margin-top: 2px; }
+.docMeta { display: flex; justify-content: center; gap: 12px; margin: 10px 0 0; font-size: 12px; font-weight: 500; color: #475569; flex-wrap: wrap; }
+.docOpd { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 10px 14px; margin-top: 12px; display: flex; flex-direction: column; gap: 6px; text-align: left; }
+.opdItem { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #475569; }
+.opdItem span:first-child { font-size: 13px; flex-shrink: 0; }
+.opdItem span:last-child { font-weight: 500; }
+.docCard > a { margin: 8px 20px 0; width: calc(100% - 40px); text-align: center; justify-content: center; }
 
 .ctaSection { background: linear-gradient(135deg, #082d6b, #0B3D91); color: #fff; padding: 80px 0; }
 .ctaSection h2 { font-size: clamp(24px, 3vw, 36px); margin-bottom: 14px; }

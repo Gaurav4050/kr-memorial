@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { departments, doctors } from '@/data/hospital';
+import { departmentDoctors } from '@/data/departmentDoctors';
 import styles from './deptDetail.module.css';
 
 export async function generateStaticParams() {
@@ -27,7 +28,10 @@ export default async function DepartmentDetail({ params }) {
   const dept = departments.find(d => d.id === slug);
   if (!dept) notFound();
 
-  const deptDoctors = doctors.filter(doc => doc.departmentId === dept.id);
+  const deptDoctors = [
+    ...doctors.filter(doc => doc.departmentId === dept.id),
+    ...(departmentDoctors.find(d => d.departmentId === dept.id)?.doctors || []),
+  ];
 
   return (
     <>
@@ -111,7 +115,7 @@ export default async function DepartmentDetail({ params }) {
       </section>
 
       {/* Department Doctors */}
-      {/* {deptDoctors.length > 0 && (
+      {deptDoctors.length > 0 && (
         <section className={styles.docSection}>
           <div className="container">
             <div className="section-header">
@@ -120,22 +124,40 @@ export default async function DepartmentDetail({ params }) {
             </div>
             <div className={styles.docGrid}>
               {deptDoctors.map(doc => (
-                <div key={doc.id} className={styles.docCard}>
-                  <div className={styles.docAvatar}>👨‍⚕️</div>
-                  <h4>{doc.name}</h4>
-                  <p>{doc.qualification}</p>
-                  <span className={styles.desg}>{doc.designation}</span>
-                  <div className={styles.docMeta}>
-                    <span>⭐ {doc.rating}</span>
-                    <span>{doc.experience}+ yrs</span>
+                <div key={doc.id || doc._id} className={styles.docCard}>
+                  <div className={styles.docPhotoWrap}>
+                    {(doc.imageUrl || doc.image) && !String(doc.imageUrl || doc.image).includes('placeholder') ? (
+                      <img
+                        src={doc.imageUrl || doc.image}
+                        alt={doc.name}
+                        className={styles.docPhoto}
+                      />
+                    ) : (
+                      <div className={styles.docAvatar} style={{ background: `linear-gradient(135deg,${dept.color}33,${dept.color}11)` }}>👨‍⚕️</div>
+                    )}
                   </div>
-                  <Link href="/appointment" className="btn btn-sm btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Book Appointment</Link>
+                  <div className={styles.docInfo}>
+                    <h4>{doc.name}</h4>
+                    {doc.qualification && <p className={styles.docQual}>{doc.qualification}</p>}
+                    {doc.designation && <span className={styles.desg}>{doc.designation}</span>}
+                    <div className={styles.docMeta}>
+                      {doc.experience && <span>🏥 {doc.experience}+ Yrs</span>}
+                      {doc.languages && doc.languages.length > 0 && <span>🗣 {doc.languages.join(', ')}</span>}
+                    </div>
+                    {(doc.opdDays || doc.opdTime) && (
+                      <div className={styles.docOpd}>
+                        {doc.opdDays && <div className={styles.opdItem}><span>📅</span><span>{doc.opdDays}</span></div>}
+                        {doc.opdTime && <div className={styles.opdItem}><span>🕐</span><span>{doc.opdTime}</span></div>}
+                      </div>
+                    )}
+                  </div>
+                  <Link href="/appointment" className="btn btn-sm btn-primary" style={{ justifyContent: 'center', background: dept.color, color: '#fff' }}>Book Appointment</Link>
                 </div>
               ))}
             </div>
           </div>
         </section>
-      )} */}
+      )}
 
       {/* CTA */}
       <section className={styles.ctaSection}>
