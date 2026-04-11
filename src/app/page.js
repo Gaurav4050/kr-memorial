@@ -18,23 +18,27 @@ const heroSlides = [
     id: 1,
     tag: "Jaipur's #1 Multi-Specialty Hospital",
     heading: 'Advanced Healthcare,\nCompassionate Care',
-    sub: 'K.R. Memorial Hospital — a 200+ bedded, ultra-modern multi-super specialty hospital bringing world-class healthcare to Rajasthan since 2009.',
+    sub: 'K.R. Memorial Hospital — a 200+ bedded, ultra-modern multi-super specialty hospital bringing world-class healthcare to Rajasthan since 2020.',
     cta1: { label: 'Book Appointment', href: '/appointment', icon: '📅' },
     cta2: { label: 'Meet Our Doctors', href: '/doctors', icon: '👨‍⚕️' },
     accent: '#F59E0B',
     overlay: 'linear-gradient(120deg, rgba(11,61,145,0.92) 0%, rgba(11,61,145,0.65) 60%, rgba(11,61,145,0.3) 100%)',
-    bg: '/hero-hospital6.png',
+    bgDesktop: '/hero-hospital6.png',
+    bgMobile: '/hero-hospital6.png',
   },
   {
     id: 2,
-    tag: 'State-of-the-Art Cardiology',
-    heading: 'Heart Care You\nCan Trust',
-    sub: 'Flat-panel Cath Lab, 24/7 primary PCI, and a dedicated cardiac team ensuring the best outcomes for every heart patient.',
-    cta1: { label: 'Cardiology Dept.', href: '/departments/cardiology', icon: '🫀' },
-    cta2: { label: 'Emergency: Call Now', href: 'tel:8006005111', icon: '🚑' },
+    tag: '',
+    heading: '',
+    sub: '',
+    cta1: null,
+    cta2: null,
     accent: '#DC2626',
-    overlay: 'linear-gradient(120deg, rgba(50,5,5,0.92) 0%, rgba(100,10,10,0.65) 60%, rgba(100,10,10,0.3) 100%)',
-    bg: '/hero-hospital6.png',
+    overlay: 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 100%)',
+    bgDesktop: 'https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775925101/Medical_expert_promotional_banner_joswra.png',
+    bgTablet: 'https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775923929/Gemini_Generated_Image_7h9cwp7h9cwp7h9c_dbfmdn.png',
+    bgMobile: 'https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775925219/Dr._Amar_Sharma_-_General_Surgery_Expert_vly3ko.png',
+    imageOnly: true,
   },
   {
     id: 3,
@@ -45,7 +49,8 @@ const heroSlides = [
     cta2: { label: 'Get Directions', href: hospitalInfo?.mapUrl || '#', icon: '📍' },
     accent: '#0EA5A4',
     overlay: 'linear-gradient(120deg, rgba(5,40,50,0.92) 0%, rgba(5,80,80,0.65) 60%, rgba(5,80,80,0.3) 100%)',
-    bg: '/hero-hospital6.png',
+    bgDesktop: '/hero-hospital6.png',
+    bgMobile: '/hero-hospital6.png',
   },
 ];
 
@@ -89,7 +94,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setInterval(() => {
       goToSlide((slide + 1) % heroSlides.length);
-    }, 5500);
+    }, 4000);
     return () => clearInterval(timer);
   }, [slide, goToSlide]);
 
@@ -154,54 +159,72 @@ export default function Home() {
       <section className={styles.heroCarousel} aria-label="Hospital highlights carousel">
         {/* Background image */}
         <div
-          className={`${styles.carouselBg} ${isTransitioning ? styles.carouselBgFade : ''}`}
-          style={{ backgroundImage: `url(${current.bg})` }}
+          className={`${styles.carouselBg} ${isTransitioning ? styles.carouselBgFade : ''} ${current.imageOnly ? styles.carouselBgImageOnly : ''}`}
+          style={{ 
+            '--bg-desktop': `url(${current.bgDesktop})`,
+            '--bg-tablet': `url(${current.bgTablet})`,
+            '--bg-mobile': `url(${current.bgMobile})`
+          }}
         />
-        {/* Gradient overlay keeps changing per slide */}
-        <div className={styles.carouselOverlay} style={{ background: current.overlay }} />
+        {/* Gradient overlay — hidden for image-only slides so colours stay true */}
+        {!current.imageOnly && <div className={styles.carouselOverlay} style={{ background: current.overlay }} />}
         {/* Grid noise */}
         <div className={styles.carouselGrid} />
 
         <div className={styles.carouselInner}>
-          <div className={`${styles.carouselContent} ${isTransitioning ? styles.contentFade : styles.contentVisible}`}>
-            <span className={styles.carouselTag} style={{ borderColor: current.accent, color: current.accent }}>
-              <span className={styles.tagDot} style={{ background: current.accent }} />
-              {current.tag}
-            </span>
-            <h1 className={styles.carouselH1}>
-              {current.heading.split('\n').map((line, i) => (
-                <span key={i}>{i === 1 ? <em style={{ color: current.accent }}>{line}</em> : line}<br /></span>
-              ))}
-            </h1>
-            <p className={styles.carouselSub}>{current.sub}</p>
-            <div className={styles.carouselBtns}>
-              <Link href={current.cta1.href} className={styles.carouselCta1} style={{ background: current.accent }}>
-                <span>{current.cta1.icon}</span> {current.cta1.label}
-              </Link>
-              <Link href={current.cta2.href} className={styles.carouselCta2}>
-                <span>{current.cta2.icon}</span> {current.cta2.label}
-              </Link>
+          {!current.imageOnly && (
+            <div className={`${styles.carouselContent} ${isTransitioning ? styles.contentFade : styles.contentVisible}`}>
+              {current.tag && (
+                <span className={styles.carouselTag} style={{ borderColor: current.accent, color: current.accent }}>
+                  <span className={styles.tagDot} style={{ background: current.accent }} />
+                  {current.tag}
+                </span>
+              )}
+              {current.heading && (
+                <h1 className={styles.carouselH1}>
+                  {current.heading.split('\n').map((line, i) => (
+                    <span key={i}>{i === 1 ? <em style={{ color: current.accent }}>{line}</em> : line}<br /></span>
+                  ))}
+                </h1>
+              )}
+              {current.sub && <p className={styles.carouselSub}>{current.sub}</p>}
+              {(current.cta1 || current.cta2) && (
+                <div className={styles.carouselBtns}>
+                  {current.cta1 && (
+                    <Link href={current.cta1.href} className={styles.carouselCta1} style={{ background: current.accent }}>
+                      <span>{current.cta1.icon}</span> {current.cta1.label}
+                    </Link>
+                  )}
+                  {current.cta2 && (
+                    <Link href={current.cta2.href} className={styles.carouselCta2}>
+                      <span>{current.cta2.icon}</span> {current.cta2.label}
+                    </Link>
+                  )}
+                </div>
+              )}
+              {/* Pills */}
+              <div className={styles.heroPills}>
+                {['✅ Cashless Treatment', '🔬 Advanced Lab', '🚑 24/7 Ambulance', '💊 In-house Pharmacy'].map(p => (
+                  <span key={p} className={styles.heroPill}>{p}</span>
+                ))}
+              </div>
             </div>
-            {/* Pills */}
-            <div className={styles.heroPills}>
-              {['✅ Cashless Treatment', '🔬 Advanced Lab', '🚑 24/7 Ambulance', '💊 In-house Pharmacy'].map(p => (
-                <span key={p} className={styles.heroPill}>{p}</span>
-              ))}
-            </div>
-          </div>
+          )}
 
-          {/* Right: floating info cards */}
-          <div className={styles.carouselRight}>
-            <div className={`${styles.floatCard} ${styles.fc1}`}>
-              <span>🏥</span><div><strong>25,000+</strong><small>Patients Treated</small></div>
+          {/* Right: floating info cards — only on non-imageOnly slides */}
+          {!current.imageOnly && (
+            <div className={styles.carouselRight}>
+              <div className={`${styles.floatCard} ${styles.fc1}`}>
+                <span>🏥</span><div><strong>150000+</strong><small>Patients Treated</small></div>
+              </div>
+              <div className={`${styles.floatCard} ${styles.fc2}`}>
+                <span>⭐</span><div><strong>4.8 / 5</strong><small>Patient Rating</small></div>
+              </div>
+              <div className={`${styles.floatCard} ${styles.fc3}`}>
+                <span>🛡️</span><div><strong>20+ Insurers</strong><small>Cashless Network</small></div>
+              </div>
             </div>
-            <div className={`${styles.floatCard} ${styles.fc2}`}>
-              <span>⭐</span><div><strong>4.8 / 5</strong><small>Patient Rating</small></div>
-            </div>
-            <div className={`${styles.floatCard} ${styles.fc3}`}>
-              <span>🛡️</span><div><strong>20+ Insurers</strong><small>Cashless Network</small></div>
-            </div>
-          </div>
+          )}
         </div>
 
         {/* Slide dots */}
@@ -231,7 +254,7 @@ export default function Home() {
             { target: 200, label: 'Hospital Beds', icon: '🛏️' },
             { target: 50, label: 'Expert Doctors', icon: '👨‍⚕️' },
             { target: 15, label: 'Specialties', icon: '🏥' },
-            { target: 25000, label: 'Patients Treated', icon: '❤️' },
+            { target: 150000, label: 'Patients Treated', icon: '❤️' },
             { target: 20, label: 'Insurance Partners', icon: '🛡️' },
           ].map((s, i) => (
             <div key={i} className={styles.statBox} data-reveal>
@@ -492,7 +515,7 @@ export default function Home() {
                     {doc.specialty}
                   </span>
                   {/* Years badge top-right */}
-                  <span className={styles.doctorYrBadge}>{doc.experience}+ yrs</span>
+                  {/* <span className={styles.doctorYrBadge}>{doc.experience}+ yrs</span> */}
                 </div>
 
                 <div className={styles.doctorInfoHalf}>
@@ -615,7 +638,6 @@ export default function Home() {
               {[
                 { num: '20+', label: 'Insurers', icon: '🛡️' },
                 { num: '₹0', label: 'Upfront Cost', icon: '💳' },
-                { num: 'CGHS', label: 'Govt Scheme', icon: '🏛️' },
                 { num: 'RGHS', label: 'State Scheme', icon: '🏢' },
               ].map((s, i) => (
                 <div key={i} className={styles.empaStat}>
