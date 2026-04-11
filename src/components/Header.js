@@ -93,7 +93,7 @@ export default function Header() {
                 onClick={() => setDeptOpen(!deptOpen)}
                 className={`${styles.dropBtn} ${deptOpen ? styles.dropBtnActive : ''}`}
               >
-                Departments <span className={`${styles.arrow} ${deptOpen ? styles.arrowOpen : ''}`}>▾</span>
+                Our Services <span className={`${styles.arrow} ${deptOpen ? styles.arrowOpen : ''}`}>▾</span>
               </button>
               <div className={`${styles.dropdown} ${deptOpen ? styles.dropdownOpen : ''}`}>
                 {departments.map(dept => (
