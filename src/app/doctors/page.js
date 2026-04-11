@@ -5,13 +5,13 @@ import { doctors as staticDoctors, departments } from '@/data/hospital';
 import styles from './doctors.module.css';
 
 const deptColor = (doc) => departments.find(d => d.id === doc.departmentId)?.color || '#0B3D91';
-const deptIcon  = (doc) => departments.find(d => d.id === doc.departmentId)?.icon  || '🏥';
+const deptIcon = (doc) => departments.find(d => d.id === doc.departmentId)?.icon || '🏥';
 
 export default function DoctorsPage() {
-  const [search, setSearch]   = useState('');
+  const [search, setSearch] = useState('');
   const [specialty, setSpecialty] = useState('');
   const [selected, setSelected] = useState(null);
-  const [doctors, setDoctors]   = useState([...staticDoctors].reverse());
+  const [doctors, setDoctors] = useState([...staticDoctors].reverse());
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
   useEffect(() => {
@@ -42,8 +42,8 @@ export default function DoctorsPage() {
           <div className={styles.heroStats}>
             {[
               { num: '50+', label: 'Doctors' },
-              { num: '15',  label: 'Specialties' },
-              { num: '25K+', label: 'Patients / Year' },
+              { num: '15', label: 'Specialties' },
+              { num: '150K+', label: 'Patients Treated' },
               { num: '15+', label: 'Avg Experience' },
             ].map((s, i) => (
               <div key={i} className={styles.heroStat}>
@@ -109,8 +109,8 @@ export default function DoctorsPage() {
             <div className={styles.grid}>
               {filtered.map(doc => {
                 const color = deptColor(doc);
-                const icon  = deptIcon(doc);
-                const dept  = departments.find(d => d.id === doc.departmentId);
+                const icon = deptIcon(doc);
+                const dept = departments.find(d => d.id === doc.departmentId);
                 return (
                   <article key={doc._id || doc.id} className={styles.card} id={doc._id || doc.id}>
                     {/* Photo */}
@@ -126,14 +126,12 @@ export default function DoctorsPage() {
                       <span className={styles.cardSpecBadge} style={{ background: color }}>
                         {icon} {doc.specialty}
                       </span>
-                      <span className={styles.cardExpBadge}>{doc.experience}+ yrs</span>
                     </div>
 
                     {/* Info */}
                     <div className={styles.cardBody}>
                       <h3 className={styles.cardName}>{doc.name}</h3>
                       <p className={styles.cardQual}>{doc.qualification}</p>
-                      {doc.designation && <p className={styles.cardDesig}>{doc.designation}</p>}
 
                       {(doc.opdDays || doc.opdTime) && (
                         <div className={styles.cardOpd}>
@@ -179,8 +177,6 @@ export default function DoctorsPage() {
             {[
               { icon: '🏥', num: '15+', label: 'Departments' },
               { icon: '👨‍⚕️', num: '50+', label: 'Specialists' },
-              { icon: '🎓', num: '25+', label: 'Avg Years Experience' },
-              { icon: '⭐', num: '4.8', label: 'Avg Doctor Rating' },
               { icon: '📅', num: '500+', label: 'Daily OPD Visits' },
             ].map((s, i) => (
               <div key={i} className={styles.statItem}>
@@ -214,10 +210,7 @@ export default function DoctorsPage() {
                 </span>
                 <h2 className={styles.modalName}>{selected.name}</h2>
                 <p className={styles.modalQual}>{selected.qualification}</p>
-                {selected.designation && <p className={styles.modalDesig}>{selected.designation}</p>}
                 <div className={styles.modalMetaRow}>
-                  <span>🏅 {selected.experience}+ yrs</span>
-                  <span>⭐ {selected.rating || '4.8'}</span>
                   {selected.languages?.length > 0 && <span>🗣️ {selected.languages.join(', ')}</span>}
                 </div>
               </div>
@@ -236,8 +229,6 @@ export default function DoctorsPage() {
                 {[
                   { icon: '📅', label: 'OPD Days', value: selected.opdDays },
                   { icon: '🕐', label: 'OPD Time', value: selected.opdTime },
-                  { icon: '🏥', label: 'Experience', value: `${selected.experience}+ years` },
-                  { icon: '⭐', label: 'Rating', value: `${selected.rating || '4.8'} / 5.0` },
                 ].filter(r => r.value).map((row, i) => (
                   <div key={i} className={styles.scheduleBox}>
                     <span className={styles.scheduleIcon}>{row.icon}</span>
