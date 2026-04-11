@@ -114,7 +114,6 @@ export default function PatientServicesPage() {
               { icon: '💳', title: 'Cards', desc: 'All major credit & debit cards accepted' },
               { icon: '📱', title: 'UPI', desc: 'Google Pay, PhonePe, Paytm & other UPI apps' },
               { icon: '🛡️', title: 'Insurance', desc: 'Cashless with 20+ empanelled insurers' },
-              { icon: '🏛️', title: 'Govt Schemes', desc: 'CGHS, RGHS, Ayushman Bharat, ECHS' },
               { icon: '📊', title: 'EMI Options', desc: 'EMI available for select procedures' },
             ].map((item, i) => (
               <div key={i} className={styles.payCard}>
