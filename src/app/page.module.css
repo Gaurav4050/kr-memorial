@@ -12,11 +12,19 @@
 .carouselBg {
   position: absolute;
   inset: 0;
+  background-image: var(--bg-desktop);
   background-size: cover;
   background-position: center 30%;
   transition: opacity 0.5s ease;
   transform: scale(1.04);
   animation: kbEffect 9s ease-in-out infinite alternate;
+}
+
+@media (max-width: 1024px) {
+  .carouselBg {
+    background-image: var(--bg-mobile);
+    background-position: center top; 
+  }
 }
 
 @keyframes kbEffect {
@@ -32,6 +40,44 @@
 .carouselBgFade {
   opacity: 0;
   transition: opacity 0.4s ease;
+}
+
+/* Image-only slide: blue backdrop + contained image, no ken-burns */
+.carouselBgImageOnly {
+  background-color: #01257d !important;
+  background-image: var(--bg-desktop) !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-origin: content-box !important;
+  padding: 50px 0px !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+/* for mobile device use color #00257f instead of #022d8e for better contrast with the image */
+
+/* Desktop: 1024px and above */
+@media (min-width: 1024px) {
+  .carouselBgImageOnly {
+      background-color: #022d8e !important;
+  }
+}
+
+/* Tablet: 768px to 1024px */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .carouselBgImageOnly {
+    background-image: var(--bg-tablet) !important;
+    padding: 45px 40px !important;
+  }
+}
+
+/* Mobile: below 768px */
+@media (max-width: 767px) {
+  .carouselBgImageOnly {
+    background-image: var(--bg-mobile) !important;
+    padding: 40px 24px !important;
+  }
 }
 
 .carouselOverlay {

@@ -6,7 +6,7 @@ import { managementTeam, directorProfiles } from '@/data/hospital';
 import styles from './about.module.css';
 
 const timeline = [
-  { year: '2009', title: 'Hospital Founded', desc: 'K.R. Memorial Hospital established with a mission to bring specialized healthcare to Chomu and rural Rajasthan.', icon: '🏥' },
+  { year: '2020', title: 'Hospital Founded', desc: 'K.R. Memorial Hospital established with a mission to bring specialized healthcare to Chomu and rural Rajasthan.', icon: '🏥' },
   { year: '2011', title: 'First OT Complex', desc: 'State-of-the-art operation theatre complex inaugurated with two modular OTs.', icon: '🔬' },
   { year: '2013', title: 'ICU Expansion', desc: 'Advanced ICU with ventilators and multi-para monitors set up for critical care patients.', icon: '💉' },
   { year: '2015', title: '100-Bed Milestone', desc: 'Hospital capacity expanded to 100 beds with new departments added.', icon: '🛏️' },
@@ -29,7 +29,6 @@ const accreditations = [
   { icon: '📜', label: 'ISO 9001:2015 Certified' },
   { icon: '🏛️', label: 'NABH Application In Progress' },
   { icon: '🎖️', label: 'Best Multi-Specialty Hospital – Rajasthan 2022' },
-  { icon: '🩺', label: 'CGHS Empanelled Institution' },
   { icon: '🌟', label: 'Top Rated Hospital – Google Reviews' },
 ];
 
@@ -51,7 +50,7 @@ export default function AboutPage() {
             <div className={styles.heroLeft}>
               <span className={styles.heroTag}>Our Story</span>
               <h1 className={styles.heroH1}>Healing Lives in the<br /><em>Heart of Rajasthan</em></h1>
-              <p className={styles.heroSub}>Since 2009, K.R. Memorial Hospital has been committed to providing world-class healthcare at affordable prices to the people of Rajasthan.</p>
+              <p className={styles.heroSub}>Since 2020, K.R. Memorial Hospital has been committed to providing world-class healthcare at affordable prices to the people of Rajasthan.</p>
               <div className={styles.heroCtas}>
                 <Link href="/appointment" className="btn btn-primary btn-lg">📅 Book Appointment</Link>
                 <Link href="/contact" className="btn btn-secondary btn-lg">📞 Contact Us</Link>
@@ -60,10 +59,10 @@ export default function AboutPage() {
             <div className={styles.heroRight}>
               <div className={styles.heroStatsGrid}>
                 {[
-                  { num: 'Est.\n2009', label: 'Founded' },
+                  { num: 'Est.\n2020', label: 'Founded' },
                   { num: '200+', label: 'Hospital Beds' },
                   { num: '15', label: 'Specialties' },
-                  { num: '25,000+', label: 'Patients / Year' },
+                  { num: '150000+', label: 'Patients treated' }
                 ].map((stat, i) => (
                   <div key={i} className={styles.heroStatBox}>
                     <div className={styles.heroStatNum}>{stat.num}</div>
@@ -96,7 +95,7 @@ export default function AboutPage() {
               </div>
               <div className={styles.storyYearBadge}>
                 <span>Est.</span>
-                <strong>2009</strong>
+                <strong>2020</strong>
               </div>
               <div className={styles.storyNabhBadge}>
                 <span>🏅</span>
@@ -261,7 +260,7 @@ export default function AboutPage() {
       {/* ════════════════════════════════
           05. TIMELINE
       ════════════════════════════════ */}
-      <section className={styles.timelineSection}>
+      {/* <section className={styles.timelineSection}>
         <div className="container">
           <div className="section-header">
             <span className="section-tag">Our Journey</span>
@@ -287,7 +286,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ════════════════════════════════
           06. INFRASTRUCTURE
