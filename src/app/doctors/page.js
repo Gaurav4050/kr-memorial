@@ -42,7 +42,7 @@ export default function DoctorsPage() {
           <div className={styles.heroStats}>
             {[
               { num: '50+', label: 'Doctors' },
-              { num: '15', label: 'Specialties' },
+              { num: '15', label: 'Super Specialties' },
               { num: '150K+', label: 'Patients Treated' },
               { num: '15+', label: 'Avg Experience' },
             ].map((s, i) => (
