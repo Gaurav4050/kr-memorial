@@ -16,7 +16,7 @@ export default function PatientServicesPage() {
       </section>
 
       {/* Quick Links */}
-      <section className={styles.quickLinks}>
+      {/* <section className={styles.quickLinks}>
         <div className="container">
           <div className={styles.linksGrid}>
             {['🏥 Admission', '🛏️ Room Types', '💳 Billing', '👥 Visitors', '🍽️ Diet', '📋 Records', '💬 Feedback', '❓ FAQ'].map((item, i) => (
@@ -24,7 +24,7 @@ export default function PatientServicesPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Admission Process */}
       <section className={styles.section}>
@@ -113,7 +113,7 @@ export default function PatientServicesPage() {
               { icon: '💵', title: 'Cash', desc: 'Cash payments accepted at billing counter' },
               { icon: '💳', title: 'Cards', desc: 'All major credit & debit cards accepted' },
               { icon: '📱', title: 'UPI', desc: 'Google Pay, PhonePe, Paytm & other UPI apps' },
-              { icon: '🛡️', title: 'Insurance', desc: 'Cashless with 20+ empanelled insurers' },
+              { icon: '🛡️', title: 'Insurance', desc: 'Cashless with 50+ empanelled insurers' },
               { icon: '📊', title: 'EMI Options', desc: 'EMI available for select procedures' },
             ].map((item, i) => (
               <div key={i} className={styles.payCard}>
