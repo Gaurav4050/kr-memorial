@@ -35,7 +35,7 @@ const heroSlides = [
     cta2: null,
     accent: '#DC2626',
     overlay: 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 100%)',
-    bgDesktop: 'https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1776196828/Dr._Amar_Sharma__Leading_Surgeon_Expertise_ittbm8.png',
+    bgDesktop: 'https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1776198144/Dr._Amar_Sharma__Leading_Surgeon_Expertise_wr6bds.png',
     bgTablet: 'https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775923929/Gemini_Generated_Image_7h9cwp7h9cwp7h9c_dbfmdn.png',
     bgMobile: 'https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1776197026/ChatGPT_Image_Apr_15_2026_01_33_13_AM_zsun2u.png',
     imageOnly: true,
