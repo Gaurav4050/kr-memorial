@@ -56,7 +56,7 @@ export default function GalleryPage() {
               { num: `${galleryImages.length}+`, label: 'Gallery Photos' },
               { num: categories.length - 1, label: 'Categories' },
               { num: '200+', label: 'Beds' },
-              { num: '15', label: 'Specialties' },
+              { num: '15', label: 'Super Specialties' },
             ].map((s, i) => (
               <div key={i} className={styles.heroStat}>
                 <div className={styles.heroStatNum}>{s.num}</div>
