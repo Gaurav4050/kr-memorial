@@ -94,7 +94,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setInterval(() => {
       goToSlide((slide + 1) % heroSlides.length);
-    }, 400000);
+    }, 4000);
     return () => clearInterval(timer);
   }, [slide, goToSlide]);
 
