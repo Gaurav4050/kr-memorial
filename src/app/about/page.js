@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { managementTeam, directorProfiles } from '@/data/hospital';
+import { managementTeam, directorProfiles, groupInstitutions } from '@/data/hospital';
 import styles from './about.module.css';
 
 const timeline = [
@@ -32,8 +32,30 @@ const accreditations = [
   { icon: '🌟', label: 'Top Rated Hospital – Google Reviews' },
 ];
 
+const groupIcons = {
+  '🏥': (name) => /hospital/i.test(name),
+  '🎓': (name) => /college|nursing|school|b\.sc|gnm/i.test(name),
+  '🔬': (name) => /paramedical/i.test(name),
+  '💊': (name) => /pharmacy|llp/i.test(name),
+  '📚': (name) => /career|coaching|institute/i.test(name),
+  '🏫': (name) => /school/i.test(name),
+};
+
+function getInstIcon(name) {
+  if (/hospital/i.test(name)) return '🏥';
+  if (/paramedical/i.test(name)) return '🔬';
+  if (/pharmacy|llp/i.test(name)) return '💊';
+  if (/career|coaching/i.test(name)) return '📚';
+  if (/public school/i.test(name)) return '🏫';
+  if (/college|nursing|school/i.test(name)) return '🎓';
+  return '🏢';
+}
+
+const groupAccents = ['#0B3D91', '#00897B', '#F59E0B'];
+
 export default function AboutPage() {
   const [activeTimeline, setActiveTimeline] = useState(null);
+  const [activeGroup, setActiveGroup] = useState(0);
 
   return (
     <>
@@ -61,7 +83,7 @@ export default function AboutPage() {
                 {[
                   { num: 'Est.\n2020', label: 'Founded' },
                   { num: '200+', label: 'Hospital Beds' },
-                  { num: '15', label: 'Specialties' },
+                  { num: '15', label: 'Super Specialties' },
                   { num: '150000+', label: 'Patients treated' }
                 ].map((stat, i) => (
                   <div key={i} className={styles.heroStatBox}>
@@ -240,7 +262,7 @@ export default function AboutPage() {
                     ))}
                   </ul>
                   {/* Badges row */}
-                  <div className={styles.leaderBadgeRow}>
+                  {/* <div className={styles.leaderBadgeRow}>
                     <span className={styles.leaderExpBadge}>
                       🏆 {director.experience} Experience
                     </span>
@@ -249,7 +271,7 @@ export default function AboutPage() {
                         👤 Age: {director.age}
                       </span>
                     )}
-                  </div>
+                  </div> */}
                 </div>
               </div>
             );
@@ -260,33 +282,101 @@ export default function AboutPage() {
       {/* ════════════════════════════════
           05. TIMELINE
       ════════════════════════════════ */}
-      {/* <section className={styles.timelineSection}>
-        <div className="container">
-          <div className="section-header">
-            <span className="section-tag">Our Journey</span>
-            <h2>Milestones of Growth</h2>
-            <p>A chronicle of dedication, innovation, and expanding access to quality healthcare.</p>
+      {/* <section className={styles.timelineSection}> */}
+
+      {/* ════════════════════════════════
+          05-B. GROUP ECOSYSTEM
+      ════════════════════════════════ */}
+      <section className={styles.groupSection}>
+
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          {/* ── Header ── */}
+          <div className={`section-header ${styles.groupHeader}`}>
+            <span className={styles.groupSectionTag}>✦ K.R. Group Ecosystem ✦</span>
+            <h2 className={styles.groupH2}>One Vision.<br /><em className={styles.groupH2Em}>Many Institutions.</em></h2>
+            <p className={styles.groupSubtitle}>
+              From super-specialty hospital care to world-class education — the K.R. Group is building a complete ecosystem for a healthier, more educated Rajasthan.
+            </p>
           </div>
-          <div className={styles.timeline}>
-            <div className={styles.timelineLine} />
-            {timeline.map((item, i) => (
-              <div
-                key={i}
-                className={`${styles.tlItem} ${i % 2 === 0 ? styles.tlLeft : styles.tlRight}`}
-                onClick={() => setActiveTimeline(activeTimeline === i ? null : i)}
-              >
-                <div className={styles.tlContent}>
-                  <div className={styles.tlIcon}>{item.icon}</div>
-                  <div className={styles.tlYear}>{item.year}</div>
-                  <h4 className={styles.tlTitle}>{item.title}</h4>
-                  <p className={`${styles.tlDesc} ${activeTimeline === i ? styles.tlDescOpen : ''}`}>{item.desc}</p>
+
+          {/* ── Stat counters ── */}
+          <div className={styles.groupStats}>
+            {[
+              { num: groupInstitutions.reduce((acc, g) => acc + g.institutions.length, 0), label: 'Institutions', icon: '🏛️', color: '#F59E0B', glow: 'rgba(245,158,11,0.4)' },
+              { num: groupInstitutions.length, label: 'Groups', icon: '🌐', color: '#00897B', glow: 'rgba(0,137,123,0.4)' },
+              { num: '200+', label: 'Hospital Beds', icon: '🛏️', color: '#1a5eb8', glow: 'rgba(26,94,184,0.4)' },
+              { num: '2000+', label: 'Seats / Students', icon: '🎓', color: '#10B981', glow: 'rgba(16,185,129,0.4)' },
+            ].map((s, i) => (
+              <div key={i} className={styles.groupStat} style={{ '--sc': s.color, '--sg': s.glow }}>
+                <div className={styles.groupStatTop}>
+                  <span className={styles.groupStatIcon}>{s.icon}</span>
+                  <span className={styles.groupStatNum}>{s.num}</span>
                 </div>
-                <div className={styles.tlNode} />
+                <span className={styles.groupStatLabel}>{s.label}</span>
+                <div className={styles.groupStatGlow} />
               </div>
             ))}
           </div>
+
+          {/* ── Tab bar ── */}
+          <div className={styles.groupTabs}>
+            {groupInstitutions.map((g, i) => (
+              <button
+                key={i}
+                className={`${styles.groupTab} ${activeGroup === i ? styles.groupTabActive : ''}`}
+                style={{ '--ga': groupAccents[i] }}
+                onClick={() => setActiveGroup(i)}
+                aria-selected={activeGroup === i}
+              >
+                <span className={styles.groupTabDot} style={{ background: groupAccents[i] }} />
+                <span className={styles.groupTabName}>{g.group}</span>
+                <span className={styles.groupTabCount}>{g.institutions.length}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* ── Panels ── */}
+          {groupInstitutions.map((g, gi) => (
+            <div
+              key={gi}
+              className={`${styles.groupPanel} ${activeGroup === gi ? styles.groupPanelVisible : ''}`}
+              aria-hidden={activeGroup !== gi}
+            >
+              {/* Focus banner */}
+              <div className={styles.groupFocusBanner} style={{ '--ga': groupAccents[gi] }}>
+                <span className={styles.groupFocusIcon}>🎯</span>
+                <p><strong>Focus: </strong>{g.focus}</p>
+              </div>
+
+              {/* Institution cards */}
+              <div className={styles.groupCards}>
+                {g.institutions.map((inst, ii) => (
+                  <div
+                    key={ii}
+                    className={styles.groupCard}
+                    style={{ '--ga': groupAccents[gi], animationDelay: `${ii * 0.07}s` }}
+                  >
+                    <div className={styles.groupCardIconWrap}>
+                      <span className={styles.groupCardIcon}>{getInstIcon(inst.name)}</span>
+                    </div>
+                    <div className={styles.groupCardBody}>
+                      <h4 className={styles.groupCardName}>{inst.name}</h4>
+                      <p className={styles.groupCardActivity}>{inst.activity}</p>
+                    </div>
+                    {inst.capacity !== '-' && (
+                      <div className={styles.groupCardCap} style={{ '--ga': groupAccents[gi] }}>
+                        {inst.capacity}
+                      </div>
+                    )}
+                    <div className={styles.groupCardShine} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
-      </section> */}
+
+      </section>
 
       {/* ════════════════════════════════
           06. INFRASTRUCTURE
