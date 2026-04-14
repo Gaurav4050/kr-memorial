@@ -846,3 +846,441 @@
   .leaderName { font-size: 22px; }
 }
 
+/* ══════════════════════════════════════════
+   GROUP ECOSYSTEM SECTION  — REDESIGNED
+══════════════════════════════════════════ */
+
+.groupSection {
+  position: relative;
+  background: linear-gradient(135deg, #051d47 0%, #0B3D91 50%, #072756 100%);
+  padding: 90px 0 100px;
+  overflow: hidden;
+}
+
+/* ── Ambient lighting (matches other dark sections) ── */
+.groupSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 30%, rgba(245,158,11,0.1) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 80% 70%, rgba(0,137,123,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 50% 10%, rgba(255,255,255,0.04) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Subtle grid overlay (matches hero/accred sections) ── */
+.groupSection::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Header ── */
+.groupHeader {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.groupSectionTag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #F59E0B;
+  background: rgba(245,158,11,0.12);
+  border: 1.5px solid rgba(245,158,11,0.4);
+  border-radius: 30px;
+  padding: 7px 20px;
+  margin-bottom: 22px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.groupH2 {
+  font-size: clamp(32px, 5vw, 60px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+}
+
+.groupH2Em {
+  font-style: italic;
+  color: #FCD34D;
+}
+
+.groupSubtitle {
+  font-size: 17px;
+  color: rgba(255,255,255,0.62);
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+/* ══ STAT COUNTERS ══ */
+.groupStats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 64px;
+  position: relative;
+  z-index: 2;
+}
+
+.groupStat {
+  position: relative;
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255,255,255,0.14);
+  border-radius: 22px;
+  padding: 30px 24px 26px;
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.groupStat:hover {
+  transform: translateY(-6px);
+  border-color: var(--sc);
+  box-shadow: 0 0 36px var(--sg), 0 16px 40px rgba(0,0,0,0.35);
+  background: rgba(255,255,255,0.11);
+}
+
+/* Coloured glow orb behind each stat */
+.groupStatGlow {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--sc);
+  opacity: 0.12;
+  filter: blur(28px);
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.groupStat:hover .groupStatGlow { opacity: 0.28; }
+
+.groupStatTop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.groupStatIcon { font-size: 32px; line-height: 1; }
+
+.groupStatNum {
+  font-size: clamp(38px, 4.5vw, 56px);
+  font-weight: 900;
+  color: var(--sc);
+  font-family: 'Playfair Display', serif;
+  line-height: 1;
+  letter-spacing: -1px;
+  text-shadow: 0 0 40px color-mix(in srgb, var(--sc) 60%, transparent);
+}
+
+.groupStatLabel {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ══ TAB BAR ══ */
+.groupTabs {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 60px;
+  padding: 6px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.groupTab {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  border-radius: 50px;
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,0.55);
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+  white-space: nowrap;
+}
+
+.groupTab:hover {
+  color: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.07);
+}
+
+.groupTabActive {
+  background: rgba(255,255,255,0.18);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.groupTabActive:hover { opacity: 0.95; }
+
+.groupTabDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.groupTabActive .groupTabDot { opacity: 1; background: rgba(255,255,255,0.9) !important; }
+
+.groupTabName { flex: 1; }
+
+.groupTabCount {
+  font-size: 12px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.15);
+  min-width: 26px;
+  text-align: center;
+}
+
+.groupTabActive .groupTabCount {
+  background: rgba(255,255,255,0.25);
+}
+
+/* ══ PANEL ══ */
+.groupPanel {
+  display: none;
+  position: relative;
+  z-index: 2;
+}
+
+.groupPanelVisible {
+  display: block;
+  animation: groupPanelIn 0.4s cubic-bezier(0.4,0,0.2,1) both;
+}
+
+@keyframes groupPanelIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Focus banner ── */
+.groupFocusBanner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255,255,255,0.07);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  border-left: 4px solid #F59E0B;
+  border-radius: 0 16px 16px 0;
+  padding: 18px 28px;
+  margin-bottom: 28px;
+  backdrop-filter: blur(8px);
+}
+
+.groupFocusIcon { font-size: 24px; flex-shrink: 0; }
+
+.groupFocusBanner p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.groupFocusBanner strong {
+  color: #FCD34D;
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+/* ══ INSTITUTION CARDS ══ */
+.groupCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.groupCard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: rgba(255,255,255,0.07);
+  border: 1.5px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 22px 22px;
+  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  overflow: hidden;
+  cursor: default;
+  animation: groupCardIn 0.45s cubic-bezier(0.4,0,0.2,1) both;
+  backdrop-filter: blur(8px);
+}
+
+/* Top edge accent glow line */
+.groupCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 20px; right: 20px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--ga), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Left border stripe */
+.groupCard::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 16px; bottom: 16px;
+  width: 3px;
+  background: var(--ga);
+  border-radius: 0 3px 3px 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.groupCard:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.28);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.groupCard:hover::before,
+.groupCard:hover::after { opacity: 1; }
+
+/* Subtle shimmer overlay that sweeps on hover */
+.groupCardShine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.04) 50%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.groupCard:hover .groupCardShine { opacity: 1; }
+
+@keyframes groupCardIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Icon wrapper */
+.groupCardIconWrap {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.groupCard:hover .groupCardIconWrap {
+  transform: scale(1.08);
+  background: rgba(255,255,255,0.16);
+}
+
+.groupCardIcon { font-size: 28px; line-height: 1; }
+
+.groupCardBody { flex: 1; min-width: 0; }
+
+.groupCardName {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 5px;
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.35;
+}
+
+.groupCardActivity {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Capacity badge */
+.groupCardCap {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1.5px solid rgba(245,158,11,0.45);
+  color: #F59E0B;
+  background: rgba(245,158,11,0.1);
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: 0.3px;
+}
+
+/* ══ RESPONSIVE ══ */
+@media (max-width: 1100px) {
+  .groupStats { grid-template-columns: repeat(2, 1fr); }
+  .groupCards { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .groupSection { padding: 64px 0 72px; }
+  .groupStats { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .groupStatNum { font-size: 38px; }
+  .groupStat { padding: 22px 16px; }
+  .groupTabs {
+    flex-direction: column;
+    border-radius: 20px;
+    width: auto;
+    gap: 4px;
+  }
+  .groupTab { justify-content: space-between; border-radius: 14px; }
+  .groupCards { grid-template-columns: 1fr; }
+  .groupFocusBanner { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .groupCard { padding: 18px 16px; gap: 14px; }
+  .groupCardIconWrap { width: 50px; height: 50px; }
+  .groupCardIcon { font-size: 22px; }
+  .groupH2 { letter-spacing: -1px; }
+}
+
+@media (max-width: 480px) {
+  .groupStats { grid-template-columns: 1fr 1fr; }
+  .groupStatNum { font-size: 32px; }
+  .groupStatIcon { font-size: 24px; }
+}
+
