@@ -7,7 +7,7 @@ export const hospitalInfo = {
   tagline: "Your Health. Our Mission.",
   description: "A 200+ bedded multi-super specialty hospital bringing world-class healthcare to the heart of Rajasthan at affordable prices.",
   address: "Radha Swami Bagh, NH-11, Sikar Road, Chomu, Jaipur, Rajasthan 303702",
-  phone: ["8006005111", "01423-220320"],
+  phone: ["8006005111", "8006005105", "01423-220320"],
   email: "wecare@krmemorialhospital.com",
   website: "https://krmemorialhospital.com",
   foundedYear: 2020,
@@ -50,7 +50,7 @@ export const corporateProfile = {
   ],
   directors: [
     "Mr. Girdhari Lal Sharma",
-    "Dr. Amar Chand Sharma",
+    "Dr. Amar Sharma",
     "Mrs. Rajani Sharma",
   ],
   groupCompanies: [
@@ -117,26 +117,7 @@ export const directorProfilesHome = [
       "Public relations and interdepartmental coordination",
     ],
   },
-  {
-    id: "amar-chand-sharma",
-    name: "Dr. Amar Chand Sharma",
-    title: "Managing Director",
-    tagline: "Surgeon and healthcare builder focused on affordable excellence.",
-    experience: "15 Years",
-    qualification: "MBBS, DNB (General Surgery)",
-    age: "44 Years",
-    pan: "CRXPS2740B",
-    din: "07907796",
-    image: "/directors/amar-chand-sharma.png",
-    shortBio:
-      "MBBS (2008) and MS (2015), with experience at major institutions in Rajasthan. Since 2020, he has led K.R. Memorial Hospitals as a 200-bed super multi-speciality care center with a patient-first growth strategy.",
-    expertise: [
-      "General and laparoscopic surgery",
-      "Hospital administration and systems growth",
-      "Clinical quality and patient safety",
-      "Strategic healthcare infrastructure development",
-    ],
-  },
+ 
   {
     id: "sunil-sharma",
     name: "Mr. Sunil Sharma",
@@ -158,15 +139,36 @@ export const directorProfilesHome = [
       "Backs group-level development and long-term initiatives",
     ],
   },
+
+   {
+    id: "amar-chand-sharma",
+    name: "Dr. Amar Sharma",
+    title: "Managing Director",
+    tagline: "Surgeon and healthcare builder focused on affordable excellence.",
+    experience: "15 Years",
+    qualification: "MBBS, DNB (General Surgery)",
+    age: "44 Years",
+    pan: "CRXPS2740B",
+    din: "07907796",
+    image: "/directors/amar-chand-sharma.png",
+    shortBio:
+      "MBBS (2008) and MS (2015), with experience at major institutions in Rajasthan. Since 2020, he has led K.R. Memorial Hospitals as a 200-bed super multi-speciality care center with a patient-first growth strategy.",
+    expertise: [
+      "General and laparoscopic surgery",
+      "Hospital administration and systems growth",
+      "Clinical quality and patient safety",
+      "Strategic healthcare infrastructure development",
+    ],
+  }
 ];
 
-// For About Page (4 Directors - includes Rajani Sharma)
+// For About Page (includes all leadership team)
 export const directorProfiles = [
   {
     id: "girdhari-lal-sharma",
     name: "Mr. Girdhari Lal Sharma",
     title: "Chairman",
-    tagline: "Five decades of institutional leadership and public service.",
+    tagline: "Your trust is the greatest honour we could receive, and we will always be worthy of it.",
     experience: "50 Years",
     qualification: "",
     age: "76 Years",
@@ -174,59 +176,19 @@ export const directorProfiles = [
     din: "08917789",
     image: "/directors/girdhari-lal-sharma.png",
     shortBio:
-      "Retired as Assistant General Manager from Rajasthan State Road Transport Corporation and now actively guides administration, policy implementation, and institutional discipline across the K.R. ecosystem.",
+      "Your trust in K.R. Memorial Hospital is the foundation on which we have built every pillar of this institution. We believe every patient who walks through our doors deserves the best care — not as a privilege, but as a right. At K.R. Memorial, your health and dignity are our greatest responsibility. We are here not just to treat illness, but to care for you as family. Every decision we make is guided by one purpose: to make world-class healthcare accessible to all, especially those who need it most. Your well-being is our life's mission, and we will never stop working for it.",
     expertise: [
-      "Administrative leadership and institutional management",
-      "Human resource planning and supervision",
-      "Governance, compliance and policy execution",
-      "Public relations and interdepartmental coordination",
+      "Ensuring world-class care is accessible to every family we serve",
+      "Upholding the highest standards of patient dignity and service",
+      "Guiding strategies that always put patients first",
     ],
   },
-  {
-    id: "amar-chand-sharma",
-    name: "Dr. Amar Chand Sharma",
-    title: "Managing Director",
-    tagline: "Surgeon and healthcare builder focused on affordable excellence.",
-    experience: "15 Years",
-    qualification: "MBBS, DNB (General Surgery)",
-    age: "44 Years",
-    pan: "CRXPS2740B",
-    din: "07907796",
-    image: "/directors/amar-chand-sharma.png",
-    shortBio:
-      "MBBS (2008) and MS (2015), with experience at major institutions in Rajasthan. Since 2020, he has led K.R. Memorial Hospitals as a 200-bed super multi-speciality care center with a patient-first growth strategy.",
-    expertise: [
-      "General and laparoscopic surgery",
-      "Hospital administration and systems growth",
-      "Clinical quality and patient safety",
-      "Strategic healthcare infrastructure development",
-    ],
-  },
-  {
-    id: "rajani-sharma",
-    name: "Mrs. Rajani Sharma",
-    title: "Director - Education & Institutional Development",
-    tagline: "Nursing educator building healthcare workforce excellence across Rajasthan.",
-    experience: "15 Years",
-    qualification: "B.Sc. Nursing, M.Sc.",
-    age: "45 Years",
-    image: "/directors/rajani-sharma.png",
-    shortBio:
-      "Expert nursing administrator with over 15 years in academic leadership and institutional management. Currently leads the education vertical across K.R. Group, overseeing nursing colleges, paramedical programs, and skill development initiatives.",
-    expertise: [
-      "Nursing education and curriculum development",
-      "Healthcare institution management",
-      "Academic excellence and accreditation",
-      "Student mentoring and workforce development",
-      "Educational partnerships and expansion",
-    ],
-  },
-  {
+    {
     id: "sunil-sharma",
     name: "Mr. Sunil Sharma",
     spouse: "Mrs. Rajani Sharma (Director, Education & Institutional Management)",
     title: "Founder & President",
-    tagline: "Strategic financial backing for hospital expansion, education, and group initiatives.",
+    tagline: "Quality healthcare for every family — because you deserve the best, right here at home.",
     experience: "15 Years",
     qualification: "",
     age: "47 Years",
@@ -234,35 +196,84 @@ export const directorProfiles = [
     din: "07907790",
     image: "/directors/sunil-sharma.png",
     shortBio:
-      "Although not listed as a director, Mr. Sunil Sharma plays a vital support role across the group as a personal guarantor and financial backer for key institutional priorities.",
+      "K.R. Memorial Hospital stands as a testament to the belief that high-quality healthcare should be within reach of every family — not just a lucky few. We have invested in world-class infrastructure, specialist expertise, and a caring team so that you receive the treatment you truly deserve, right here in Rajasthan. Your trust in us is not something we take lightly; it is the very foundation of everything we do. We stand beside you and your family through every challenge and every step of your recovery journey. K.R. Memorial is your hospital — built for you, run for you, and always here for you.",
     expertise: [
-      "Acts as personal guarantor for the company and allied entities",
-      "Provides financial support for hospital expansion",
-      "Supports educational institutions through strategic funding",
-      "Backs group-level development and long-term initiatives",
+      "Ensuring K.R. Memorial is always there when your family needs it most",
+      "Investing in the infrastructure and expertise that serve patients best",
+      "Building an institution where your trust is honoured every single day",
     ],
   },
+  {
+    id: "amar-chand-sharma",
+    name: "Dr. Amar Sharma",
+    title: "Managing Director",
+    tagline: "Bringing world-class surgical care home — so you never have to leave Rajasthan for the best treatment.",
+    experience: "15 Years",
+    qualification: "MBBS, DNB (General Surgery)",
+    age: "44 Years",
+    pan: "CRXPS2740B",
+    din: "07907796",
+    image: "/directors/amar-chand-sharma.png",
+    shortBio:
+      "Every time a patient trusts us with their life, we renew our commitment to deliver nothing but the finest care. At K.R. Memorial, we have built a centre of clinical excellence right here in Rajasthan — so you never have to travel far for world-class treatment. Our team of super-specialist doctors, state-of-the-art operation theatres, and advanced ICU work around the clock to ensure your safety and recovery. We believe you deserve the best, and we are here to provide exactly that — with skill, compassion, and humanity. Your trust drives us to work harder, do better, and serve you with the dedication you truly deserve.",
+    expertise: [
+      "Delivering advanced surgical care with precision and genuine empathy",
+      "Building a team of specialists fully committed to your recovery",
+      "Driving patient safety and clinical excellence across all departments",
+    ],
+  },
+  {
+    id: "rajani-sharma",
+    name: "Mrs. Rajani Sharma",
+    title: "Director - Education & Institutional Development",
+    tagline: "Great healthcare begins with great caregivers — and we invest deeply in building both for you.",
+    experience: "15 Years",
+    qualification: "",
+    age: "45 Years",
+    image: "/directors/rajani-sharma.png",
+    shortBio:
+      "At K.R. Memorial, we understand that excellent healthcare begins with exceptionally trained caregivers. Every nurse and paramedic in our institution carries a commitment to treat patients with warmth, skill, and deep respect. We invest in building a healthcare workforce that is ready to serve you with both expertise and empathy. When you are under our care, we want you to feel safe, heard, and genuinely looked after. Your recovery matters to us on a deeply personal level — and we have built an ecosystem of compassionate care to ensure you heal in the best possible hands.",
+    expertise: [
+      "Training compassionate healthcare professionals who truly care for patients",
+      "Building a workforce equipped to serve you with skill and warmth",
+      "Advancing nursing and paramedical standards to benefit every patient",
+    ],
+  },
+
   {
     id: "maya-sharma",
     name: "Mrs. Maya Sharma",
     title: "HOD Business Promotion",
-    tagline: "Visionary nursing leader shaping healthcare education and hospital excellence across Rajasthan.",
+    tagline: "At K.R. Memorial, you will always find open arms, compassionate care, and a team that truly cares.",
     experience: "15 Years",
     qualification: "",
     age: "40 Years",
     image: "/directors/maya-sharma.png",
     shortBio:
-      "Accomplished nursing leader with over 15 years of experience spanning academic leadership, hospital administration, and healthcare workforce development. She plays a key role at K.R. Group in driving nursing and paramedical education while also contributing to operational excellence at K.R. Memorial Hospital. Her expertise bridges classroom learning with real-world clinical practice, ensuring students are industry-ready and aligned with modern healthcare standards.",
+      "Walking into a hospital can feel overwhelming, and at K.R. Memorial, we are fully committed to making that experience as reassuring and comfortable as possible. We have carefully designed our services and support systems to ensure that your every need is attended to with warmth and efficiency. Your trust in us is a privilege, and we honour it by going above and beyond for every patient. Whether you are here for a consultation, a procedure, or an extended stay — we are with you every step of the way, ensuring you receive the best care with genuine kindness. At K.R. Memorial, you are always in safe and caring hands.",
     expertise: [
-      "Nursing education and advanced curriculum design",
-      "Hospital operations and clinical coordination (K.R. Memorial Hospital)",
-      "Healthcare institution management and administration",
-      "Academic excellence, compliance, and accreditation",
-      "Student mentoring, training, and workforce readiness",
-      "Healthcare program expansion and institutional growth",
-      "Industry-academia partnerships and skill development",
+      "Creating patient-centred experiences that make your hospital stay comfortable",
+      "Building bridges between our hospital and the communities we serve",
+      "Ensuring every patient who visits K.R. Memorial feels welcomed and cared for",
     ],
-  }
+  },
+  {
+    id: "shubham-sharma",
+    name: "Dr. Shubham Sharma",
+    title: "CEO",
+    tagline: "Excellence in healthcare is not just our standard — it is our promise to every patient who trusts us.",
+    experience: "10 Years",
+    qualification: "MBBS, MD (General Medicine)",
+    age: "",
+    image: "https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1776194765/WhatsApp_Image_2026-04-14_at_6.42.15_PM_vulnx8.jpg",
+    shortBio:
+      "At K.R. Memorial, we have built more than a hospital — we have built a promise. A promise that when you come to us in your most vulnerable moments, you will find a team fully dedicated to your health, your comfort, and your complete recovery. We combine the precision of modern medicine with the warmth of compassionate care to ensure your experience here is reassuring and effective. Every specialist, every nurse, every staff member is here because they believe in this mission — to serve you with excellence and heart. Your health is our highest priority, and we will never stop working to earn the trust you place in us.",
+    expertise: [
+      "Leading K.R. Memorial's mission to provide excellent care to every patient",
+      "Ensuring seamless healthcare delivery with modern systems and dedicated teams",
+      "Combining clinical expertise with compassionate leadership for your well-being",
+    ],
+  },
 ];
 
 export const strategicOutlook = {
@@ -529,6 +540,34 @@ export const departments = [
     treatments: ["Diabetes Diet Planning", "Renal Diet", "Cardiac Diet", "Oncology Nutrition", "Weight Management", "Enteral Nutrition", "Parenteral Nutrition", "Paediatric Nutrition"],
     equipment: ["Body Composition Analyzer", "Dietary Assessment Tools", "Patient Counselling Suite"],
     image: "/departments/nutrition.jpg",
+    opdDays: "Mon – Sat",
+    opdTime: "9:00 AM – 5:00 PM",
+  },
+  {
+    id: "ophthalmology",
+    name: "Ophthalmology",
+    shortName: "Eye Care",
+    icon: "👁️",
+    color: "#0369A1",
+    description: "Comprehensive eye care including cataract, glaucoma, retina, and refractive surgeries.",
+    fullDescription: "Our Ophthalmology department provides complete eye care services ranging from routine vision assessments to advanced surgical interventions. We specialize in cataract surgery using phacoemulsification, glaucoma management, diabetic retinopathy treatment, corneal disorders, and refractive surgeries. Our experienced ophthalmologists use state-of-the-art diagnostic and surgical equipment to ensure the best visual outcomes for every patient.",
+    treatments: ["Cataract Surgery (Phaco)", "Glaucoma Management", "Diabetic Retinopathy", "Corneal Transplant", "Refractive Surgery (LASIK)", "Retinal Detachment", "Squint Correction", "Oculoplasty"],
+    equipment: ["Phacoemulsification Machine", "Slit Lamp", "OCT Machine", "Fundus Camera", "Perimeter", "A-Scan & B-Scan"],
+    image: "/departments/ophthalmology.jpg",
+    opdDays: "Mon – Sat",
+    opdTime: "9:00 AM – 5:00 PM",
+  },
+  {
+    id: "gastroenterology-gi-surgery",
+    name: "Gastroenterology & GI Surgery",
+    shortName: "Gastroenterology",
+    icon: "🫁",
+    color: "#B45309",
+    description: "Advanced diagnosis and treatment of digestive disorders, liver disease, and GI surgical conditions.",
+    fullDescription: "Our Gastroenterology & GI Surgery department offers comprehensive care for all disorders of the digestive system including the esophagus, stomach, intestines, liver, pancreas, and gallbladder. We provide diagnostic and therapeutic endoscopy, colonoscopy, ERCP, and advanced laparoscopic GI surgeries. Our multidisciplinary team of gastroenterologists and GI surgeons ensures holistic management of complex digestive conditions.",
+    treatments: ["Upper GI Endoscopy", "Colonoscopy", "ERCP", "Liver Disease Management", "IBD Treatment", "Bariatric Surgery", "Colorectal Surgery", "Hepatobiliary Surgery"],
+    equipment: ["Video Endoscopy System", "Colonoscope", "ERCP Suite", "Laparoscopic Equipment", "Ultrasound", "Liver Biopsy Setup"],
+    image: "/departments/gastroenterology.jpg",
     opdDays: "Mon – Sat",
     opdTime: "9:00 AM – 5:00 PM",
   },
@@ -936,6 +975,11 @@ export const doctors = [
 export const empanelments = [
   { id: 2, name: "RGHS", fullName: "Rajasthan Government Health Scheme", type: "Government", description: "Rajasthan State Government employees" },
   { id: 3, name: "Ayushman Bharat (PM-JAY)", fullName: "Pradhan Mantri Jan Arogya Yojana", type: "Government", description: "Health coverage up to ₹5 lakhs per family" },
+   { id: 23, name: "Maa Yojana", fullName: "Mukhyamantri Ayushman Arogya Yojana (Maa Yojana)", type: "Government", description: "Rajasthan government scheme for universal health coverage" },
+  { id: 24, name: "ESI", fullName: "Employees' State Insurance Corporation", type: "Government", description: "Health coverage for organised sector employees and their families" },
+  { id: 25, name: "PSU", fullName: "Public Sector Undertaking Health Benefits", type: "Government", description: "Health coverage for public sector undertaking employees" },
+  { id: 26, name: "Saras", fullName: "Saras Cooperative Employee Health Scheme", type: "Cooperative", description: "Health scheme for Saras cooperative group employees" },
+  { id: 27, name: "DIP", fullName: "Defence Insurance Plan", type: "Government", description: "Health insurance coverage for defence personnel and dependants" },
   { id: 5, name: "Star Health Insurance", fullName: "Star Health & Allied Insurance Co.", type: "Private Insurance", description: "Individual and family health policies" },
   { id: 6, name: "Bajaj Allianz", fullName: "Bajaj Allianz General Insurance", type: "Private Insurance", description: "Comprehensive health insurance coverage" },
   { id: 7, name: "ICICI Lombard", fullName: "ICICI Lombard General Insurance", type: "Private Insurance", description: "Cashless hospitalization benefits" },
@@ -951,7 +995,8 @@ export const empanelments = [
   { id: 19, name: "SBI General", fullName: "SBI General Insurance Co. Ltd.", type: "PSU Insurance", description: "Joint venture of SBI and Insurance Australia" },
   { id: 20, name: "Cholamandalam", fullName: "Cholamandalam MS General Insurance", type: "Private Insurance", description: "Part of Murugappa Group" },
   { id: 21, name: "Paramount TPA", fullName: "Paramount Health Services TPA", type: "TPA", description: "India's leading TPA" },
-  { id: 22, name: "Vidal Health TPA", fullName: "Vidal Health Insurance TPA", type: "TPA", description: "Digital-first TPA services" },
+  { id: 22, name: "Vidal Health TPA", fullName: "Vidal Health Insurance TPA", type: "TPA", description: "Digital-first TPA services" }
+ 
 ];
 
 export const testimonials = [
@@ -1188,7 +1233,7 @@ export const managementTeam = [
 export const roomTypes = [
   {
     type: "General Ward",
-    price: "₹800/day",
+    price: "₹1,500/day",
     description: "Clean, well-ventilated multi-bed ward with essential amenities and round-the-clock nursing care.",
     features: ["Bed with mattress", "Patient locker", "Shared bathroom", "Nursing station access", "Meal service"],
     image: "/rooms/general.jpg",
@@ -1213,5 +1258,12 @@ export const roomTypes = [
     description: "Premium suite with luxury amenities, separate living area, and dedicated nursing assistance.",
     features: ["King size bed", "Luxury bathroom", "Living area", "Sofa set", "Smart TV", "Refrigerator", "Microwave", "Dedicated nurse", "Premium meals", "WiFi"],
     image: "/rooms/suite.jpg",
+  },
+  {
+    type: "ICU (Intensive Care Unit)",
+    price: "₹5,000/day",
+    description: "Advanced ICU with 24/7 intensivist coverage, latest ventilators, and multi-para monitors for critically ill patients.",
+    features: ["Advanced Ventilators", "Multi-Para Monitors", "24/7 Intensivist Coverage", "CRRT Facility", "Dedicated ICU Nurses", "Regular Family Updates"],
+    image: "/rooms/icu.jpg",
   },
 ];
