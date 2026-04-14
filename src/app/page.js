@@ -35,9 +35,9 @@ const heroSlides = [
     cta2: null,
     accent: '#DC2626',
     overlay: 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 100%)',
-    bgDesktop: 'https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775925101/Medical_expert_promotional_banner_joswra.png',
+    bgDesktop: 'https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1776196828/Dr._Amar_Sharma__Leading_Surgeon_Expertise_ittbm8.png',
     bgTablet: 'https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775923929/Gemini_Generated_Image_7h9cwp7h9cwp7h9c_dbfmdn.png',
-    bgMobile: 'https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775925219/Dr._Amar_Sharma_-_General_Surgery_Expert_vly3ko.png',
+    bgMobile: 'https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1776197026/ChatGPT_Image_Apr_15_2026_01_33_13_AM_zsun2u.png',
     imageOnly: true,
   },
   {
@@ -59,7 +59,7 @@ const whyCards = [
   { icon: '🏥', title: 'Ultra-Modern OT', front: 'State-of-the-art modular operation theatres with laminar airflow.', back: 'Multiple OTs equipped with HD laparoscopic systems, advanced surgical equipment,  and strict sterile protocols for the best surgical outcomes.', color: '#0B3D91' },
   { icon: '👨‍⚕️', title: 'Only Best Doctors', front: '50+ experienced specialists across 15 super-specialty departments.', back: 'Our team is trained at premier Indian & international institutions, bringing you the gold standard in medical expertise right here in Rajasthan.', color: '#10B981' },
   { icon: '🫀', title: 'Cath Lab & Cardiology', front: 'First flat-panel cath lab in the region for cardiac interventions.', back: 'Complete cardiac care from diagnostic angiography to 24/7 primary PCI — the full spectrum of interventional cardiology under one roof.', color: '#DC2626' },
-  { icon: '💰', title: 'Affordable Care', front: 'World-class quality at prices accessible to Tier-3 city families.', back: 'We firmly believe quality healthcare is a right, not a privilege. Our pricing is transparent, and we work with 20+ insurers for cashless treatment.', color: '#F59E0B' },
+  { icon: '💰', title: 'Affordable Care', front: 'World-class quality at prices accessible to Tier-3 city families.', back: 'We firmly believe quality healthcare is a right, not a privilege. Our pricing is transparent, and we work with 50+ insurers for cashless treatment.', color: '#F59E0B' },
 ];
 
 export default function Home() {
@@ -94,7 +94,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setInterval(() => {
       goToSlide((slide + 1) % heroSlides.length);
-    }, 4000);
+    }, 400000);
     return () => clearInterval(timer);
   }, [slide, goToSlide]);
 
@@ -221,7 +221,7 @@ export default function Home() {
                 <span>⭐</span><div><strong>4.8 / 5</strong><small>Patient Rating</small></div>
               </div>
               <div className={`${styles.floatCard} ${styles.fc3}`}>
-                <span>🛡️</span><div><strong>20+ Insurers</strong><small>Cashless Network</small></div>
+                <span>🛡️</span><div><strong>50+ Insurers</strong><small>Cashless Network</small></div>
               </div>
             </div>
           )}
@@ -253,9 +253,9 @@ export default function Home() {
           {[
             { target: 200, label: 'Hospital Beds', icon: '🛏️' },
             { target: 50, label: 'Expert Doctors', icon: '👨‍⚕️' },
-            { target: 15, label: 'Specialties', icon: '🏥' },
+            { target: 15, label: 'Super Specialties', icon: '🏥' },
             { target: 150000, label: 'Patients Treated', icon: '❤️' },
-            { target: 20, label: 'Insurance Partners', icon: '🛡️' },
+            { target: 50, label: 'Insurance Partners', icon: '🛡️' },
           ].map((s, i) => (
             <div key={i} className={styles.statBox} data-reveal>
               <div className={styles.statBoxIcon}>{s.icon}</div>
@@ -304,7 +304,7 @@ export default function Home() {
               </div>
               {/* Experience badge */}
               <div className={styles.aboutBadge}>
-                <strong>15+</strong>
+                <strong>6+</strong>
                 <span>Years of Excellence</span>
               </div>
             </div>
@@ -636,7 +636,7 @@ export default function Home() {
             </div>
             <div className={styles.empaStats}>
               {[
-                { num: '20+', label: 'Insurers', icon: '🛡️' },
+                { num: '50+', label: 'Insurers', icon: '🛡️' },
                 { num: '₹0', label: 'Upfront Cost', icon: '💳' },
                 { num: 'RGHS', label: 'State Scheme', icon: '🏢' },
               ].map((s, i) => (
