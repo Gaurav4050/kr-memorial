@@ -293,8 +293,10 @@ export default function AboutPage() {
           {/* ── Header ── */}
           <div className={`section-header ${styles.groupHeader}`}>
             <span className={styles.groupSectionTag}>✦ K.R. Group Ecosystem ✦</span>
-            <h2 className={styles.groupH2}>One Vision.<br /><em className={styles.groupH2Em}>Many Institutions.</em></h2>
-            <p className={styles.groupSubtitle}>
+            <h2 className={styles.groupH2} style={{
+              color:"#fff"
+            }}>One Vision.<br /><em className={styles.groupH2Em}>Many Institutions.</em></h2>
+            <p className={styles.groupSubtitle} style={{color:"#fff"}}>
               From super-specialty hospital care to world-class education — the K.R. Group is building a complete ecosystem for a healthier, more educated Rajasthan.
             </p>
           </div>
