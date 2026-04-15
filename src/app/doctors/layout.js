@@ -6,7 +6,7 @@ export const metadata = {
   keywords: ['best doctors Jaipur', 'specialist doctors Chomu', 'orthopaedic surgeon Jaipur', 'cardiologist Jaipur', 'neurologist Rajasthan', 'nephrologist dialysis Jaipur'],
   openGraph: {
     title: 'Our Doctors — K.R. Memorial Hospital Jaipur',
-    description: 'Meet 50+ expert specialists across 15 departments. Book appointment with the best doctors in Jaipur.',
+    description: 'Meet 50+ expert specialists across 19 departments. Book appointment with the best doctors in Jaipur.',
   },
 };
 
