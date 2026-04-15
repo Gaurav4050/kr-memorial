@@ -25,7 +25,7 @@ export default function DepartmentsPage() {
           {/* Quick stats */}
           <div className={styles.heroStats}>
             {[
-              { num: '15', label: 'Departments' },
+              { num: '19', label: 'Departments' },
               { num: '50+', label: 'Specialists' },
               { num: '200+', label: 'Beds' },
               { num: '24/7', label: 'Emergency' },
