@@ -84,7 +84,7 @@ export default function AppointmentPage() {
             <div className={styles.detailRow}><span>Time:</span><strong>{form.time}</strong></div>
           </div>
           <div className={styles.successActions}>
-            <a href="tel:8006005111" className="btn btn-outline">📞 Confirm via Call</a>
+            <a href="tel:8006005111" className="btn btn-outline" title="Call: 8006005111 or 8006005105">📞 Confirm via Call</a>
             <button className="btn btn-primary" onClick={() => { setSubmitted(false); setStep(1); setForm({ department: '', doctor: '', date: '', time: '', name: '', age: '', gender: '', phone: '', email: '', reason: '', isNewPatient: true }); }}>📅 Book Another</button>
           </div>
           <div className={styles.whatToBring}>

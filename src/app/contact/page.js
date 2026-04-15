@@ -52,7 +52,7 @@ export default function ContactPage() {
   };
 
   const contactCards = [
-    { icon: '📞', title: 'Call Us', main: '8006005111', sub: '01423-220320', href: 'tel:8006005111', color: '#DC2626' },
+    { icon: 'ðŸ"ž', title: 'Call Us', main: '8006005111', sub: '8006005105 / 01423-220320', href: 'tel:8006005111', color: '#DC2626' },
     { icon: '📧', title: 'Email Us', main: hospitalInfo.email, sub: 'We respond within 2 hours', href: `mailto:${hospitalInfo.email}`, color: '#0B3D91' },
     { icon: '📍', title: 'Visit Us', main: 'NH-11, Sikar Road, Chomu', sub: 'Jaipur, Rajasthan 303702', href: hospitalInfo.mapUrl, color: '#10B981' },
     { icon: '🕐', title: 'Working Hours', main: 'OPD: 8 AM – 8 PM', sub: 'Emergency: 24/7', href: null, color: '#F59E0B' },
@@ -67,8 +67,8 @@ export default function ContactPage() {
         <span className={styles.emergencyPulse} />
         <span>🚨 Life-Threatening Emergency? Call immediately:</span>
         <a href="tel:8006005111" className={styles.emergencyNum}>8006005111</a>
-        <span className={styles.emergencyDiv}>|</span>
-        <a href="tel:01423220320" className={styles.emergencyNum}>01423-220320</a>
+        <span className={styles.emergencyDiv}>|</span>        <a href="tel:8006005105" className={styles.emergencyNum}>8006005105</a>
+          <span className={styles.emergencyDiv}>|</span>        <a href="tel:01423220320" className={styles.emergencyNum}>01423-220320</a>
       </div>
 
       {/* ════════════════════════════════

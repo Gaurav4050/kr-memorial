@@ -118,27 +118,27 @@ export const directorProfilesHome = [
     ],
   },
  
-  {
-    id: "sunil-sharma",
-    name: "Mr. Sunil Sharma",
-    spouse: "Mrs. Rajani Sharma (Director, Education & Institutional Management)",
-    title: "Founder & President",
-    tagline: "Strategic financial backing for hospital expansion, education, and group initiatives.",
-    experience: "15 Years",
-    qualification: "",
-    age: "47 Years",
-    pan: "CTAPS9446P",
-    din: "07907790",
-    image: "/directors/sunil-sharma.png",
-    shortBio:
-      "Although not listed as a director, Mr. Sunil Sharma plays a vital support role across the group as a personal guarantor and financial backer for key institutional priorities.",
-    expertise: [
-      "Acts as personal guarantor for the company and allied entities",
-      "Provides financial support for hospital expansion",
-      "Supports educational institutions through strategic funding",
-      "Backs group-level development and long-term initiatives",
-    ],
-  },
+ {
+  id: "sunil-sharma",
+  name: "Mr. Sunil Sharma",
+  spouse: "Mrs. Rajani Sharma (Director, Education & Institutional Management)",
+  title: "Founder & President",
+  tagline: "Strategic leadership driving expansion across healthcare and education initiatives.",
+  experience: "15 Years",
+  qualification: "",
+  age: "47 Years",
+  pan: "CTAPS9446P",
+  din: "07907790",
+  image: "/directors/sunil-sharma.png",
+  shortBio:
+    "Although not listed as a director, Mr. Sunil Sharma plays a key role in guiding the group’s strategic direction and supporting major institutional initiatives.",
+  expertise: [
+    "Strategic planning and organizational growth",
+    "Healthcare infrastructure development initiatives",
+    "Expansion of educational institutions",
+    "Long-term vision and group-level decision support",
+  ],
+},
 
    {
     id: "amar-chand-sharma",
@@ -243,7 +243,7 @@ export const directorProfiles = [
   {
     id: "maya-sharma",
     name: "Mrs. Maya Sharma",
-    title: "HOD Business Promotion",
+    title: "HOD - Business Development",
     tagline: "At K.R. Memorial, you will always find open arms, compassionate care, and a team that truly cares.",
     experience: "15 Years",
     qualification: "",
@@ -974,7 +974,7 @@ export const doctors = [
 
 export const empanelments = [
   { id: 2, name: "RGHS", fullName: "Rajasthan Government Health Scheme", type: "Government", description: "Rajasthan State Government employees" },
-  { id: 3, name: "Ayushman Bharat (PM-JAY)", fullName: "Pradhan Mantri Jan Arogya Yojana", type: "Government", description: "Health coverage up to ₹5 lakhs per family" },
+ 
    { id: 23, name: "Maa Yojana", fullName: "Mukhyamantri Ayushman Arogya Yojana (Maa Yojana)", type: "Government", description: "Rajasthan government scheme for universal health coverage" },
   { id: 24, name: "ESI", fullName: "Employees' State Insurance Corporation", type: "Government", description: "Health coverage for organised sector employees and their families" },
   { id: 25, name: "PSU", fullName: "Public Sector Undertaking Health Benefits", type: "Government", description: "Health coverage for public sector undertaking employees" },
@@ -1071,7 +1071,7 @@ export const testimonials = [
 export const faqs = [
   {
     question: "How do I book an appointment?",
-    answer: "You can book an appointment online through our website's appointment page, call us at 8006005111 or 01423-220320, or visit our OPD reception directly. Walk-in patients are also welcome during OPD hours.",
+    answer: "You can book an appointment online through our website's appointment page, call us at 8006005111 / 8006005105 or 01423-220320, or visit our OPD reception directly. Walk-in patients are also welcome during OPD hours.",
   },
   {
     question: "What documents should I bring for my first visit?",
@@ -1087,7 +1087,7 @@ export const faqs = [
   },
   {
     question: "Do you have ambulance service?",
-    answer: "Yes, we provide 24/7 ambulance service with Advanced Life Support (ALS) equipped ambulances. Call 8006005111 for immediate ambulance dispatch. We cover Jaipur, Chomu, Sikar, and surrounding areas.",
+    answer: "Yes, we provide 24/7 ambulance service with Advanced Life Support (ALS) equipped ambulances. Call 8006005111 or 8006005105 for immediate ambulance dispatch. We cover Jaipur, Chomu, Sikar, and surrounding areas.",
   },
   {
     question: "Can I get my reports online?",

@@ -27,7 +27,6 @@ export const metadata = {
     '24x7 hospital Jaipur',
     'affordable hospital Rajasthan',
     'RGHS hospital Rajasthan',
-    'Ayushman Bharat hospital Jaipur',
     'cashless hospital Jaipur',
     'Sikar Road hospital',
     'NH-11 hospital Chomu',

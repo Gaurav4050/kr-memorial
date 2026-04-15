@@ -56,7 +56,7 @@ export default function EmpanelmentsPage() {
                 Cashless treatment available with 20+ insurance companies and government health schemes — so healthcare costs never stand between you and your recovery.
               </p>
               <div className={styles.heroBtns}>
-                <a href="tel:8006005111" className="btn btn-primary btn-lg">📞 Call TPA Desk</a>
+                <a href="tel:8006005111" className="btn btn-primary btn-lg" title="Call: 8006005111 or 8006005105">📞 Call TPA Desk</a>
                 <Link href="/appointment" className="btn btn-secondary btn-lg">📅 Book Appointment</Link>
               </div>
             </div>
@@ -156,7 +156,7 @@ export default function EmpanelmentsPage() {
               <span>🔍</span>
               <h3>No insurance provider found</h3>
               <p>Contact our TPA desk to check your insurance coverage.</p>
-              <a href="tel:8006005111" className="btn btn-primary">📞 Call TPA Desk</a>
+              <a href="tel:8006005111" className="btn btn-primary" title="Call: 8006005111 or 8006005105">📞 Call TPA Desk</a>
             </div>
           ) : (
             <div className={styles.grid}>
@@ -208,9 +208,9 @@ export default function EmpanelmentsPage() {
               <div className={styles.tpaContactCard}>
                 <div className={styles.tpaContactIcon}>📞</div>
                 <div className={styles.tpaContactTitle}>Call Our TPA Desk</div>
-                <div className={styles.tpaContactNum}>8006005111</div>
+                  <div className={styles.tpaContactNum}>8006005111 / 8006005105</div>
                 <div className={styles.tpaContactSub}>Available 24/7 for insurance queries</div>
-                <a href="tel:8006005111" className="btn btn-primary btn-lg" style={{ marginTop: '12px' }}>
+                  <a href="tel:8006005111" className="btn btn-primary btn-lg" style={{ marginTop: '12px' }} title="Call: 8006005111 or 8006005105">
                   Call Now
                 </a>
               </div>

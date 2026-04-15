@@ -68,8 +68,7 @@ export default function Footer() {
         <div className={styles.footerCol}>
           <h4>Contact</h4>
           <ul>
-            <li><a href="tel:8006005111">📞 8006005111</a></li>
-            <li><a href="tel:01423220320">📞 01423-220320</a></li>
+            <li><a href="tel:8006005111">📞 8006005111</a></li>            <li><a href="tel:8006005105"> 📞 8006005105</a></li>            <li><a href="tel:01423220320">📞 01423-220320</a></li>
             <li><a href={`mailto:${hospitalInfo.email}`}>📧 {hospitalInfo.email}</a></li>
             <li><a href={hospitalInfo.mapUrl} target="_blank" rel="noopener noreferrer">📍 NH-11, Sikar Road, Chomu</a></li>
             <li><span>🏥 Emergency: 24/7</span></li>
