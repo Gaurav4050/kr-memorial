@@ -19,10 +19,7 @@ export const departmentDoctors = [
     departmentId: "urology-uro-surgery"
   },
   {
-    departmentId: "nephrology-dialysis"
-  },
-  {
-    departmentId: "oncology-onco-surgery"
+    departmentId: "gastroenterology-gi-surgery"
   },
   {
     departmentId: "general-medicine"
@@ -34,25 +31,33 @@ export const departmentDoctors = [
     departmentId: "pediatrics"
   },
   {
-    departmentId: "ent-surgery"
+    departmentId: "ent"
   },
   {
     departmentId: "radiology"
   },
   {
-    departmentId: "psychiatry"
-  },
-  {
     departmentId: "trauma-critical-care"
   },
   {
-    departmentId: "dental-maxillofacial",
-   
+    departmentId: "dental-maxillofacial"
   },
   {
     departmentId: "physiotherapy"
   },
   {
     departmentId: "nutrition-dietetics"
+  },
+  {
+    departmentId: "nephrology-dialysis"
+  },
+  {
+    departmentId: "oncology-onco-surgery"
+  },
+  {
+    departmentId: "physiotherapy"
+  },
+  {
+    departmentId: "ophthalmology"
   },
 ];

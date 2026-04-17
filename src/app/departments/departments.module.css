@@ -120,7 +120,7 @@
 .card:hover .cardArrow { transform: translateX(8px); }
 
 /* Card body */
-.cardBody { padding: 0 20px 20px; flex: 1; display: flex; flex-direction: column; }
+.cardBody { padding: 0 20px 20px; flex: 1; display: flex; flex-direction: column; margin-top: 10px; }
 .cardName {
   font-size: 17px; font-weight: 800; color: #1E293B;
   margin-bottom: 8px; font-family: 'DM Sans', sans-serif;

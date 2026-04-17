@@ -54,7 +54,7 @@ export default function ContactPage() {
   const contactCards = [
     { icon: 'ðŸ"ž', title: 'Call Us', main: '8006005111', sub: '8006005105 / 01423-220320', href: 'tel:8006005111', color: '#DC2626' },
     { icon: '📧', title: 'Email Us', main: hospitalInfo.email, sub: 'We respond within 2 hours', href: `mailto:${hospitalInfo.email}`, color: '#0B3D91' },
-    { icon: '📍', title: 'Visit Us', main: 'NH-11, Sikar Road, Chomu', sub: 'Jaipur, Rajasthan 303702', href: hospitalInfo.mapUrl, color: '#10B981' },
+    { icon: '📍', title: 'Visit Us', main: 'Radhaswami Bagh, NH52, Sikar Road, Chomu, Jaipur', sub: 'Jaipur, Rajasthan 303702', href: hospitalInfo.mapUrl, color: '#10B981' },
     { icon: '🕐', title: 'Working Hours', main: 'OPD: 8 AM – 8 PM', sub: 'Emergency: 24/7', href: null, color: '#F59E0B' },
   ];
 
@@ -98,7 +98,7 @@ export default function ContactPage() {
                   <div className={styles.heroInfoIcon} style={{ background: '#10B98118' }}>📍</div>
                   <div>
                     <strong>Our Location</strong>
-                    <span>NH-11, Sikar Road, Chomu, Jaipur</span>
+                    <span>Radhaswami Bagh, NH52, Sikar Road, Chomu, Jaipur</span>
                   </div>
                 </a>
                 <a href={`mailto:${hospitalInfo.email}`} className={styles.heroInfoRow}>
@@ -286,7 +286,7 @@ export default function ContactPage() {
             <div className={styles.mapWrap}>
               <div className={styles.mapHeader}>
                 <h3>📍 Find Us on Map</h3>
-                <p>NH-11, Sikar Road, Chomu, Jaipur, Rajasthan 303702</p>
+                <p>Radhaswami Bagh, NH52, Sikar Road, Chomu, Jaipur, Rajasthan 303702</p>
               </div>
               <div className={styles.mapEmbed}>
                 <iframe
@@ -313,7 +313,7 @@ export default function ContactPage() {
       {/* ════════════════════════════════
           05. OPD TIMINGS TABLE
       ════════════════════════════════ */}
-      <section className={styles.opdSection}>
+      {/* <section className={styles.opdSection}>
         <div className="container">
           <div className="section-header">
             <span className="section-tag">OPD Schedule</span>
@@ -346,7 +346,7 @@ export default function ContactPage() {
             </table>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ════════════════════════════════
           06. SOCIAL MEDIA

@@ -140,10 +140,10 @@ export default async function DepartmentDetail({ params }) {
                     <h4>{doc.name}</h4>
                     {doc.qualification && <p className={styles.docQual}>{doc.qualification}</p>}
                     {doc.designation && <span className={styles.desg}>{doc.designation}</span>}
-                    <div className={styles.docMeta}>
+                    {/* <div className={styles.docMeta}>
                       {doc.experience && <span>🏥 {doc.experience}+ Yrs</span>}
                       {doc.languages && doc.languages.length > 0 && <span>🗣 {doc.languages.join(', ')}</span>}
-                    </div>
+                    </div> */}
                     {(doc.opdDays || doc.opdTime) && (
                       <div className={styles.docOpd}>
                         {doc.opdDays && <div className={styles.opdItem}><span>📅</span><span>{doc.opdDays}</span></div>}

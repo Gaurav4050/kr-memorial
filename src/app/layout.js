@@ -89,7 +89,7 @@ const structuredData = {
   description: 'K.R. Memorial Hospital is a 200+ bedded multi-super specialty hospital in Chomu, Jaipur, Rajasthan offering 15 super specialties with 24/7 emergency services.',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Radha Swami Bagh, NH-11, Sikar Road',
+    streetAddress: 'Radhaswami Bagh, NH52, Sikar Road',
     addressLocality: 'Chomu',
     addressRegion: 'Rajasthan',
     postalCode: '303702',

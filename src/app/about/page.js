@@ -27,7 +27,7 @@ const infraItems = [
 const accreditations = [
   { icon: '🏆', label: 'Quality Healthcare Award 2023' },
   { icon: '📜', label: 'ISO 9001:2015 Certified' },
-  { icon: '🏛️', label: 'NABH Application In Progress' },
+  { icon: '🏛️', label: 'NABH Accredited' },
   { icon: '🎖️', label: 'Best Multi-Specialty Hospital – Rajasthan 2022' },
   { icon: '🌟', label: 'Top Rated Hospital – Google Reviews' },
 ];
@@ -123,7 +123,7 @@ export default function AboutPage() {
                 <span>🏅</span>
                 <div>
                   <strong>NABH</strong>
-                  <small>Accreditation in Progress</small>
+                  <small>Accredited</small>
                 </div>
               </div>
             </div>
@@ -136,7 +136,7 @@ export default function AboutPage() {
                 K.R. Memorial Hospital was born from a simple yet powerful vision — to bring world-class multi-specialty healthcare to the people of semi-urban and rural Rajasthan, where families often had to travel hundreds of kilometers to access advanced medical treatment.
               </p>
               <p>
-                Located on NH-11, Sikar Road in Chomu, just 35 km from Jaipur, the hospital started as a modest facility and has grown into a 200+ bedded multi-super specialty hospital with 15 specialized departments, 50+ expert doctors, and the latest medical technology.
+                Located on Radhaswami Bagh, NH52, Sikar Road, Chomu, Jaipur, just 35 km from Jaipur, the hospital started as a modest facility and has grown into a 200+ bedded multi-super specialty hospital with 15 specialized departments, 50+ expert doctors, and the latest medical technology.
               </p>
               <p>
                 What sets us apart is our unwavering commitment to providing best-in-class healthcare at prices accessible to the communities we serve. From general medicine to complex cardiac surgeries, we handle it all under one roof.

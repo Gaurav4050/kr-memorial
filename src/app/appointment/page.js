@@ -227,7 +227,7 @@ export default function AppointmentPage() {
                   <div className={styles.summaryRow}><span>Time:</span><strong>{form.time}</strong></div>
                   <div className={styles.summaryRow}><span>Patient:</span><strong>{form.name}</strong></div>
                   <div className={styles.summaryRow}><span>Phone:</span><strong>{form.phone}</strong></div>
-                  <div className={styles.summaryRow}><span>Age/Gender:</span><strong>{form.age} yrs / {form.gender}</strong></div>
+                  {/* <div className={styles.summaryRow}><span>Age/Gender:</span><strong>{form.age} yrs / {form.gender}</strong></div> */}
                   {form.reason && <div className={styles.summaryRow}><span>Reason:</span><strong>{form.reason}</strong></div>}
                 </div>
                 <div className={styles.stepBtns}>

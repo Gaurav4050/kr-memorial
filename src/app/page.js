@@ -315,7 +315,7 @@ export default function Home() {
               <h2>Your Health Is Our<br /><em>Sacred Mission</em></h2>
               <div className={styles.aboutAccentLine} />
               <p>K.R. Memorial Hospital was born from a powerful vision — to bring world-class, multi-specialty healthcare to the people of semi-urban and rural Rajasthan.</p>
-              <p>Located on NH-11, Sikar Road in Chomu, just 35 km from Jaipur, we've grown into a 200+ bedded super-specialty hospital with 19 departments, 50+ expert doctors, and cutting-edge medical technology — all at affordable prices.</p>
+              <p>Located on Radhaswami Bagh, NH52, Sikar Road, Chomu, Jaipur, just 35 km from Jaipur, we've grown into a 200+ bedded super-specialty hospital with 19 departments, 50+ expert doctors, and cutting-edge medical technology — all at affordable prices.</p>
 
               <div className={styles.aboutPoints}>
                 {[
@@ -713,7 +713,7 @@ export default function Home() {
           <div className={styles.contactInfo} data-reveal>
             <span className="section-tag">Get in Touch</span>
             <h2>Find Us &amp; Contact</h2>
-            <p>Located on NH-11, Sikar Road in Chomu — easily accessible from Jaipur and surrounding districts.</p>
+            <p>Located on Radhaswami Bagh, NH52, Sikar Road, Chomu, Jaipur — easily accessible from Jaipur and surrounding districts.</p>
             <div className={styles.contactItems}>
               {[
                 { icon: '📍', label: 'Address', value: hospitalInfo.address, href: hospitalInfo.mapUrl },
