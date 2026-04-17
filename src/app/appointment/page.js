@@ -16,7 +16,9 @@ export default function AppointmentPage() {
   useEffect(() => {
     fetch(`${API_URL}/doctors`)
       .then(res => res.json())
-      .then(data => { if (data.success && data.data.length > 0) setDoctors(data.data) })
+      .then(data => { if (data.success && data.data.length > 0) { 
+        // reverse doctors to show latest added first
+        setDoctors([...data.data].reverse())} })
       .catch(console.error);
   }, []);
 
