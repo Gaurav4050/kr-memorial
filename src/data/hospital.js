@@ -72,6 +72,7 @@ export const groupInstitutions = [
     institutions: [
       { name: "K.R. Memorial Hospital", activity: "Super Multi-Specialty Hospital", capacity: "200 Beds" },
       { name: "K.R. Paramedical College", activity: "Paramedical Courses (2 Years)", capacity: "250 Seats" },
+      { name: "K.R. Pharmacy College", activity: "Diploma in Pharmacy - D.Pharmacy (2 Years)", capacity: "60 Seats" },
       { name: "K.R. Memorial College of Nursing", activity: "B.Sc. Nursing (4 Years)", capacity: "60 Seats" },
       { name: "K.R. Memorial School of Nursing", activity: "GNM Nursing (3 Years)", capacity: "60 Seats" },
       { name: "K.R. Memorial LLP", activity: "Retail Pharmacy", capacity: "-" },
