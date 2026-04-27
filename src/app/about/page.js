@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { managementTeam, directorProfiles, groupInstitutions } from '@/data/hospital';
+import { managementTeam, directorProfiles, groupInstitutions, ourTeam } from '@/data/hospital';
 import styles from './about.module.css';
 
 const timeline = [
@@ -73,6 +73,11 @@ export default function AboutPage() {
               <span className={styles.heroTag}>Our Story</span>
               <h1 className={styles.heroH1}>Healing Lives in the<br /><em>Heart of Rajasthan</em></h1>
               <p className={styles.heroSub}>Since 2020, K.R. Memorial Hospital has been committed to providing world-class healthcare at affordable prices to the people of Rajasthan.</p>
+              {/* NABH Logo Badge */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '12px', marginBottom: '4px' }}>
+                <Image src="/nabh.png" alt="NABH Accredited" width={72} height={40} style={{ objectFit: 'contain', borderRadius: '6px', background: '#fff', padding: '4px 6px' }} />
+                <span style={{ color: 'rgba(255,255,255,0.85)', fontSize: '13px', fontWeight: 500 }}>NABH Accredited Hospital</span>
+              </div>
               <div className={styles.heroCtas}>
                 <Link href="/appointment" className="btn btn-primary btn-lg">📅 Book Appointment</Link>
                 <Link href="/contact" className="btn btn-secondary btn-lg">📞 Contact Us</Link>
@@ -120,7 +125,17 @@ export default function AboutPage() {
                 <strong>2020</strong>
               </div>
               <div className={styles.storyNabhBadge}>
-                <span>🏅</span>
+                {/* <span>🏅</span> */}
+
+                <img
+                  src="/nabh.png"
+                  alt="NABH Accredited"
+                  width={50}
+                  height={40}
+                  style={{ objectFit: 'contain', borderRadius: '6px', background: '#fff', padding: '4px 6px' }}
+                  priority
+                />
+
                 <div>
                   <strong>NABH</strong>
                   <small>Accredited</small>
@@ -280,6 +295,91 @@ export default function AboutPage() {
       </section>
 
       {/* ════════════════════════════════
+          04-B. OUR TEAM — PREMIUM
+      ════════════════════════════════ */}
+      <section className={styles.teamSection}>
+        <div className="container">
+          <div className={styles.teamInner}>
+
+            {/* ── Header ── */}
+            <div className={styles.teamHeader}>
+              <div className={styles.teamTag}>
+                <span className={styles.teamTagDot} />
+                Management &amp; Administration
+              </div>
+              <h2 className={styles.teamH2}>
+                Meet <em className={styles.teamH2Em}>Our Team</em>
+              </h2>
+              <p className={styles.teamSubtext}>
+                The dedicated professionals who drive excellence, innovation, and compassionate care across every department of K.R. Memorial Hospital.
+              </p>
+              <div className={styles.teamAccentLine}>
+                <span className={styles.teamAccentDiamond} />
+              </div>
+            </div>
+
+            {/* ── Cards ── */}
+            <div className={styles.teamGrid}>
+              {ourTeam.map((member, index) => {
+                const initials = member.name
+                  .split(' ').filter(Boolean).slice(0, 2)
+                  .map(p => p[0]).join('').toUpperCase();
+                return (
+                  <div
+                    key={member.id}
+                    className={styles.teamCard}
+                    style={{
+                      '--tc': member.color,
+                      animationDelay: `${index * 55}ms`,
+                    }}
+                  >
+                    {/* Banner */}
+                    <div className={styles.teamCardBanner}>
+                      <div className={styles.teamCardBannerPattern} />
+                    </div>
+
+                    {/* Avatar */}
+                    <div className={styles.teamCardAvatarWrap}>
+                      <div className={styles.teamCardAvatarRing}>
+                        {member.image ? (
+                          <Image
+                            src={member.image}
+                            alt={member.name}
+                            width={78}
+                            height={78}
+                            className={styles.teamCardAvatarImg}
+                          />
+                        ) : (
+                          <div className={styles.teamCardAvatarInitials}>
+                            {initials}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Body */}
+                    <div className={styles.teamCardBody}>
+                      <h4 className={styles.teamCardName}>{member.name}</h4>
+                      <span className={styles.teamCardRole}>{member.role}</span>
+                      <div className={styles.teamCardLine} />
+                      <div className={styles.teamCardExp}>
+                        <span className={styles.teamCardExpIcon}>🏅</span>
+                        {member.experience} Experience
+                      </div>
+                    </div>
+
+                    {/* Bottom glow */}
+                    <div className={styles.teamCardGlow} />
+                  </div>
+                );
+              })}
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════
           05. TIMELINE
       ════════════════════════════════ */}
       {/* <section className={styles.timelineSection}> */}
@@ -294,9 +394,9 @@ export default function AboutPage() {
           <div className={`section-header ${styles.groupHeader}`}>
             <span className={styles.groupSectionTag}>✦ K.R. Group Ecosystem ✦</span>
             <h2 className={styles.groupH2} style={{
-              color:"#fff"
+              color: "#fff"
             }}>One Vision.<br /><em className={styles.groupH2Em}>Many Institutions.</em></h2>
-            <p className={styles.groupSubtitle} style={{color:"#fff"}}>
+            <p className={styles.groupSubtitle} style={{ color: "#fff" }}>
               From super-specialty hospital care to world-class education — the K.R. Group is building a complete ecosystem for a healthier, more educated Rajasthan.
             </p>
           </div>

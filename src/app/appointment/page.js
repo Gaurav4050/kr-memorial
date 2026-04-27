@@ -16,9 +16,12 @@ export default function AppointmentPage() {
   useEffect(() => {
     fetch(`${API_URL}/doctors`)
       .then(res => res.json())
-      .then(data => { if (data.success && data.data.length > 0) { 
-        // reverse doctors to show latest added first
-        setDoctors([...data.data].reverse())} })
+      .then(data => {
+        if (data.success && data.data.length > 0) {
+          // reverse doctors to show latest added first
+          setDoctors([...data.data].reverse())
+        }
+      })
       .catch(console.error);
   }, []);
 
@@ -28,7 +31,7 @@ export default function AppointmentPage() {
   const formatDoctorOption = (doc) => {
     const dept = getDepartmentName(doc.departmentId);
     const deptText = dept ? ` • ${dept}` : '';
-    return `${doc.name} — ${doc.qualification} ${doc.designation ? `(${doc.designation})` : ''}${deptText}`;
+    return `${doc.name} — ${doc.qualification} ${deptText}`;
   };
 
   const handleSubmit = async () => {
@@ -37,7 +40,7 @@ export default function AppointmentPage() {
       const selectedDoc = findDoctorById(form.doctor);
       const departmentId = selectedDoc?.departmentId || form.department;
       const selectedDept = departments.find(d => d.id === departmentId);
-      
+
       const payload = {
         ...form,
         department: departmentId,

@@ -6,12 +6,12 @@ import styles from './gallery.module.css';
 
 export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState('All');
-  const [lightbox, setLightbox]   = useState(null);
-  const [lbIndex, setLbIndex]     = useState(0);
+  const [lightbox, setLightbox] = useState(null);
+  const [lbIndex, setLbIndex] = useState(0);
   const gridRef = useRef(null);
 
   const categories = ['All', ...new Set(galleryImages.map(img => img.category))];
-  const filtered   = activeCategory === 'All'
+  const filtered = activeCategory === 'All'
     ? galleryImages
     : galleryImages.filter(img => img.category === activeCategory);
 
@@ -27,12 +27,12 @@ export default function GalleryPage() {
 
   const catColors = {
     'Infrastructure': '#0B3D91',
-    'OT Complex':     '#DC2626',
-    'ICU':            '#D97706',
-    'Equipment':      '#10B981',
-    'Team':           '#8B5CF6',
-    'Events':         '#F59E0B',
-    'All':            '#0B3D91',
+    'OT Complex': '#DC2626',
+    'N-ICU': '#D97706',
+    'Equipment': '#10B981',
+    'Team': '#8B5CF6',
+    'Events': '#F59E0B',
+    'All': '#0B3D91',
   };
 
   return (

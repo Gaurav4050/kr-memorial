@@ -92,6 +92,7 @@ export const groupInstitutions = [
     focus: "Advanced nursing education",
     institutions: [
       { name: "Maa Jijabai College of Nursing", activity: "B.Sc. Nursing (4 Years)", capacity: "60 Seats" },
+      { name: "Maa Jijabai College of Nursing", activity: "GNM Nursing (3 Years)", capacity: "60 Seats" },
     ],
   },
 ];
@@ -118,30 +119,30 @@ export const directorProfilesHome = [
       "Public relations and interdepartmental coordination",
     ],
   },
- 
- {
-  id: "sunil-sharma",
-  name: "Mr. Sunil Sharma",
-  spouse: "Mrs. Rajani Sharma (Director, Education & Institutional Management)",
-  title: "Founder & President",
-  tagline: "Strategic leadership driving expansion across healthcare and education initiatives.",
-  experience: "15 Years",
-  qualification: "",
-  age: "47 Years",
-  pan: "CTAPS9446P",
-  din: "07907790",
-  image: "/directors/sunil-sharma.png",
-  shortBio:
-    "Although not listed as a director, Mr. Sunil Sharma plays a key role in guiding the group’s strategic direction and supporting major institutional initiatives.",
-  expertise: [
-    "Strategic planning and organizational growth",
-    "Healthcare infrastructure development initiatives",
-    "Expansion of educational institutions",
-    "Long-term vision and group-level decision support",
-  ],
-},
 
-   {
+  {
+    id: "sunil-sharma",
+    name: "Mr. Sunil Sharma",
+    spouse: "Mrs. Rajani Sharma (Director, Education & Institutional Management)",
+    title: "Founder & President",
+    tagline: "Strategic leadership driving expansion across healthcare and education initiatives.",
+    experience: "15 Years",
+    qualification: "",
+    age: "47 Years",
+    pan: "CTAPS9446P",
+    din: "07907790",
+    image: "/directors/sunil-sharma.png",
+    shortBio:
+      "Although not listed as a director, Mr. Sunil Sharma plays a key role in guiding the group’s strategic direction and supporting major institutional initiatives.",
+    expertise: [
+      "Strategic planning and organizational growth",
+      "Healthcare infrastructure development initiatives",
+      "Expansion of educational institutions",
+      "Long-term vision and group-level decision support",
+    ],
+  },
+
+  {
     id: "amar-chand-sharma",
     name: "Dr. Amar Sharma",
     title: "Managing Director",
@@ -184,7 +185,7 @@ export const directorProfiles = [
       "Guiding strategies that always put patients first",
     ],
   },
-    {
+  {
     id: "sunil-sharma",
     name: "Mr. Sunil Sharma",
     spouse: "Mrs. Rajani Sharma (Director, Education & Institutional Management)",
@@ -221,58 +222,6 @@ export const directorProfiles = [
       "Delivering advanced surgical care with precision and genuine empathy",
       "Building a team of specialists fully committed to your recovery",
       "Driving patient safety and clinical excellence across all departments",
-    ],
-  },
-  {
-    id: "rajani-sharma",
-    name: "Mrs. Rajani Sharma",
-    title: "Director - Education & Institutional Development",
-    tagline: "Great healthcare begins with great caregivers — and we invest deeply in building both for you.",
-    experience: "15 Years",
-    qualification: "",
-    age: "45 Years",
-    image: "/directors/rajani-sharma.png",
-    shortBio:
-      "At K.R. Memorial, we understand that excellent healthcare begins with exceptionally trained caregivers. Every nurse and paramedic in our institution carries a commitment to treat patients with warmth, skill, and deep respect. We invest in building a healthcare workforce that is ready to serve you with both expertise and empathy. When you are under our care, we want you to feel safe, heard, and genuinely looked after. Your recovery matters to us on a deeply personal level — and we have built an ecosystem of compassionate care to ensure you heal in the best possible hands.",
-    expertise: [
-      "Training compassionate healthcare professionals who truly care for patients",
-      "Building a workforce equipped to serve you with skill and warmth",
-      "Advancing nursing and paramedical standards to benefit every patient",
-    ],
-  },
-
-  {
-    id: "maya-sharma",
-    name: "Mrs. Maya Sharma",
-    title: "HOD - Business Development",
-    tagline: "At K.R. Memorial, you will always find open arms, compassionate care, and a team that truly cares.",
-    experience: "15 Years",
-    qualification: "",
-    age: "40 Years",
-    image: "/directors/maya-sharma.png",
-    shortBio:
-      "Walking into a hospital can feel overwhelming, and at K.R. Memorial, we are fully committed to making that experience as reassuring and comfortable as possible. We have carefully designed our services and support systems to ensure that your every need is attended to with warmth and efficiency. Your trust in us is a privilege, and we honour it by going above and beyond for every patient. Whether you are here for a consultation, a procedure, or an extended stay — we are with you every step of the way, ensuring you receive the best care with genuine kindness. At K.R. Memorial, you are always in safe and caring hands.",
-    expertise: [
-      "Creating patient-centred experiences that make your hospital stay comfortable",
-      "Building bridges between our hospital and the communities we serve",
-      "Ensuring every patient who visits K.R. Memorial feels welcomed and cared for",
-    ],
-  },
-  {
-    id: "shubham-sharma",
-    name: "Dr. Shubham Sharma",
-    title: "CEO",
-    tagline: "Excellence in healthcare is not just our standard — it is our promise to every patient who trusts us.",
-    experience: "10 Years",
-    qualification: "MBBS, MD (General Medicine)",
-    age: "",
-    image: "https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1776194765/WhatsApp_Image_2026-04-14_at_6.42.15_PM_vulnx8.jpg",
-    shortBio:
-      "At K.R. Memorial, we have built more than a hospital — we have built a promise. A promise that when you come to us in your most vulnerable moments, you will find a team fully dedicated to your health, your comfort, and your complete recovery. We combine the precision of modern medicine with the warmth of compassionate care to ensure your experience here is reassuring and effective. Every specialist, every nurse, every staff member is here because they believe in this mission — to serve you with excellence and heart. Your health is our highest priority, and we will never stop working to earn the trust you place in us.",
-    expertise: [
-      "Leading K.R. Memorial's mission to provide excellent care to every patient",
-      "Ensuring seamless healthcare delivery with modern systems and dedicated teams",
-      "Combining clinical expertise with compassionate leadership for your well-being",
     ],
   },
 ];
@@ -463,12 +412,12 @@ export const departments = [
   {
     id: "trauma-critical-care",
     name: "Trauma & Critical Care",
-    shortName: "Trauma ICU",
+    shortName: "N-ICU",
     icon: "🚨",
     color: "#EF4444",
-    description: "24/7 ICU, ventilators, multi-organ support, and emergency trauma care.",
-    fullDescription: "Our Trauma & Critical Care unit operates 24/7 with a dedicated team of intensivists, emergency physicians, and critical care nurses. We manage polytrauma cases, road traffic accidents, burns, and critically ill patients requiring multi-organ support. Our ICU is equipped with advanced ventilators, monitors, and life support systems.",
-    treatments: ["Polytrauma Management", "Ventilator Support", "CRRT (Dialysis)", "Central Line", "Chest Drain", "Tracheostomy", "Emergency Resuscitation", "Post-Surgical ICU Care"],
+    description: "24/7 N-ICU, ventilators, multi-organ support, and emergency trauma care.",
+    fullDescription: "Our Trauma & Critical Care unit operates 24/7 with a dedicated team of intensivists, emergency physicians, and critical care nurses. We manage polytrauma cases, road traffic accidents, burns, and critically ill patients requiring multi-organ support. Our N-ICU is equipped with advanced ventilators, monitors, and life support systems.",
+    treatments: ["Polytrauma Management", "Ventilator Support", "CRRT (Dialysis)", "Central Line", "Chest Drain", "Tracheostomy", "Emergency Resuscitation", "Post-Surgical N-ICU Care"],
     equipment: ["Advanced Ventilators", "Multi-Para Monitors", "CRRT Machine", "Defibrillators", "ABG Analyzer"],
     image: "/departments/trauma-icu.jpg",
     opdDays: "24/7",
@@ -579,7 +528,7 @@ export const doctors = [
     education: ["MBBS", "DNB (General Surgery)"],
     achievements: ["Expert in Laparoscopic Procedures", "Managing Director – K.R. Memorial Hospital"],
   },
-   {
+  {
     id: "dr-praveen-agarwal",
     name: "Dr. Praveen Agarwal",
     qualification: "MBBS, DNB (General Surgery), DrNB (Gastrointestinal Surgery)",
@@ -979,8 +928,8 @@ export const doctors = [
 
 export const empanelments = [
   { id: 2, name: "RGHS", fullName: "Rajasthan Government Health Scheme", type: "Government", description: "Rajasthan State Government employees" },
- 
-   { id: 23, name: "Maa Yojana", fullName: "Mukhyamantri Ayushman Arogya Yojana (Maa Yojana)", type: "Government", description: "Rajasthan government scheme for universal health coverage" },
+
+  { id: 23, name: "Maa Yojana", fullName: "Mukhyamantri Ayushman Arogya Yojana (Maa Yojana)", type: "Government", description: "Rajasthan government scheme for universal health coverage" },
   { id: 24, name: "ESI", fullName: "Employees' State Insurance Corporation", type: "Government", description: "Health coverage for organised sector employees and their families" },
   { id: 25, name: "PSU", fullName: "Public Sector Undertaking Health Benefits", type: "Government", description: "Health coverage for public sector undertaking employees" },
   { id: 26, name: "Saras", fullName: "Saras Cooperative Employee Health Scheme", type: "Cooperative", description: "Health scheme for Saras cooperative group employees" },
@@ -1001,7 +950,7 @@ export const empanelments = [
   { id: 20, name: "Cholamandalam", fullName: "Cholamandalam MS General Insurance", type: "Private Insurance", description: "Part of Murugappa Group" },
   { id: 21, name: "Paramount TPA", fullName: "Paramount Health Services TPA", type: "TPA", description: "India's leading TPA" },
   { id: 22, name: "Vidal Health TPA", fullName: "Vidal Health Insurance TPA", type: "TPA", description: "Digital-first TPA services" }
- 
+
 ];
 
 export const testimonials = [
@@ -1190,7 +1139,7 @@ export const galleryImages = [
   { id: 2, src: "https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775283780/WhatsApp_Image_2026-04-03_at_1.50.12_PM_rydkhs.jpg", title: "Reception & OPD Area", category: "Infrastructure", description: "Modern reception area with digital queue management" },
   { id: 3, src: "https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775283962/image_1_usmyoq.jpg", title: "Operation Theatre 1", category: "OT", description: "Modular OT with laminar air flow and HD laparoscopic system" },
   { id: 4, src: "https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775284099/image_5_1_qsvlia.jpg", title: "Operation Theatre 2", category: "OT", description: "Advanced cardiac OT with heart-lung machine capability" },
-  { id: 5, src: "https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775284178/WhatsApp_Image_2026-04-03_a111t_1.50.11_PM_wvwnxz.jpg", title: "Intensive Care Unit", category: "ICU", description: "State-of-the-art ICU with advanced ventilators and monitoring" },
+  { id: 5, src: "https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1775284178/WhatsApp_Image_2026-04-03_a111t_1.50.11_PM_wvwnxz.jpg", title: "Neonatal Intensive Care Unit", category: "N-ICU", description: "State-of-the-art Neonatal Intensive Care Unit with advanced ventilators and monitoring" },
   // { id: 6, src: "/gallery/dialysis.jpg", title: "Dialysis Unit", category: "Diagnostics", description: "Dedicated dialysis center with Fresenius machines" },
   // { id: 7, src: "/gallery/cath-lab.jpg", title: "Cardiac Cath Lab", category: "Diagnostics", description: "Flat-panel cath lab for coronary interventions and stenting" },
   // { id: 8, src: "/gallery/private-room.jpg", title: "Private Room", category: "Rooms", description: "Comfortable private rooms with attendant facilities" },
@@ -1235,6 +1184,97 @@ export const managementTeam = [
   },
 ];
 
+export const ourTeam = [
+  {
+    id: "shubham-sharma",
+    name: "Shubham Sharma",
+    role: "CEO",
+    experience: "5+ Years",
+    image: "https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1776194765/WhatsApp_Image_2026-04-14_at_6.42.15_PM_vulnx8.jpg",
+    color: "#0B3D91",
+  },
+  {
+    id: "kailash-sharma",
+    name: "Kailash Sharma",
+    role: "HOD - Finance and Accounts",
+    experience: "24+ Years",
+    image: "https://res.cloudinary.com/dwarzikes/image/upload/v1777304721/WhatsApp_Image_2026-04-27_at_7.26.03_PM_pdoh7o.jpg",
+    color: "#10B981",
+  },
+  {
+    id: "maya-sharma-team",
+    name: "Maya Sharma",
+    role: "HOD - Business Development",
+    experience: "7+ Years",
+    image: "/directors/maya-sharma.png",
+    color: "#DB2777",
+  },
+  {
+    id: "anju-sharma",
+    name: "Dr. Anju Sharma",
+    role: "COO",
+    experience: "3+ Years",
+    image: "https://res.cloudinary.com/dwarzikes/image/upload/v1777305022/WhatsApp_Image_2026-04-26_at_8.08.12_PM_okzsnk.jpg",
+    color: "#7C3AED",
+  },
+  {
+    id: "sachin-sharma",
+    name: "Dr. Sachin Sharma",
+    role: "CFO",
+    experience: "3+ Years",
+    image: "https://res.cloudinary.com/dwarzikes/image/upload/v1777304721/WhatsApp_Image_2026-04-26_at_8.08.33_PM_usomzp.jpg",
+    color: "#F59E0B",
+  },
+  {
+    id: "kanika-sharma",
+    name: "Dr. Kanika Sharma",
+    role: "CSO",
+    experience: "2+ Years",
+    image: "https://res.cloudinary.com/dwarzikes/image/upload/v1777304722/WhatsApp_Image_2026-04-26_at_8.09.26_PM_h0pq1e.jpg",
+    color: "#0EA5E9",
+  },
+  {
+    id: "purshotam-sharma",
+    name: "Purshotam Sharma",
+    role: "HOD – Pharmacy & Store",
+    experience: "7+ Years",
+    image: "https://res.cloudinary.com/dwarzikes/image/upload/v1777305021/WhatsApp_Image_2026-04-26_at_8.10.48_PM_o4j6np.jpg",
+    color: "#14B8A6",
+  },
+  {
+    id: "harphool-sharma",
+    name: "Harphool Sharma",
+    role: "Manager Administration",
+    experience: "30+ Years",
+    image: "https://res.cloudinary.com/dwarzikes/image/upload/v1777304721/WhatsApp_Image_2026-04-26_at_9.38.22_PM_e9rsi9.jpg",
+    color: "#6366F1",
+  },
+  {
+    id: "vishal-singh-faujdar",
+    name: "Vishal Singh Faujdar",
+    role: "Manager – Nursing Superintendent",
+    experience: "10+ Years",
+    image: "https://res.cloudinary.com/dwarzikes/image/upload/v1777304721/WhatsApp_Image_2026-04-26_at_8.10.24_PM_jvsau3.jpg",
+    color: "#DC2626",
+  },
+  {
+    id: "bhawana-singh",
+    name: "Bhawana Singh",
+    role: "HR Manager",
+    experience: "3+ Years",
+    image: "https://res.cloudinary.com/dwarzikes/image/upload/v1776064222/Gemini_Generated_Image_u9k9lgu9k9lgu9k9_gzibra.png",
+    color: "#D97706",
+  },
+  {
+    id: "babulal-choudhary",
+    name: "Babulal Choudhary",
+    role: "HOD – IT & Information Technology",
+    experience: "13+ Years",
+    image: "",
+    color: "#059669",
+  },
+];
+
 export const roomTypes = [
   {
     type: "General Ward",
@@ -1265,9 +1305,9 @@ export const roomTypes = [
     image: "/rooms/suite.jpg",
   },
   {
-    type: "ICU (Intensive Care Unit)",
+    type: "N-ICU (Neonatal Intensive Care Unit)",
     price: "₹5,000/day",
-    description: "Advanced ICU with 24/7 intensivist coverage, latest ventilators, and multi-para monitors for critically ill patients.",
+    description: "Advanced N-ICU with 24/7 intensivist coverage, latest ventilators, and multi-para monitors for critically ill and neonatal patients.",
     features: ["Advanced Ventilators", "Multi-Para Monitors", "24/7 Intensivist Coverage", "CRRT Facility", "Dedicated ICU Nurses", "Regular Family Updates"],
     image: "/rooms/icu.jpg",
   },
