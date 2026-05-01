@@ -1220,7 +1220,7 @@ export const ourTeam = [
   {
     id: "sachin-sharma",
     name: "Dr. Sachin Sharma",
-    role: "CFO",
+    role: "CCO",
     experience: "3+ Years",
     image: "https://res.cloudinary.com/dwarzikes/image/upload/v1777304721/WhatsApp_Image_2026-04-26_at_8.08.33_PM_usomzp.jpg",
     color: "#F59E0B",
