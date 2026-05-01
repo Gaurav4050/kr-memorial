@@ -517,7 +517,16 @@ export default function AboutPage() {
           <div className={styles.accredGrid}>
             {accreditations.map((item, i) => (
               <div key={i} className={styles.accredCard}>
-                <span className={styles.accredIcon}>{item.icon}</span>
+                
+                {/* if label is NABH instead icon show logo image */}
+
+                {item.label === 'NABH Accredited' ? (
+                  <Image src="/nabh.png" alt="NABH Accredited" width={40} height={40} style={{ objectFit: 'contain', borderRadius: '6px', background: '#fff', padding: '4px 6px' }} />
+                ) : (
+                  <span className={styles.accredIcon}>{item.icon}</span>
+                )}
+
+                {/* <span className={styles.accredIcon}>{item.icon}</span> */}
                 <span className={styles.accredLabel}>{item.label}</span>
               </div>
             ))}

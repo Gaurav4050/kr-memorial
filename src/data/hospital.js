@@ -1187,7 +1187,7 @@ export const managementTeam = [
 export const ourTeam = [
   {
     id: "shubham-sharma",
-    name: "Shubham Sharma",
+    name: "Dr. Shubham Sharma",
     role: "CEO",
     experience: "5+ Years",
     image: "https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1776194765/WhatsApp_Image_2026-04-14_at_6.42.15_PM_vulnx8.jpg",
@@ -1235,7 +1235,7 @@ export const ourTeam = [
   },
   {
     id: "purshotam-sharma",
-    name: "Purshotam Sharma",
+    name: "Purshottam Sharma",
     role: "HOD – Pharmacy & Store",
     experience: "7+ Years",
     image: "https://res.cloudinary.com/dwarzikes/image/upload/v1777305021/WhatsApp_Image_2026-04-26_at_8.10.48_PM_o4j6np.jpg",
@@ -1259,7 +1259,7 @@ export const ourTeam = [
   },
   {
     id: "bhawana-singh",
-    name: "Bhawana Singh",
+    name: "Bhawana Kumar",
     role: "HR Manager",
     experience: "3+ Years",
     image: "https://res.cloudinary.com/dwarzikes/image/upload/v1776064222/Gemini_Generated_Image_u9k9lgu9k9lgu9k9_gzibra.png",
