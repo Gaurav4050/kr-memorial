@@ -7,7 +7,7 @@ export const hospitalInfo = {
   tagline: "Your Health. Our Mission.",
   description: "A 200+ bedded multi-super specialty hospital bringing world-class healthcare to the heart of Rajasthan at affordable prices.",
   address: "Radhaswami Bagh, NH52, Sikar Road, Chomu, Jaipur, Rajasthan 303702",
-  phone: ["8006005111", "8006005105", "01423-220320"],
+  phone: ["8006005111", "8306005105", "01423-220320"],
   email: "wecare@krmemorialhospital.com",
   website: "https://krmemorialhospital.com",
   foundedYear: 2020,
@@ -1025,7 +1025,7 @@ export const testimonials = [
 export const faqs = [
   {
     question: "How do I book an appointment?",
-    answer: "You can book an appointment online through our website's appointment page, call us at 8006005111 / 8006005105 or 01423-220320, or visit our OPD reception directly. Walk-in patients are also welcome during OPD hours.",
+    answer: "You can book an appointment online through our website's appointment page, call us at 8006005111 / 8306005105 or 01423-220320, or visit our OPD reception directly. Walk-in patients are also welcome during OPD hours.",
   },
   {
     question: "What documents should I bring for my first visit?",
@@ -1041,7 +1041,7 @@ export const faqs = [
   },
   {
     question: "Do you have ambulance service?",
-    answer: "Yes, we provide 24/7 ambulance service with Advanced Life Support (ALS) equipped ambulances. Call 8006005111 or 8006005105 for immediate ambulance dispatch. We cover Jaipur, Chomu, Sikar, and surrounding areas.",
+    answer: "Yes, we provide 24/7 ambulance service with Advanced Life Support (ALS) equipped ambulances. Call 8006005111 or 8306005105 for immediate ambulance dispatch. We cover Jaipur, Chomu, Sikar, and surrounding areas.",
   },
   {
     question: "Can I get my reports online?",
