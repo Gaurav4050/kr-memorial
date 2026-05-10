@@ -100,7 +100,7 @@ const structuredData = {
     latitude: '27.1663',
     longitude: '75.7284',
   },
-  telephone: ['+91-8006005111', '+91-01423-220320'],
+  telephone: ['+91-8306005111', '+91-01423-220320'],
   email: 'wecare@krmemorialhospital.com',
   openingHoursSpecification: [
     {

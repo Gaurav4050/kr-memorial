@@ -25,7 +25,7 @@ export default function NotFound() {
       <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', justifyContent: 'center' }}>
         <Link href="/" className="btn btn-primary">🏠 Go Home</Link>
         <Link href="/appointment" className="btn btn-outline">📅 Book Appointment</Link>
-        <a href="tel:8006005111" className="btn btn-teal">📞 Call Us</a>
+        <a href="tel:8306005111" className="btn btn-teal">📞 Call Us</a>
       </div>
     </div>
   );

@@ -56,7 +56,7 @@ export default function Header() {
         <span className={styles.emergencyContent}>
           <span className={styles.pulse}></span>
           <span>🚨 24/7 Emergency:</span>
-          <a href="tel:8006005111">8006005111</a>
+          <a href="tel:8306005111">8306005111</a>
           <span className={styles.divider}>|</span>          <a href="tel:8306005105">8306005105</a>
           
         </span>

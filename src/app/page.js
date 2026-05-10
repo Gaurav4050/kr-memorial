@@ -275,7 +275,7 @@ export default function Home() {
             {[
               { href: '/appointment', icon: '📅', label: 'Book OPD', color: '#0B3D91' },
               { href: '/doctors', icon: '🩺', label: 'Find a Doctor', color: '#10B981' },
-              { href: 'tel:8006005111', icon: '🚑', label: 'Emergency', color: '#DC2626' },
+              { href: 'tel:8306005111', icon: '🚑', label: 'Emergency', color: '#DC2626' },
               { href: '/patient-services', icon: '💊', label: 'Pharmacy 24/7', color: '#8B5CF6' },
               { href: '/departments', icon: '🏥', label: 'Departments', color: '#F59E0B' },
               { href: '/empanelments', icon: '🛡️', label: 'Insurance', color: '#0EA5A4' },
@@ -550,10 +550,10 @@ export default function Home() {
           </div>
           <div className={styles.servicesGrid}>
             {[
-              { icon: '🚑', title: 'Emergency', desc: 'Fully equipped emergency unit with rapid response trauma team', href: 'tel:8006005111', color: '#DC2626' },
+              { icon: '🚑', title: 'Emergency', desc: 'Fully equipped emergency unit with rapid response trauma team', href: 'tel:8306005111', color: '#DC2626' },
               { icon: '🔬', title: 'Laboratory', desc: 'Comprehensive diagnostic lab with quick turnaround on critical reports', href: '/patient-services', color: '#0B3D91' },
               { icon: '💊', title: 'Pharmacy', desc: 'In-house pharmacy stocked with all essential medications and supplies', href: '/patient-services', color: '#10B981' },
-              { icon: '🚐', title: 'Ambulance', desc: 'Advanced life support ambulances available for immediate response', href: 'tel:8006005111', color: '#F59E0B' },
+              { icon: '🚐', title: 'Ambulance', desc: 'Advanced life support ambulances available for immediate response', href: 'tel:8306005111', color: '#F59E0B' },
             ].map((svc, i) => (
               <a key={i} href={svc.href} className={styles.serviceCard} data-reveal style={{ '--svc': svc.color }}>
                 <div className={styles.serviceIconBubble} style={{ background: svc.color + '18', color: svc.color }}>
@@ -717,7 +717,7 @@ export default function Home() {
             <div className={styles.contactItems}>
               {[
                 { icon: '📍', label: 'Address', value: hospitalInfo.address, href: hospitalInfo.mapUrl },
-                { icon: '📞', label: 'Phone (24/7)', value: '8006005111 | 01423-220320', href: 'tel:8006005111' },
+                { icon: '📞', label: 'Phone (24/7)', value: '8306005111 | 01423-220320', href: 'tel:8306005111' },
                 { icon: '📧', label: 'Email', value: hospitalInfo.email, href: `mailto:${hospitalInfo.email}` },
                 { icon: '🕐', label: 'OPD Hours', value: hospitalInfo.opdHours, href: null },
               ].map((item, i) => (
@@ -759,7 +759,7 @@ export default function Home() {
           <p>Book your appointment today and let our expert team take care of your health needs.</p>
           <div className={styles.ctaBannerBtns}>
             <Link href="/appointment" className="btn btn-primary btn-lg">📅 Book Appointment</Link>
-            <a href="tel:8006005111" className="btn btn-secondary btn-lg">🚑 Emergency: 8006005111</a>
+            <a href="tel:8306005111" className="btn btn-secondary btn-lg">🚑 Emergency: 8306005111</a>
           </div>
         </div>
       </section>

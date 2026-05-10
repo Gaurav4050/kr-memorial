@@ -192,7 +192,7 @@ export default function PatientServicesPage() {
           <h2>Need Assistance?</h2>
           <p>Our patient support team is here to help with any queries about services, billing, or your hospital stay.</p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="tel:8006005111" className="btn btn-primary btn-lg">📞 Call Patient Support</a>
+            <a href="tel:8306005111" className="btn btn-primary btn-lg">📞 Call Patient Support</a>
             <Link href="/contact" className="btn btn-white btn-lg">📧 Send Message</Link>
           </div>
         </div>

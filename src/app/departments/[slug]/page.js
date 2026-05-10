@@ -45,7 +45,7 @@ export default async function DepartmentDetail({ params }) {
             <p>{dept.description}</p>
             <div className={styles.heroBtns}>
               <Link href="/appointment" className="btn btn-primary btn-lg">📅 Book Appointment</Link>
-              <a href="tel:8006005111" className="btn btn-secondary btn-lg">📞 Call Now</a>
+              <a href="tel:8306005111" className="btn btn-secondary btn-lg">📞 Call Now</a>
             </div>
           </div>
         </div>
@@ -69,7 +69,7 @@ export default async function DepartmentDetail({ params }) {
               <div className={styles.infoCard}>
                 <div className={styles.infoCardIcon} style={{ background: `${dept.color}15` }}>{dept.icon}</div>
                 <h4>Quick Contact</h4>
-                <a href="tel:8006005111" className={styles.phoneLink}>📞 8006005111</a>
+                <a href="tel:8306005111" className={styles.phoneLink}>📞 8306005111</a>
                 <a href="tel:01423220320" className={styles.phoneLink}>📞 01423-220320</a>
                 <Link href="/appointment" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', marginTop: '12px' }}>Book Appointment</Link>
               </div>
@@ -166,7 +166,7 @@ export default async function DepartmentDetail({ params }) {
           <p>Book an appointment with our {dept.shortName} specialists today.</p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/appointment" className="btn btn-primary btn-lg">📅 Book Appointment</Link>
-            <a href="tel:8006005111" className="btn btn-white btn-lg">📞 Call 8006005111</a>
+            <a href="tel:8306005111" className="btn btn-white btn-lg">📞 Call 8306005111</a>
           </div>
         </div>
       </section>

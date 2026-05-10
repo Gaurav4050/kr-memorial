@@ -139,7 +139,7 @@ export default function DepartmentsPage() {
             Our reception team will guide you to the right specialist. Call us or book a General Medicine consultation.
           </p>
           <div className={styles.ctaBtns}>
-            <a href="tel:8006005111" className="btn btn-primary btn-lg">📞 Call 8006005111</a>
+            <a href="tel:8306005111" className="btn btn-primary btn-lg">📞 Call 8306005111</a>
             <Link href="/appointment" className="btn btn-secondary btn-lg">📅 Book Appointment</Link>
           </div>
         </div>

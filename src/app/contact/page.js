@@ -52,7 +52,7 @@ export default function ContactPage() {
   };
 
   const contactCards = [
-    { icon: 'ðŸ"ž', title: 'Call Us', main: '8006005111', sub: '8306005105 / 01423-220320', href: 'tel:8006005111', color: '#DC2626' },
+    { icon: 'ðŸ"ž', title: 'Call Us', main: '8306005111', sub: '8306005105 / 01423-220320', href: 'tel:8306005111', color: '#DC2626' },
     { icon: '📧', title: 'Email Us', main: hospitalInfo.email, sub: 'We respond within 2 hours', href: `mailto:${hospitalInfo.email}`, color: '#0B3D91' },
     { icon: '📍', title: 'Visit Us', main: 'Radhaswami Bagh, NH52, Sikar Road, Chomu, Jaipur', sub: 'Jaipur, Rajasthan 303702', href: hospitalInfo.mapUrl, color: '#10B981' },
     { icon: '🕐', title: 'Working Hours', main: 'OPD: 8 AM – 8 PM', sub: 'Emergency: 24/7', href: null, color: '#F59E0B' },
@@ -66,7 +66,7 @@ export default function ContactPage() {
       <div className={styles.emergencyBar}>
         <span className={styles.emergencyPulse} />
         <span>🚨 Life-Threatening Emergency? Call immediately:</span>
-        <a href="tel:8006005111" className={styles.emergencyNum}>8006005111</a>
+        <a href="tel:8306005111" className={styles.emergencyNum}>8306005111</a>
         <span className={styles.emergencyDiv}>|</span>        <a href="tel:8306005105" className={styles.emergencyNum}>8306005105</a>
           <span className={styles.emergencyDiv}>|</span>        <a href="tel:01423220320" className={styles.emergencyNum}>01423-220320</a>
       </div>
@@ -87,11 +87,11 @@ export default function ContactPage() {
             {/* Hero contact quick info */}
             <div className={styles.heroRight}>
               <div className={styles.heroQuickInfo}>
-                <a href="tel:8006005111" className={styles.heroInfoRow}>
+                <a href="tel:8306005111" className={styles.heroInfoRow}>
                   <div className={styles.heroInfoIcon} style={{ background: '#DC262618' }}>📞</div>
                   <div>
                     <strong>Emergency & Helpline</strong>
-                    <span>8006005111 | 01423-220320</span>
+                    <span>8306005111 | 01423-220320</span>
                   </div>
                 </a>
                 <a href={hospitalInfo.mapUrl} target="_blank" rel="noopener noreferrer" className={styles.heroInfoRow}>
