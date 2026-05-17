@@ -736,16 +736,10 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.contactMap} data-reveal>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28398.5!2d75.7284!3d27.1663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db1f16f4b06b7%3A0x8d15f0a7c7c4a6e0!2sChomu%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1"
-              width="100%"
+           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3550.437731465285!2d75.72722437544748!3d27.1425144765109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dab99a7b1a57f%3A0x5874e00855371369!2sK.%20R.%20Memorial%20Hospital!5e0!3m2!1sen!2sin!4v1779011221797!5m2!1sen!2sin"               width="100%"
               height="100%"
-              style={{ border: 0, borderRadius: '20px' }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="KR Memorial Hospital Location"
-            />
+              style={{ border: 0, borderRadius: '20px' }} allowFullScreen loading="lazy" 
+                title="KR Memorial Hospital Location"referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </section>

@@ -25,7 +25,7 @@ export const hospitalInfo = {
     whatsapp: "https://wa.me/918306005111",
   },
   mapUrl: "https://maps.google.com/?q=KR+Memorial+Hospital+Chomu+Jaipur",
-  mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3549.845!2d75.7284!3d27.1663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDA5JzU4LjciTiA3NcKwNDMnNDIuMyJF!5e0!3m2!1sen!2sin!4v1678900000000",
+  mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3550.437731465285!2d75.72722437544748!3d27.1425144765109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dab99a7b1a57f%3A0x5874e00855371369!2sK.%20R.%20Memorial%20Hospital!5e0!3m2!1sen!2sin!4v1779011221797!5m2!1sen!2sin",
 };
 
 export const corporateProfile = {
