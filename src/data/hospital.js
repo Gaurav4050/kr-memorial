@@ -1257,14 +1257,14 @@ export const ourTeam = [
     image: "https://res.cloudinary.com/dwarzikes/image/upload/v1777304721/WhatsApp_Image_2026-04-26_at_8.10.24_PM_jvsau3.jpg",
     color: "#DC2626",
   },
-  {
-    id: "bhawana-singh",
-    name: "Bhawana Kumawat",
-    role: "HR Manager",
-    experience: "3+ Years",
-    image: "https://res.cloudinary.com/dwarzikes/image/upload/v1776064222/Gemini_Generated_Image_u9k9lgu9k9lgu9k9_gzibra.png",
-    color: "#D97706",
-  },
+  // {
+  //   id: "bhawana-singh",
+  //   name: "Bhawana Kumawat",
+  //   role: "HR Manager",
+  //   experience: "3+ Years",
+  //   image: "https://res.cloudinary.com/dwarzikes/image/upload/v1776064222/Gemini_Generated_Image_u9k9lgu9k9lgu9k9_gzibra.png",
+  //   color: "#D97706",
+  // },
   {
     id: "babulal-choudhary",
     name: "Babulal Choudhary",
