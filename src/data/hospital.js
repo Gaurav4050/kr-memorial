@@ -1188,7 +1188,7 @@ export const ourTeam = [
   {
     id: "shubham-sharma",
     name: "Dr. Shubham Sharma",
-    role: "CEO",
+    role: "Medical Executive Officer",
     experience: "5+ Years",
     image: "https://res.cloudinary.com/dwarzikes/image/upload/q_auto/f_auto/v1776194765/WhatsApp_Image_2026-04-14_at_6.42.15_PM_vulnx8.jpg",
     color: "#0B3D91",
